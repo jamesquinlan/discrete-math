@@ -5,7 +5,7 @@ COS 280 - Discrete Mathematics II at the [University of Southern Maine](https://
 
 ## Course description
 
-Discrete mathematics is the mathematics of computing. This course lays the foundation for students to succeed in upper-level computer science courses, most of which require understanding concepts from discrete mathematics. This course is designed for students to learn how to think logically and mathematically and practice fundamental techniques for solving problems in computer science. Topics include sequences, mathematical induction, recursion, set theory, graphs, trees, analysis of algorithms, and regular expressions. COS 280 is required for the Computer Science major (see all requirements for Computer Science).
+Discrete mathematics is the mathematics of computing. This course lays the foundation for students to succeed in upper-level computer science courses, most of which require understanding concepts from discrete mathematics. This course is designed for students to learn how to think logically and mathematically and practice fundamental techniques for solving problems in computer science. Topics include sequences, mathematical induction, recursion, set theory, graphs, trees, analysis of algorithms, and regular expressions. COS 280 is required for the Computer Science major (see all [requirements for Computer Science](https://catalog.usm.maine.edu/preview_program.php?catoid=13&poid=2601)).
 
 
 ### Prerequisites
