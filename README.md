@@ -49,5 +49,8 @@ Grades will be based on a group project, in-class exercises, assignments, and pa
 * 10%: Final Exam
 
 
+## Topics
+
+* [Direct Proof]()
 
  
