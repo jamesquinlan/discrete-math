@@ -28,7 +28,7 @@ By the end of this course, students will be able to:
 
 
 ## Textbook
-<img style="float: right;" src="epp.jpg">
+<img style="float:right;" src="epp.jpg">
 
 Epp, S. S. (2020). *Discrete Mathematics with Applications* (5th ed.). 
 
