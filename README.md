@@ -32,7 +32,7 @@ By the end of this course, students will be able to:
 
 Epp, S. S. (2020). *Discrete Mathematics with Applications* (5th ed.). 
 
-**Publisher**: Cengage. 
+**Publisher**: Cengage Learning. 
 
 **ISBN**: 978-1-337-69419-3.
 
