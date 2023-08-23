@@ -1,7 +1,8 @@
 # Discrete Mathematics
-COS 280 - Discrete Mathematics II at the [University of Southern Maine](https://usm.maine.edu/cos/)
+COS 280 - Discrete Mathematics II at the [University of Southern Maine](https://usm.maine.edu/cos/) offered in the [Department of Computer Science](https://usm.maine.edu/department-computer-science/).
 
-[List of Undergraduate Computer Science Courses at USM](usm_cos.md)
+[List of Undergraduate Computer Science Courses at USM Department of Computer Science](usm_cos.md)
+
 
 ## Course description
 
