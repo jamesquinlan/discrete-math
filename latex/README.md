@@ -1,3 +1,3 @@
 # Assignments
 
-[Direct Proof 1](41.tex)
+[Direct Proof 1](latex/41.tex)
