@@ -1,0 +1,81 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 6.1 - Set Theory
+% Problems: # 4, 10, 20, 30, 32
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+%  4.
+\1 Let $A = \{n \in \Z | n = 5r \text{ for some integer } r\}$ and $B = \{ m \in \Z : m = 20s \text{ for some integer } s \}$.  Prove or disprove each of the following statements.
+	
+	\2 $A \subseteq B$
+
+	\2 $B \subseteq A$
+
+
+
+% 10.
+\1 Let $A = \{1,3,5,7,9\}$, $B = \{3, 6, 9 \}$, and $C = \{2, 4, 6, 8 \}$.  Find each of the following:
+
+	\2 $A \cup B$
+	
+	\2 $A \cap B$
+
+	\2 $A \cup B$
+
+	\2 $A \cap C$
+
+	\2 $A - B$
+
+	\2 $B - A$
+
+	\2 $B \cup C$
+
+	\2 $B \cap C$
+
+
+
+% 20.
+\1 Let $B_i = \{x \in \R | 0 \le x \le i \}$ for each integer $i = 1, 2, 3, 4$. 
+
+	\2 $B_1 \cup B_2 \cup B_3 \cup B_4  = ?$
+
+	\2 $B_1 \cap B_2 \cap B_3 \cap B_4  = ?$
+
+	\2 Are $B_1, B_2, B_3$ and $B_4$ mutually disjoint?  Explain.  
+
+
+
+
+% 30.
+\1 Let $\Z$ be the set of all integers and let 
+\[
+\begin{align*}
+	A_0 &= \{ n \in \Z | n = 4k, \exists k\} \\
+	A_1 &= \{ n \in \Z | n = 4k + 1, \exists k\} \\
+	A_2 &= \{ n \in \Z | n = 4k + 2, \exists k\}
+\end{align*}
+and
+\begin{align*}
+	A_3 &= \{ n \in \Z | n = 4k + 3, \exists k\} .
+\end{align*}
+
+Is $\{A_, A_1, A_2, A_3\}$ a partition of $\Z$?  Explain you answer.  
+
+
+
+
+% 32.
+\1 
+	\2 Suppose $A = \{1\}$ and $B = \{u, v\}$.  Find $\mathcal(P)(A \times B)$.  
+
+
+	\2 Suppose $X = \{a,b\}$ and $Y = \{x, y\}$.  Find $\mathcal(P)(X \times Y)$.  
+
+
+
+\end{outline}

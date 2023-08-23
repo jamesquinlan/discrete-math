@@ -1,0 +1,36 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 10.4 - Trees
+% Problems: # 7, 14, 16, 18, 21, 30
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 7. 
+\1 
+
+
+% 14.
+\1
+
+
+% 16.
+\1
+
+
+% 18.
+\1
+
+
+% 21.
+\1
+
+
+% 30.
+\1
+
+
+\end{outline}

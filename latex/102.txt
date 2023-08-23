@@ -1,0 +1,80 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 10.2 -  Matrx Representations of Graph 
+% Problems: # 2, 3, 10, 11, 13
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 2.
+\1 Find the adjacency matrices for the following directed graphs.
+
+
+% 3. See https://www.tablesgenerator.com
+\1 Find directed graphs that have the following adjacency matrices
+
+	\2 
+	$\begin{bmatrix}
+	1 & 0 & 1 & 2 \\
+	0 & 0 & 1 & 0 \\
+	0 & 2 & 1 & 1 \\
+	0 & 1 & 1 & 0
+	\end{bmatrix}$
+
+
+
+	\2 
+	$\begin{bmatrix}
+	0 & 1 & 0 & 0 \\
+	2 & 0 & 1 & 0 \\
+	1 & 2 & 1 & 0 \\
+	0 & 0 & 1 & 0
+	\end{bmatrix}$
+
+
+
+
+% 10.
+\1 Let 
+$A = \begin{bmatrix} 1 & 1  & -1 \\ 0 & -2 & 1  \end{bmatrix}$, 
+$B = \begin{bmatrix} -2 & 0 \\ 1  & 3 \end{bmatrix}$ and 
+$C = \begin{bmatrix} 0 & -2 \\ 3 & 1  \\ 1 & 0  \end{bmatrix}$.
+Determine if the product exists and if so, calculate it.
+
+	\2 $AB$
+
+	\2 $BA$
+
+	\2 $A^2$
+
+	\2 $BC$
+
+	\2 $CB$
+
+	\2 $B^2$
+
+	\2 $B^3$
+
+	\2 $C^2$
+
+	\2 $AC$
+
+	\2 $CA$
+
+
+
+
+% 11. 
+\1 Given an example different from that in the text to show that matrix multiplication is not commutative.  That is, find $2 \times 2$ matrices $A$ and $B$ such that $AB$ and $BA$ both exist but $AB \ne BA$.
+
+
+
+% 13. 
+\1 Let $O$ denote the matrix $\begin{bmatrix} 0 & 0 \\ 0  & 0 \end{bmatrix}$.  Find $2 \times 2$ matrices $A$ and $B$ such that $A \ne B$, $B \ne O$, and $AB \ne O$ but $BA = O$.  
+
+
+
+\end{outline}

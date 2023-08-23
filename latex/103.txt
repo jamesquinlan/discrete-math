@@ -1,0 +1,33 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 10.3 - Graph Isomorphisms
+% Problems: # 3, 5, 9, 15, 24
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 3.
+\1 
+
+
+% 5. 
+\1
+
+
+% 9.
+\1
+
+
+% 15. 
+\1
+
+
+% 24.
+\1
+
+
+
+\end{outline}

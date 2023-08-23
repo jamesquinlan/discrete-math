@@ -1,0 +1,46 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.3 - Direct Proof
+% Problems: # 5, 8, 11, 22, 24
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 5
+\1 Write $0.56565656\dots$ as a ratio of two integers.
+
+
+
+% 8
+\1 The zero product property, says that if a product of two real numbers is $0$, 
+	then one of the numbers must be $0$.
+
+	\2 Write this property formally using quantifiers and variables.
+
+	\2 Write the contrapositive of your answer to part (a).
+
+	\2 Write an informal version (without quantifier symbols or variables) 
+		for your answer to part (b)
+
+
+
+% 11
+\1 Prove that every integer is a rational number.
+
+
+
+% 22 Use properties of even and odd integers. 
+%    Indicate which properties are used to justify reasoning.
+\1 True of False?  If $a$ is any odd integer, then $a^2 + a$ is even. 
+
+
+
+
+% 24 Derive as corollary from Theorems 4.3.1, 4.3.2, and exercises 12, 13, 14, 15, and 17.
+\1 For any rational numbers $r$ and $s$, $2r + 3s$ is rational.
+
+
+\end{outline}

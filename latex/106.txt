@@ -1,0 +1,188 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 10.6 - Spanning Trees
+% Problems: # 4, 10, 14, 23, 29
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 4.
+\1 Find a spanning tree.
+
+\begin{figure}[h!]
+    \centering
+    \definecolor{qqttzz}{rgb}{0.,0.2,0.6}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.84,0.06) rectangle (7.58,6.36);
+\draw [line width=0.5pt,color=qqttzz] (-2.,3.)-- (-1.,4.);
+\draw [line width=0.5pt,color=qqttzz] (-2.,3.)-- (5.,5.);
+\draw [line width=0.5pt,color=qqttzz] (-1.,4.)-- (0.,2.);
+\draw [line width=0.5pt,color=qqttzz] (0.,2.)-- (1.,5.);
+\draw [line width=0.5pt,color=qqttzz] (0.,2.)-- (2.,3.);
+\draw [line width=0.5pt,color=qqttzz] (2.,3.)-- (1.,5.);
+\draw [line width=0.5pt,color=qqttzz] (2.,3.)-- (3.,2.);
+\draw [line width=0.5pt,color=qqttzz] (2.,3.)-- (5.,2.);
+\draw [line width=0.5pt,color=qqttzz] (2.,3.)-- (6.,3.);
+\draw [line width=0.5pt,color=qqttzz] (6.,3.)-- (5.,2.);
+\draw [line width=0.5pt,color=qqttzz] (5.,2.)-- (3.,2.);
+\draw [line width=0.5pt,color=qqttzz] (5.,5.)-- (2.,3.);
+\begin{scriptsize}
+\draw [fill=black] (-2.,3.) circle (2.pt);
+\draw[color=black] (-2.34,2.89) node {$z$};
+\draw [fill=black] (-1.,4.) circle (2.pt);
+\draw[color=black] (-0.86,4.37) node {$r$};
+\draw [fill=black] (0.,2.) circle (2.pt);
+\draw[color=black] (-0.04,1.79) node {$y$};
+\draw [fill=black] (1.,5.) circle (2.pt);
+\draw[color=black] (1.12,5.37) node {$s$};
+\draw [fill=black] (2.,3.) circle (2.pt);
+\draw[color=black] (1.92,2.69) node {$x$};
+\draw [fill=black] (3.,2.) circle (2.pt);
+\draw[color=black] (2.88,1.71) node {$w$};
+\draw [fill=black] (5.,2.) circle (2.pt);
+\draw[color=black] (4.94,1.63) node {$v$};
+\draw [fill=black] (6.,3.) circle (2.pt);
+\draw[color=black] (6.3,3.17) node {$u$};
+\draw [fill=black] (5.,5.) circle (2.pt);
+\draw[color=black] (5.1,5.45) node {$t$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+% 10.
+\1 Find (all) minimal spanning trees using (a) Kruskal's algorithm and (b) Prim's algorithm starting with vertex $a$ or $t$.
+
+\begin{figure}[h!]
+    \centering
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.4,1.7) rectangle (3.75,5.0);
+\draw [line width=0.25pt] (-2.,4.)-- (0.,4.);
+\draw [line width=0.25pt] (0.,4.)-- (2.,4.);
+\draw [line width=0.25pt] (2.,4.)-- (3.,3.);
+\draw [line width=0.25pt] (3.,3.)-- (1.,3.);
+\draw [line width=0.25pt] (2.,4.)-- (1.,3.);
+\draw [line width=0.25pt] (0.,4.)-- (1.,3.);
+\draw [line width=0.25pt] (1.,3.)-- (-1.,3.);
+\draw [line width=0.25pt] (-1.,3.)-- (0.,4.);
+\draw [line width=0.25pt] (-2.,4.)-- (-3.,3.);
+\draw [line width=0.25pt] (-3.,3.)-- (-1.,3.);
+\draw [line width=0.25pt] (-1.,3.)-- (-2.,4.);
+\begin{scriptsize}
+\draw [fill=black] (-2.,4.) circle (2.0pt);
+\draw[color=black] (-2,4.35) node {$t$};
+\draw [fill=black] (0.,4.) circle (2.0pt);
+\draw[color=black] (0.,4.35) node {$u$};
+\draw [fill=black] (2.,4.) circle (2.0pt);
+\draw[color=black] (2.,4.35) node {$v$};
+
+\draw [fill=black] (-3.,3.) circle (2.0pt);
+\draw[color=black] (-3.0,2.6) node {$w$};
+\draw [fill=black] (-1.,3.) circle (2.0pt);
+\draw[color=black] (-1.,2.6) node {$x$};
+\draw [fill=black] (1.,3.) circle (2.0pt);
+\draw[color=black] (1.,2.6) node {$y$};
+\draw [fill=black] (3.,3.) circle (2.0pt);
+\draw[color=black] (3.,2.6) node {$z$};
+
+\draw[color=black] (-1.,4.20) node {7};
+\draw[color=black] (1.,4.20) node {2};
+
+% Diagonal weights
+\draw[color=black] (-2.75,3.55) node {3};
+\draw[color=black] (-1.85,3.55) node {15};
+\draw[color=black] (-0.7,3.55) node {1};
+\draw[color=black] (0.7,3.55) node {8};
+\draw[color=black] (1.85,3.55) node {10};
+\draw[color=black] (2.7,3.55) node {7};
+
+
+
+\draw[color=black] (2.0,2.8) node {5};
+\draw[color=black] (-0.0,2.8) node {2};
+\draw[color=black] (-2.0,2.8) node {5};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+% 14.
+\1 Use Dijkstra's algorithm to find the shortest path from $a$ to $z$. 
+
+\begin{figure}[h!]
+    \centering
+   \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-5.84,0.64) rectangle (4.24,4.92);
+\draw [line width=0.5pt] (-5.,3.)-- (-3.,4.);
+\draw [line width=0.5pt] (-3.,4.)-- (-1.,4.);
+\draw [line width=0.5pt] (-1.,4.)-- (1.,4.);
+\draw [line width=0.5pt] (1.,4.)-- (3.,3.);
+\draw [line width=0.5pt] (3.,3.)-- (1.,2.);
+\draw [line width=0.5pt] (1.,2.)-- (-1.,2.);
+\draw [line width=0.5pt] (-1.,2.)-- (-3.,2.);
+\draw [line width=0.5pt] (-3.,2.)-- (-5.,3.);
+\draw [line width=0.5pt] (-3.,4.)-- (-1.,2.);
+\draw [line width=0.5pt] (-1.,4.)-- (1.,2.);
+\begin{scriptsize}
+\draw [fill=black] (-5.,3.) circle (2.0pt);
+\draw[color=black] (-5.36,3) node {$a$};
+
+\draw [fill=black] (-3.,4.) circle (2.0pt);
+\draw[color=black] (-3,4.35) node {$b$};
+
+\draw [fill=black] (-1.,4.) circle (2.0pt);
+\draw[color=black] (-1.,4.35) node {$c$};
+
+\draw [fill=black] (1.,4.) circle (2.0pt);
+\draw[color=black] (1.,4.35) node {$d$};
+
+\draw [fill=black] (-3.,2.) circle (2.0pt);
+\draw[color=black] (-3.,1.65) node {$e$};
+
+\draw [fill=black] (-1.,2.) circle (2.0pt);
+\draw[color=black] (-1.0,1.65) node {$f$};
+
+\draw [fill=black] (1.,2.) circle (2.0pt);
+\draw[color=black] (1.0,1.65) node {$g$};
+
+\draw [fill=black] (3.,3.) circle (2.0pt);
+\draw[color=black] (3.46,3.0) node {$z$};
+
+\draw[color=black] (-4.0,3.75) node {1};
+\draw[color=black] (-1.94,4.25) node {1};
+\draw[color=black] (0.,4.25) node {1};
+\draw[color=black] (2.25,3.75) node {20};
+\draw[color=black] (2.25,2.3) node {1};
+\draw[color=black] (0.02,1.75) node {1};
+\draw[color=black] (-1.96,1.75) node {1};
+\draw[color=black] (-4.0,2.3) node {4};
+\draw[color=black] (-1.78,3.0) node {7};
+\draw[color=black] (0.3,3.0) node {8};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+
+
+% 23.
+\1 Consider the spanning trees $T_1$ and $T_2$ in the proof of Theorem 10.6.3.  Prove that $w(T_2) \le w(T_1)$.
+
+
+
+
+% 29.
+\1 Suppose a disconnected graph is input to Prim's algorithm.  What will be the output?
+
+
+
+\end{outline}

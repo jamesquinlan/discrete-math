@@ -1,0 +1,50 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.7 - Indirect Proof
+% Problems: #  6, 7, 18, 24, 30
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 6.  Formulate the negation, then prove by contradiction.
+\1 There is no greatest negative real number.
+
+
+% 7. Formulate the negation, then prove by contradiction.
+\1 There is no least positive rational number.
+
+
+% 18. Prove by contradiction
+\1 If $a$ and $b$ are rational numbers, $b \ne 0$, and $r$ is an irrational number, then $a + br$ is irrational.  
+
+
+% 24. Prove both ways: by contradiction and by contraposition
+\1 The reciprocal of any irrational number is irrational.  (The \textbf{reciprocal} of a nonzero real number $x$, is $1/x$).
+
+
+% 30. 
+\1
+	\2 Let $n=53$.  Find an approximate value for $\sqrt{n}$ and write a list of all the prime numbers less
+	   	than or equal to $\sqrt{n}$.  Is the following statement true or false? When $n=53$, $n$ is not divisible 
+		by any prime number less than or equal to $\sqrt{n}$.
+
+
+	\2 Suppose $n$ is a fixed integer.  Let $S$ by the statement, ``$n$ is not divisible by any prime number less than or equal to $\sqrt{n}$.''  
+		The following is equivalent to $S$:
+		
+		\begin{quote}
+			$\forall$ prime numbers $p$, if $p$ is less than or equal to $\sqrt{n}$ then $n$ is not divisible by $p$
+		\end{quote}
+
+	Which of the follow are negations for $S$?
+
+		\3 $\exists$ a prime number $p$ such that $p \le \sqrt{n}$ and $n$ is divisible by $p$.
+		\3 $n$ is divisible by every prime number less than or equal to $\sqrt{n}$.
+		\3 $\exists$ a prime number $p$ such that $p$ is a multiple of $n$ and $p$ is less than or equal to $\sqrt{n}$.
+		\3 $n$ is divisible by some prime number that is less than or equal to $\sqrt{n}$.
+		\3 $\forall$ prime number $p$, if $p$ is less than or equal to $\sqrt{n}$, then $n$ is divisible by $p$.
+
+\end{outline}

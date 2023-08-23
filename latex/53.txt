@@ -1,0 +1,40 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 5.3 - Mathematical Induction II 
+% Problems: # 12, 15, 17, 18, 20, 21, 22
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 12. Prove by induction
+\1 For any integer $n \ge 0$, $7^n - 2^n$ is divisible by $5$.
+
+
+% 15. Prove by induction
+\1 $n(n^2 + 5)$ is divisible by $6$ for each integer $n \ge 0$.
+
+
+% 17. Prove by induction
+\1 $1 + 3n \ge 4^n$ for every integer $n \ge 0$.  
+
+
+% 18. Prove by induction
+\1 $5^n + 9 \ge 6^n$m fir each butter $n \ge 2$.
+
+
+% 20. Prove by induction
+\1 $2^n < (n+2)!$, for every integer $n \ge 0$.
+
+
+% 21. Prove by induction
+\1 $\sqrt{n} < \frac{1}{\sqrt{1}} +  \frac{1}{\sqrt{2}} + \cdots +  \frac{1}{\sqrt{n}}$, for every integer $n \ge 2$. 
+
+
+% 22. Prove by induction
+\1 $1 + nx \le (1+x)^n$, for every real number $x > -1$ and every integer $n \ge 2$.
+
+
+\end{outline}

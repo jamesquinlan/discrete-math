@@ -1,0 +1,42 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.5 - Direct Proof
+% Problems: # 2, 7, 9, 18, 24, 33
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 2. Find integers $q$ and $r$ such that $n = dq + r$ and $0 \le r < d$.   
+\1 $n = 62, d = 7$
+
+
+% 7. 
+\1 Evaluate $43 \text{div} 9$
+
+
+% 9. 
+\1 Evaluate $28 \text{div} 5$
+
+
+% 18.
+\1 Prove that 
+	\2 the product of any two consecutive integers is even.
+
+
+	\2 Rewrite proof of Theorem 4.5.3 based on part (a).
+
+
+
+% 24.
+\1 Prove that for all integers $m$ and $n$,if $m \mod{5} = 2$ and $n \mod{5} = 1$, then $mn \mod{5} = 2$.
+
+
+
+% 33
+\1 Given any integer $n$, if $n > 3$, could $n, n+2$, and $n+4$ all be prime?  Prove or give a counterexample.  
+
+
+\end{outline}

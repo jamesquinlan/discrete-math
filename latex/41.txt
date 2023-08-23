@@ -1,0 +1,37 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.1 - Direct Proof
+% Problems: # 2, 7, 11, 16, 22
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+% 2
+\1 Assume that $c$ is a particular integer.
+
+    \2 Is $-6c$ an even integer?
+    \2 Is $8c + 5$ an odd integer?
+    \2 Is $(c^2 + 1) - (c^2 - 1) - 2$ an even integer?
+
+
+% 7
+\1 Prove there are real numbers $a$ and $b$ such that
+\[
+\sqrt{a+b} = \sqrt{a} + \sqrt{b}
+\]
+
+
+% 11
+\1 Prove there is an integer $n$ such that $2n^2 - 5n + 2$ is prime.
+
+
+% 16
+\1 Disprove by counterexample: for every integer $n$, if $n$ is even then $n^2 +1$ is prime.
+
+
+% 22
+\1 Prove for each integer $n$ with $1 \le n \le 10$, $n^2 - n + 11$ is a prime number.
+
+\end{outline}

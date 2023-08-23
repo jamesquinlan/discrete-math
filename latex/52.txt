@@ -1,0 +1,74 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 5.2 - Mathematical Induction I
+% Problems: # 2, 6, 7, 9, 11, 14, 21, 26
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 2.
+\1 For each positive integer $n$, let $P(n)$ be the formula:
+	\[
+		1 + 3 + 5 + \cdots + (2n-1) = n^2
+	\[
+
+	\2 Write $P(1)$.  Is $P(1)$ true?
+
+	\2 Write $P(k)$.
+
+	\2 Write $P(k+1)$. 
+
+	\2 In a proof by mathematical induction that the formula holds for every integer $n \ge 1$, what must be shown in the inductive step?
+
+
+
+% 6. Prove by induction
+\1 For every integer $n \ge 1$, 
+\[
+	2 + 4 + 6 + \cdots + 2n = n^2 + n .
+\]
+
+
+% 7. Prove by induction
+\1 For every integer $n \ge 1$, 
+\[
+	1 + 6 + 11 + 16 + \cdots + (5n - 4) = \frac{n(5n-3)}{2} .
+\]
+
+
+% 9. Prove by induction
+\1 For every integer $n \ge 3$, 
+\[
+	4^3 + 4^4 + 4^5 + \cdots + 4^n = \frac{4(4^n - 16)}{3} .
+\]
+
+
+% 11. Prove by induction
+\1 For every integer $n \ge 1$, 
+\[
+	1^3 + 2^3 + \cdots + n^3 = \left[ \frac{n(n+1)}{2}  \right]^2 .
+\]
+
+
+
+% 14. Prove by induction
+\1 For every integer $n \ge 0$, 
+\[
+	\sum_{i=1}^{n+1} i \cdot 2^i = n \cdot 2^{n+2} + 2.
+\]
+
+
+% 21. Use sum of the first $n$ integers and/or the sum of geometric sequence to evaluate the sum.  Write in closed form. 
+\1 $5 + 10 + 15 + 20 + \cdots + 300$
+
+
+% 26. Use sum of the first $n$ integers and/or the sum of geometric sequence to evaluate the sum.  Write in closed form. 
+\1 $3 + 3^2 + 3^3 + \cdots + 3^n$, where $n$ is any integer with $n \ge 1$.
+
+
+
+
+\end{outline}

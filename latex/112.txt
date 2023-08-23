@@ -1,0 +1,40 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 11.2 - Big O
+% Problems: # 8, 11ab, 14, 28, 33, 41
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 8. Express using $O$ notation.
+\1 $0 \le \frac{n(3n-2)}{2} \le n^2$ \;\;\; for every integer $n \ge 2$
+
+
+% 11ab.  
+\1 
+	\2 Show that for any integer $n \ge 1$, $0 \le 23n^4 + 8 n^2 +4n \le 35 n^4$.
+
+	\2 Show that for any integer $n \ge 1$, $23n^4 \le 23n^4 + 8n^2  + 4n$.
+
+
+% 14. 
+\1 Use the definition of $\Theta$-notation to show that $n^2 + 100n + 88 \in \Theta(n^2)$.
+
+
+% 28. Use the theorem on polynomial orders to prove. 
+\1 $\frac{n(n-1)}{2} + 3n  \in \Theta(n^2)$
+
+
+% 33. Use the theorem on polynomial orders to prove. 
+\1 $1^3 + 2^3 + 3^3 + \cdots + n^3 \in \Theta(n^4)$.
+
+
+
+% 41. 
+\1 Prove if $c$ is a positive real number and $f(n) = c$ for every integer $n \ge 1$, then $f(n) \in \Theta(1)$. 
+
+
+\end{outline}

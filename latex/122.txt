@@ -1,0 +1,55 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 12.2 - Finite-State Automata 
+% Problems: # 1ab, 2abcd, 10, 24
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 1ab.
+\1 Find the state of the vending machine in Example 12.2.1 after each of the following sequences of coins have been input. 
+	
+	\2 Quarter, half-dollar, quarter
+
+
+	\2 Quarter, half-dollar, half-dollar
+
+% 2abcd Given the transition diagram of the FSA 
+\1 
+
+	\2 Find its states
+
+	\2 Find its input symbols
+
+	\2 Fine its initial state
+
+	\2 Write its annotations next-state table
+
+% DRAW DIAGRAPH
+
+
+
+% 10.
+\1 A finite-state automaton $A$, given by the transition diagram, has next-state function $N$ and eventual-state function $N^*$.
+
+	\2 Find $N(s_1,1)$ and $N(s_0, 1)$.
+
+	\2 Find $N(s_2,0)$ and $N(s_1, 0)$.
+
+	\2 Find $N^*(s_0,10011)$ and $N^*(s_1, 01001)$.
+
+	\2 Find $N^*(s_2,11010)$ and $N^*(s_0, 01000)$.
+
+
+
+% 24 Design an automaton with the given input alphabet that accepts the given set of strings
+%	and find a regular expression that defines the language accepted by the automaton.
+\1 Input alphabet $\{0, 1 \}$;  Accepts the set of all strings that start with 101.
+
+
+
+
+\end{outline}

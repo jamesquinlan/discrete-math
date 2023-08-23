@@ -1,0 +1,39 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 6.3 - Set Proofs
+% Problems: # 2, 7, 8, 32, 34
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 2. Find a counterexample to prove statement is false. Assume all sets are subsets of a universal set $U$.
+\1 For all sets $A$ and $B$, $(A \cup B)^c = A^c \cup B^c$.
+
+
+% 7. Prove or find counterexample.  Assume all sets are subsets of a universal set $U$.
+\1 For all sets $A$, $B$, and $C$, 
+\[
+	(A - B) \cap (B - B) = A - (B \cup C).
+\]
+
+
+
+% 8. Prove or find counterexample.  Assume all sets are subsets of a universal set $U$.
+\1 For all sets $A$ and $B$, if $A^c \subseteq B$, then $A \cup B = U$. 
+
+
+% 32. Construct an algebraic proof.  Cite a property from Theorem 6.2.2 for each step.
+\1 For all sets $A$ and $B$, $(A - B) \cup ((A \cap B) = A$.
+
+
+% 34. Construct an algebraic proof.  Cite a property from Theorem 6.2.2 for each step.
+\1 For all sets $A$, $B$, and $C$,
+\[
+	(A - B) - C = A - (B \cup C).
+\]
+
+
+\end{outline}

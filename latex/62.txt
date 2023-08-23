@@ -1,0 +1,45 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 6.2 - Set Properties 
+% Problems: # 8, 13, 17, 34, 38, 42
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 8. Assume that all sets are subsets of a universal set $U$.
+\1 For all sets $A$ and $B$, $(A \cap B) \cup (C \cap B^c) = A. 
+
+
+% 13. Assume that all sets are subsets of a universal set $U$. 
+\1 For all sets $A, B$, and $C$, 
+\[
+	(A - B) \cap (C - B) =  (A \cap C) - B .
+\]
+
+
+% 17. Assume that all sets are subsets of a universal set $U$.
+\1 For all sets $A, B$, and $C$, if $A \subseteq B$ then $A \cup C \subseteq B cup C$.
+
+
+% 34. Assume that all sets are subsets of a universal set $U$.
+\1 For all sets $A and $B$, if $B \subseteq A^c$ then $A \cap B = \O$.
+
+
+% 38. Assume that all sets are subsets of a universal set $U$.
+\1 For all sets $A$, $B$, $C$, and $D$, 
+\[
+	\text{if } A \cap C = \O \text{ then } (A \times B) \cap (C \times D) = \O .
+\]
+
+
+% 42. Prove
+\1 For every positive integer $n$, if $A_1, A_2, A_3, \dots$ and $B$ are any sets, then 
+\[
+	\bigcap_{i = 1}^{n} \left(A_i - B) \right) = \left( \bigcap_{i = 1}^{n} A_i \right)  -  B
+\]
+
+
+\end{outline}

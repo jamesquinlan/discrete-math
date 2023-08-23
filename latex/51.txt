@@ -1,0 +1,65 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 5.1 - Sequences
+% Problems: # 1, 4, 6, 13, 14, 15, 27*, 58, 77
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 1.
+\1 Write the first four terms of the sequence, $a_k = \frac{k}{10 + k}$, for every integer $k \ge 1$.
+
+
+% 4. 
+\1 Write the first four terms of the sequence, $d_m = 1 + \left(\frac{1}{2}\right)^m$, for every integer $m \ge 0$.
+
+
+% 6.
+\1 Write the first four terms of the sequence, $f_n = \lfloor\frac{n}{4}\rfloor$, for every integer $n \ge 1$.
+
+
+
+% 13.
+\1 Find the explicit formulas for the sequence: $1 - \frac{1}{2},  \frac{1}{2} - \frac{1}{3},  \frac{1}{3}-\frac{1}{4},    \frac{1}{4} - \frac{1}{5},     \frac{1}{5} - \frac{1}{6},    \frac{1}{6} - \frac{1}{7}$.    
+
+
+% 14.
+\1 Find the explicit formulas for the sequence: $\frac{1}{3}, \frac{4}{9}, \frac{9}{27}, \frac{16}{81}, \frac{25}{243}, \frac{36}{729}$
+
+
+
+% 15.
+\1 Find the explicit formulas for the sequence: $0, -\frac{1}{2}, \frac{2}{3},  -\frac{3}{4}, \frac{4}{5},  -\frac{5}{6}, \frac{6}{7}$
+
+
+
+% 27*
+\1 Compute the summation:
+
+\[
+	\sum_{n=1}^6 \left(\frac{1}{n} - \frac{1}{n+1}\right)
+\]
+ 
+
+
+
+% 58. 
+\1 Make a change of variable $j = i - 1$ for 
+\[
+	\prod_{i = n}^{2n} \frac{n - i +1}{n + i}
+\]
+
+
+
+% 77. 
+\1
+	\2 Prove that $n! +3$ is divisible by $2$, for every integer $n \ge 2$.
+
+	\2 Prove that $n! + k$ is divisible by $k$, for every integer $n \ge 2$ and $k = 2, 3, \dots, n$.
+
+
+
+\end{outline}

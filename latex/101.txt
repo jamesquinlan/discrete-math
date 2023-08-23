@@ -1,0 +1,107 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 10.1 - Walks & Circuits 
+% Problems: # 5, 6bc, 8, 24, 30, 42 
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 5.
+\1 Consider the graph
+	
+	
+\begin{figure}[!h]
+    \centering
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\clip(-3.28,0.64) rectangle (7.06,5.08);
+		\draw [line width=1.pt] (2.,3.)-- (6.,3.);
+		\draw [shift={(0.,0.)},line width=1.pt]  		
+		plot[domain=0.982793723247329:2.1587989303424644,variable=\t]
+		({1.*3.6055512754639896*cos(\t r)+0.*3.6055512754639896*sin(\t r)},	
+		{0.*3.6055512754639896*cos(\t r)+1.*3.6055512754639896*sin(\t r)});
+
+		\draw [shift={(0.,6.)},line width=1.pt]  
+		plot[domain=4.124386376837122:5.3003915839322575,variable=\t]
+		({1.*3.6055512754639896*cos(\t r)+0.*3.6055512754639896*sin(\t r)},
+		{0.*3.6055512754639896*cos(\t r)+1.*3.6055512754639896*sin(\t r)});
+
+		\draw [shift={(0.,4.)},line width=1.pt]  
+		plot[domain=3.6052402625905993:5.81953769817878,variable=\t]
+		({1.*2.23606797749979*cos(\t r)+0.*2.23606797749979*sin(\t r)},
+		{0.*2.23606797749979*cos(\t r)+1.*2.23606797749979*sin(\t r)});
+
+		\draw [shift={(0.,2.)},line width=1.pt]
+		 plot[domain=0.4636476090008061:2.677945044588987,variable=\t]
+		({1.*2.23606797749979*cos(\t r)+0.*2.23606797749979*sin(\t r)},
+		{0.*2.23606797749979*cos(\t r)+1.*2.23606797749979*sin(\t r)});
+
+		\begin{scriptsize}
+		\draw [fill=black] (-2.,3.) circle (3pt);
+		\draw[color=black] (-2.36,3.07) node {a};
+		\draw [fill=black] (2.,3.) circle (3pt);
+		\draw[color=black] (2.14,3.37) node {b};
+		\draw [fill=black] (6.,3.) circle (3pt);
+		\draw[color=black] (6.14,3.37) node {c};
+		
+		\draw[color=black] (0.0,4.4) node {$e_1$};
+		\draw[color=black] (0.0,3.8) node {$e_2$};
+		\draw[color=black] (0.0,2.6) node {$e_3$};
+		\draw[color=black] (0.0,2.0) node {$e_4$};
+		\draw[color=black] (4.1,2.85) node {$e_5$};
+
+		\end{scriptsize}
+	\end{tikzpicture}
+\end{figure}
+
+
+	\2 How many paths are the from $a$ to $c$?
+
+	\2 How many trails are there from $a$ to $c$?
+
+	\2 How many walks are there from $a$ to $c$?
+
+
+
+
+
+
+% 6bc.
+\1 An edge whose removal disconnects the graph of which it is a part of is called a \textbf{bridge}.
+Find all brides for each of the following graphs. 
+
+	\2 
+
+
+	\2
+
+
+
+
+% 8.
+\1 Find the number of connected components for each the following graphs.
+
+
+
+% 24. 
+\1 Find the complement of each of the following graphs.  
+
+	\2
+
+	\2
+
+
+
+% 30.
+\1 Find Hamiltonian circuits for the graph.
+
+
+
+% 42. A traveler in Europe wants to visit each of the cities.  
+\1
+
+
+
+\end{outline}

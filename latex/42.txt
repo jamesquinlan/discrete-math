@@ -1,0 +1,30 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.2 - Direct Proof
+% Problems: # 2, 5, 13, 23, 25, 36
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 2
+\1 Prove every integer $m$, if $m$ is even then $3m+5$ is odd.
+
+% 5
+\1 Prove if $a$ and $b$ are any odd integers, then $a^2 + b^2$ is even.
+
+% 13
+\1 Disprove the statement: ``There exists an integer $n$ such that $6n^2 + 27$ is prime.''
+
+% 23
+\1 Prove or give a counterexample: ``The product of any even integer and any integer is even.''
+
+% 25
+\1 Prove or give a counterexample: ``The difference of any two even integers is even.''
+
+% 36
+\1 Prove or give a counterexample: ``The difference of the squares of any two consecutive integers is odd.''
+
+\end{outline}
