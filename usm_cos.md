@@ -1,6 +1,6 @@
 # University of Southern Maine
-## Undergraduate Computer Science Courses
 
+## Undergraduate Computer Science Courses
 
 *  COS 160 - Structured Problem Solving Java
 *  COS 161 - Algorithms in Programming
