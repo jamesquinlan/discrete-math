@@ -33,3 +33,7 @@
 *  COS 485 - Design and Analysis of Computing Algorithms
 *  COS 497 - Independent Study in Computer Science
 *  COS 498 - Computer Science Internship
+
+## Undergraduate Catalog and Requirements
+
+[Catalog/Requirements]](https://catalog.usm.maine.edu/preview_program.php?catoid=13&poid=2601)
