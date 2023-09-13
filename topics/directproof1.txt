@@ -1,0 +1,450 @@
+\if \flow1
+\input{flow/41}
+\fi 
+
+
+
+\section*{Objectives}
+\begin{outline}
+\1 Identify notation used
+\1 Define even and odd numbers
+\1 Define prime and composite numbers
+\1 Prove/disprove existential statements
+\1 Prove/disprove universal statements
+% \1 List some common proof mistakes
+\end{outline}
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+% ----------------------------------
+\subsection*{Notation}
+
+We use the following notation in this chapter/section.
+
+\begin{outline}
+\1 Integers: $\Z$ ($\Z^+$ are positive integers)\dotfill \verb!\mathbb{Z}!
+
+\1 Real numbers: $\R$\dotfill \verb!\mathbb{R}!
+
+\1 ``is a'' or ``is in'':  $\in$ \dotfill \verb!\in!
+
+\1 ``then'' or ``implies'': $\Rightarrow$\dotfill \verb!\Rightarrow!
+
+\1 ``if and only if'':  iff or $\Leftrightarrow$ \dotfill \verb!\Leftrightarrow!
+
+\1 ``there is'':  $\exists$ \dotfill \verb!\exists!
+
+\1 ``for all'': $\forall$ \dotfill \verb!\forall!
+
+\1 ``therefore'': \; $\therefore$ \;\; \dotfill \verb!\therefore!
+
+\1 ``such that'': $|$ or $:$
+\end{outline}
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+
+% ----------------------------------
+\subsection*{Definitions}
+Definitions are the key to direct proof.
+%  
+\begin{outline}[enumerate]
+\1 $n \in \Z$ is \textbf{even}  iff  there exists an integer $k$ such that $n = 2k$.% \underline{\hspace{3in}}.  
+%\vfill
+
+\1 $n \in \Z$ is \textbf{odd}  iff there exists an integer $k$ such that $n = 2k+1$.  %\underline{\hspace{3in}}.  
+%\vfill
+
+\1 $n \in \Z^+$ is \textbf{prime}  iff $n > 1$  and $\forall r,s \in \Z^+$, if $n = rs$ then either $r = 1$ and $s = n$ or $s = 1$ and $r = n$. % \underline{\hspace{1in}} or  \underline{\hspace{1in}}.  
+
+
+\1 $n \in \Z^+$ is \textbf{composite}  iff $\exists r,s \in \Z^+: n = rs$ with $1 < r < n$ and $1 < s < n$. 
+% \underline{\hspace{1in}} but $r$ \underline{\hspace{1in}} $\land$  $s$  \underline{\hspace{1in}}.  
+
+
+% \1  \begin{definition}[Word] A \textbf{word} is a \underline{\hspace{1in}} and \underline{\hspace{1in}} something.  \end{definition}
+
+
+ \end{outline}
+ 
+ % \begin{definition}[Word] A \textbf{word} is a \underline{\hspace{1in}} and \underline{\hspace{1in}} something.  \end{definition}
+ \rule[0.051in]{\textwidth}{0.0025in}
+
+ 
+
+
+
+
+% ----------------------------------
+\section*{Proving Existential Statements}
+An existential statement has the form:
+ \[
+ \exists x \in D : P(x)
+ \]
+  
+\textbf{Constructive Methods}:
+ \begin{outline}[enumerate]
+	\1 Find $x$ such that $P(x)$ is true.
+	\1 Provide directions (or steps) for finding $x$.  
+ \end{outline}
+
+
+
+
+ % example 1
+ \begin{example}
+ Prove there exists an even integer that can be written in two ways as a sum of two primes.
+ \end{example}
+\noindent \textit{Proof}:
+
+% Answer
+\if \sols1
+{\color{blue}
+ Let $n = 24$ and note that $24 = 11+13 = 5 + 19$. [\textit{Note, we found a number that worked}.]
+}
+\fi 
+\hfill
+
+ 
+% example 2
+ \begin{example}
+Let $r,s \in \Z$.  Prove $\exists x \in \Z : 22r + 18s = 2x$.
+\end{example}
+
+%\noindent \textit{Proof}: % Let $r,s \in \Z$.  
+\proof 
+
+ % Answer 2
+\if \sols1
+{\color{blue}
+$22r + 18s = 2x  \Leftrightarrow 11r + 9s = x$.  Since $9,11,r,s \in \Z$ and integers are closed under $+$ and $\times$, we know that $x \in \Z$. [\textit{Note, we listed steps to find desired value; that is, we constructed the solution}.]
+\vspace{1em}
+} 
+\qed
+\fi 
+\hfill
+ 
+
+
+
+% ----------------------------------
+\textbf{Nonconstructive Methods}:
+%  
+\begin{outline}[enumerate]
+\1 Use previous theorems (gives no insight into how to find $x$).
+
+\1 Assume no such $x$ exists, and find contradiction. $\therefore x$ exists.
+
+ \end{outline}
+
+
+% example 3
+%\begin{example}
+%asdf
+%\end{example}
+
+%\noindent \textit{Proof}:  
+ % Answer 3
+%\if \sols1
+%{\color{blue}
+%asdf[\textit{Note, asdf}.] 
+%}
+%\fi 
+%\hfill 
+
+
+
+ 
+
+
+
+
+
+ \rule[0.051in]{\textwidth}{0.00025in}
+% ----------------------------------
+\section*{Proving Universal Statements}
+A universal statement has the form:
+\begin{equation}\label{eqn:uni}
+ \forall x \in D : P(x)  \Rightarrow Q(x)
+ \end{equation}
+  
+\textbf{Methods}:
+ \begin{outline}[enumerate]
+	\1 (\hl{Method of exhaustion}) If $|D| < \infty$ or $|D| = \infty$ but only a finite number of elements of $D$ statisfy $P(x)$, then 
+ 
+\begin{example}
+    Prove all even integers between $4$ and $12$ inclusive can be written as the sum of two primes.
+
+    \pf There are only five even integers between $4$ and $12$, namely, $4, 6, 8, 10$ and $12$.
+    \begin{align*}
+        4 &= 2+2\\
+        6 &= 3+3\\
+        8 &= 3+5\\
+        10 &= 5+5\\
+        12 &= 5+7
+    \end{align*}
+\end{example}
+ 
+	\1 Generalize from a generic particular (fixed, but arbitrary).
+		\2 Express statement as (\ref{eqn:uni})
+		\2 Suppose $x$ is fixed, but arbitrary element of $D$
+		\2 Show $Q(x)$ using definition, algebraic properties, calculus, previous established results and rule of logical inference.  
+
+    \begin{example}
+        The sum of two even integers is even.
+
+        \pf $\forall m,n \in 2\Z : m + n \in 2\Z$ (here $x=(m,n)$ and $P(x)$ is $m+n$ is even).  
+
+        Suppose $m,n$ are two even integers.  By definition, there exists $k_1$ and $k_2$ such that $m = 2k_1$ and $n = 2k_2$.  Now, 
+        \begin{align*}
+            m + n &= 2k_1 + 2k_2\\
+                  &= 2(k_1 + k_2)
+        \end{align*}
+        Since $k = k_1 + k_2 \in \Z$, we have that $m+n = 2k$, which by definition is even. 
+    \end{example}
+  
+ 	\1 Disprove by counterexample.
+	
+	To disprove the universal statement, $ \forall x \in D : P(x)  \Rightarrow Q(x)$, (i.e., show it is false), we show 
+	\[
+	\exists x \in D : P \land \overline{Q}
+	\]
+	\textit{Why?}  Because
+	\[
+	\lnot \left(\forall x \in D : P(x)  \Rightarrow Q(x) \right) \equiv 
+	\lnot \left(\forall x \in D : \overline{P(x)}  \lor Q(x) \right) \equiv \exists x \in D : P \land \overline{Q}
+	\]
+	
+	Summary: to disprove (\ref{eqn:uni}), prove the existential statement, $\exists x \in D : P \land \overline{Q}$, by finding (or constructing) an $x$. 
+
+    \begin{example}
+        (Dis)prove that for all real numbers $x$ and $y$ such that if $x^2 = y^2$, then $x = y$.  
+
+        \pf Let $x = 2$ and $y = -2$.  (\textit{This is one counterexample}).
+    \end{example}
+    
+ \end{outline}
+ 
+ 
+% ----------------------------------
+\subsection*{Examples}
+
+
+ % example 1
+ \begin{example}
+ Prove if the sum of two integers is even, then so is their difference. 
+ \end{example}
+ 
+\noindent \textit{Proof}:
+
+ % Answer
+\if \sols1
+{\color{blue}
+ \begin{outline}[enumerate]
+\1 $\forall m,n \in \Z, m+n \in 2\Z \Rightarrow m - n \in 2\Z$
+
+\1 Let $m,n \in \Z$
+\1 Suppose $m + n$ is even.  Then, there is an integer $k$ such that $m + n = 2k$.  Therefore, $m = 2k - n$.  Now, we have, 
+\begin{align*}
+	m - n &=  2k - n - n\\
+		&= 2k - 2n\\
+		&= 2(k-n)
+\end{align*}
+Since $k - n$ is an integer, we have that $m - n$ is even.  
+\end{outline}
+}
+\fi 
+\hfill
+
+
+
+% ---------------
+\begin{example}
+        The product of two odd integers is odd.  
+
+        \pf Let $m$ and $n$ be odd and consider their product.  
+        \begin{align*}
+            mn &= (2k_1 +1) (2k_2 + 1) \hspace{0.5in} \exists k_1, k_2 \in \Z  \\
+            &= 4k_1k_2 + 2k_1 + 2k_2 + 1 \\
+            &= 2(2k_1k_2 + k_1 + k_2) + 1 \\
+            &= 2 K + 1
+        \end{align*}
+        where  $K = 2k_1k_2 + k_1 + k_2 \in \Z$ because of closure of integers under addition and multiplication.
+\end{example}
+
+
+
+
+%  
+\begin{outline}[enumerate]
+\1 Assume $r, s \in \Z$. 
+    \2 Is $4rs$ even? 
+    \if \sols1
+        {\color{blue}
+         Yes, because $4rs = 2(2rs) = 2K$.
+        \vspace{1em}
+        }
+    \fi 
+    
+    \2 Is $6r+4s^2 +3$ odd?
+    \if \sols1
+        {\color{blue}
+            \begin{align*}
+                6r + 4s^2 + 3 &= 6r + 4s^2 + (2 + 1)\\
+                    &= 2(3r + 2s^2 + 1) + 1 \\
+                    &= 2K + 1
+            \end{align*}
+            Yes, it is odd regardless of what $r$ and $s$ are.
+        \vspace{1em}
+        }
+    \fi 
+
+    \2 If $r$ and $s$ are both positive, is $r^2 + 2rs + s^2$ composite?
+    \if \sols1
+        {\color{blue}
+        Note that $r,s \ge 1$ since both positive integers.  
+        \begin{align*}
+            r^2 + 2rs + s^2 &= (r + s)^2
+        \end{align*}
+        Therefore, must be composite!
+        \vspace{1em}
+        }
+    \fi 
+
+\1 There is a perfect square that can be written as a sum of two other perfect squares.  Recall, an integer $n$ is called a \textbf{perfect square}, if and only if, $n = k^2$ for some integer $k$.
+    \if \sols1
+        {\color{blue}
+            This is an existence proof (``\textit{there is a}'').  Therefore, we just need to find one.  Let $n = 25 = 5^2$, therefore $n$ is a perfect square and $3^2 + 4^2 = 25$.
+            Note: this is easy, however, don't be fooled, existence proofs are NOT always easy.  
+        \vspace{1em}
+        }
+    \fi 
+
+
+    \if \sols1
+        {\color{blue}
+    
+        \vspace{1em}
+        }
+    \fi 
+\end{outline}
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+% ----------------------------------
+\section*{Summary}
+{Proof is an integral part of problem-solving, requiring logical skills essential in computer science.}  We took a first look at how to prove existential and universal statements.  For existential proof, we must find ``a'' value that satisfies a condition.  Universal proofs amount to showing a condition (or implication) is true \textit{for all} values in a domain. 
+Sometimes, we are interested in disproving a statement in which case we look for a counterexample.  Be careful not to make common proof mistakes such as \textit{arguing by example} or ``\textit{begging the question}'' covered in the next section.  
+
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+% ----------------------------------
+\subsection*{Homework}
+\# 2, 7, 11, 16, 22
+
+\begin{outline}[enumerate]
+% 2
+\1 Assume that $c$ is a particular integer.
+
+    \2 Is $-6c$ an even integer?
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+     Yes. $-6c = 2(-3c)$.  Since the integers are closed under multiplication $-3c \in \Z$, hence by definition, $-6c$ is even integer.
+    }
+    \fi 
+    \hfill
+    
+    \2 Is $8c + 5$ an odd integer?
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    Yes. 
+    $8c + 5 = 2(4c) + 2 (2) + 1 = 2(4c + 2) +1$, which is an odd integer.
+    }
+    \fi 
+    \hfill
+    
+    \2 Is $(c^2 + 1) - (c^2 - 1) - 2$ an even integer?
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+     $(c^2 + 1) - (c^2 - 1) - 2 = 0 = 2(0)$, therefore even.  \qed
+    }
+    \fi 
+    \hfill
+
+
+
+
+% 7
+\1 Prove there are real numbers $a$ and $b$ such that
+\[
+\sqrt{a+b} = \sqrt{a} + \sqrt{b}
+\]
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+     Let $a = 0$ and $b = 1$, then $\sqrt{0 + 1} = 1 = \sqrt{1} + \sqrt{0}$.
+    }
+    \fi 
+    \hfill
+
+
+% 11
+\1 Prove there is an integer $n$ such that $2n^2 - 5n + 2$ is prime.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+     If $n = 3$, then $2(9) - 5(3) + 2 = 18 - 15 + 2 = 3 + 2 = 5$, which is prime.
+    }
+    \fi 
+    \hfill
+
+% 16
+\1 Disprove by counterexample: for every integer $n$, if $n$ is even then $n^2 + 1$ is prime.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    If $n = 8$, then $n^2 + 1 = 65  = 5 \cdot 13$, therefore not prime.  
+    }
+    \fi 
+    \hfill
+
+% 22
+\1 Prove for each integer $n$ with $1 \le n \le 10$, $n^2 - n + 11$ is a prime number.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+     Proof by exhaustion (a list of first ``few'' prime numbers can be found on the Internet, e.g., \url{https://en.wikipedia.org/wiki/List_of_prime_numbers}).  
+     \begin{align*}
+        1^2 - 1 + 11 &= 11 \\
+        2^2 - 2 + 11 &= 13 \\
+        3^2 - 3 + 11 &= 17 \\
+        4^2 - 4 + 11 &= 23 \\
+        5^2 - 5 + 11 &= 31 \\
+        6^2 - 6 + 11 &= 41 \\
+        7^2 - 7 + 11 &= 53 \\
+        8^2 - 8 + 11 &= 67 \\
+        9^2 - 9 + 11 &= 83 \\
+        10^2 - 10 + 11 &= 101
+     \end{align*}
+    }
+    \fi 
+    \hfill
+
+\end{outline}
+
