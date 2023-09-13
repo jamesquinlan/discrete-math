@@ -298,7 +298,8 @@ def primes(n):
 primes(100)
 
 
-# 3. Use a loop and the function above to determine whether $2^p - 1$ is prime for each of the primes not exceeding 100.
+# 3. Use a loop and the function above to determine whether $2^p - 1$ is prime for each
+#    of the primes not exceeding 100.
 primesLT100 = primes(100)
 for p in primesLT100:
   print(p,2**p - 1,isprime(2**p - 1))
