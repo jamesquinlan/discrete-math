@@ -52,13 +52,13 @@ Grades will be based on a group project, in-class exercises, assignments, and pa
 
 ## Topics
 
-* [Direct Proof]()
+* [Direct Proof](topics/directproof1.txt)
 
 ## Additional Resources
 
 **Discrete Mathematics and its Applications by Kenneth H. Rosen**: One of the most widely used textbooks for Discrete Mathematics (besides Epp). It covers various topics and provides clear explanations, examples, and exercises. The book is known for its accessible writing style and comprehensive coverage.
 
-**Concrete Mathematics: A Foundation for Computer Science by Ronald L. Graham, Donald E. Knuth, and Oren Patashnik**: This book is a bit more advanced and suited for students with advanced mathematical background; it’s highly regarded for its deep exploration of mathematical concepts relevant to computer science. It’s a great choice for students interested in the mathematical foundations of algorithms and computer programming.
+**Concrete Mathematics: A Foundation for Computer Science by Ronald L. Graham, Donald E. Knuth, and Oren Patashnik**: This book is a bit more advanced and suited for students with advanced mathematical background; it’s highly regarded for its deep exploration of mathematical concepts relevant to computer science. It’s an excellent choice for students interested in the mathematical foundations of algorithms and computer programming.
 
 **Discrete Mathematics: An Open Introduction by Oscar Levin**: This textbook takes a more open and interactive approach. It’s free online and covers the core topics of Discrete Mathematics. It includes exercises, examples, and interactive components that engage students in learning.
 
