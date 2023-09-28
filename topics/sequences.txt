@@ -1,0 +1,459 @@
+% 5.1 - Sequences 
+
+\section*{Objectives}
+\begin{outline}
+\1 Define mathematical sequences
+\1 Introduce summation and product notation
+\1 Define binomial coefficients
+\1 Discuss the algorithm to convert base $10$ integer to base $2$.  
+
+\end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\begin{definition}
+    A \textbf{sequence} is a function $f: \N \to \R$ or $f: D \to \R$ with $D \subseteq \Z$ (either \textbf{finite} or \textbf{infinite}).
+\end{definition}
+Also, many letters other than $f$ denote sequences, $a,b,c,s,t \dots$.
+
+
+\subsection*{Subscript Notation}
+
+Although function notation can be used, i.e., $f(n)$, it is more typical to use subscript notation, $f_n$.    The terms of a sequence are therefore ``indexed''.  For example, starting with index 1
+
+\[
+a_1 , a_{2}, a_3, \dots, a_k .
+\]
+
+The index can start anywhere, in particular, 
+
+\[
+b_0, b_1, b_2, \dots \\
+c_4, c_5, c_6, \dots \\
+d_{-5}, d_{-4}, d_{-3}, \dots
+\]
+% Sequences can be \textbf{finite} or \textbf{infinite}.
+
+\subsection*{Computer Science Connection}
+
+The terms of a sequence can be stored in an array.  The index of the array is the (indexed) subscripts.  
+
+
+
+\begin{example}[Alternating Sequence]
+    $a_n = (-1)^n$ for $n \ge 0$
+\end{example}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\subsection*{Discern Pattern}
+Find the explicit formula for a sequence based on the first few terms.  
+\[
+1, -\frac{1}{4}, \frac{1}{9}, -\frac{1}{16}, \frac{1}{25}, -\frac{1}{36},  \dots
+\]
+
+
+Determine the first five terms of the sequence whose $n$th term is defined by
+\[
+a_1=2 \; \text{ and }  \; a_n=2a_{n-1} -1  \; \text{ for }  n \ge 2
+\]
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\subsection*{Sequence Representations}
+There are three possible ways to represent a sequence:
+\begin{outline}[enumerate]
+    \1 Implicit
+    \[
+    1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \cdots  
+    \]
+
+    \1 Explicit
+    \[
+    a_n = \frac{1}{n}
+    \]
+
+    \1 Recursive
+    \[
+    a_n = \left( \frac{n-1}{n} \right) a_{n-1}
+    \]
+\end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\section*{Summation Notation}
+
+Consider the sum of a (finite) sequence:
+\[
+a_1 + a_2 + a_3 + a_4 + a_5 + a_6
+\]
+This isn't so bad for six terms, but what about 10 terms, 100 terms, or a million terms?  \textbf{We need some more notation}.
+
+\begin{definition}
+Let $m,n \in \Z$ with $m \le n$, then $\sum\limits_{k = m}^n a_k$, read \textbf{the summation from k equals m to n of a-sub-k}, is the sum of all the terms $a_m, a_{m+1}, a_{m+2}, \dots, a_n$, in other words, 
+\begin{equation}\label{eqn:sum}
+a_m +  a_{m+1} + a_{m+2} + \dots + a_n .
+\end{equation}
+Equation (\ref{eqn:sum}) is called \textbf{expanded form} of the sum, 
+\[
+ \sum\limits_{k = m}^n a_k  = a_m +  a_{m+1} + a_{m+2} + \dots + a_n .
+\]
+We call $k$ the \textbf{index}, $m$ the \textbf{lower limit}, and $n$ the \textbf{upper limit}.
+\end{definition}
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\subsection*{Changing from Expanded form to Summation Notation}
+
+Express the following using summation notation:
+\[
+\frac{1}{n} + \frac{2}{n+1} + \frac{3}{n+2} + \cdots + \frac{n+1}{2n}
+\]
+
+\textbf{Answer}: 
+\[
+\sum_{k = 0}^n \frac{k+1}{n+k}.
+\]
+
+
+\textbf{Note}: By re-indexing, this is the same as 
+\[
+\sum_{k = 1}^{n+1} \frac{k}{n+k-1}.
+\]
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+% ----------------------------- %
+% Question 
+\begin{example}
+    
+
+Write the sum using sigma notation.
+\[ 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots  - \frac{1}{50} \] 
+
+% Solution
+\textbf{Solution}: First, indicate the values of $n$ and $i$. In this case,
+\[n=50\]
+\[i=1\]
+Next, find the equation;
+\begin{align*}
+    (-1)^{i-1} & \text{ This gives the alternating numerator of $1$ and $-1$}\\
+    \frac{1}{i} & \text{ This gives the denominator as the value for $i$ } \\
+    (-1)^{i-1} \cdot \frac{1}{i} & \text{ Gives the overall equation}
+\end{align*} 
+Therefore;
+\[\sum\limits_{i=1}^{50} \frac{(-1)^{i-1}}{i}\]
+\end{example}
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+Write the sum using sigma notation.
+\[ 1 + 2 + 9 + 28 + \cdots + (25^3 + 1) \] 
+
+% Solution
+\textbf{Solution}: First, indicate the values of $n$ and $i$. In this case,
+\[n=25\]
+\[i=0\]
+Next, find the equation;
+\[i^3+1\]
+This works because;
+\[0^3+1=1\]
+\[1^3+1=2\]
+\[2^3+1=9\]
+\[3^3+1=28\]
+Therefore;
+\[\sum\limits_{i=0}^{25} (i^3+1)\]
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\subsection*{Telescoping Sum}
+The sum, 
+\[
+\sum_{k=1}^n \frac{1}{k(k+1)} = \sum_{k=1}^n \left( \frac{1}{k} - \frac{1}{k+1} \right)
+\]
+In expanded form, 
+\[
+ \left( \frac{1}{1} - \frac{1}{2} \right) +  \left( \frac{1}{2} - \frac{1}{3} \right) +  \left( \frac{1}{3} - \frac{1}{4} \right) + \cdots +  \left( \frac{1}{n} - \frac{1}{n+1} \right) .
+\]
+
+
+\[
+ \left( \frac{1}{1} - \cancel{\frac{1}{2}} \right) +  \left( \cancel{\frac{1}{2}} - \cancel{\frac{1}{3}} \right) +  \left( \cancel{\frac{1}{3}} - \cancel{\frac{1}{4}} \right) + \cdots +  \left( \cancel{\frac{1}{n}} - \frac{1}{n+1} \right) .
+\]
+
+
+
+
+
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Product Notation}
+Similar to summation notation, a short-hand method for writing a product of terms in a sequence, $a_1 a_2 a_3 \cdots a_n$ is by using the notation, 
+\[
+\prod_{k = 1}^n a_k. 
+\]
+In general, we have, 
+
+\begin{definition}
+    Let $m,n \in \Z$ with $m \le n$, then $\prod\limits_{k = m}^n a_k$, read \textbf{the product from k equals m to n of a-sub-k}, is the product of all the terms $a_m, a_{m+1}, a_{m+2}, \dots, a_n$, in other words, 
+    \[
+    \prod\limits_{k = m}^n a_k = a_m \cdot a_{m+1} \cdot a_{m+2} \cdots a_{n} .
+    \]
+\end{definition}
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+\section*{Properties of Summations and Products}
+
+\begin{outline}[enumerate]
+\1 $\sum\limits_{k = m}^n a_k + \sum\limits_{k = m}^n b_k = \sum\limits_{k = m}^n (a_k + b_k)$
+
+\1 $\sum\limits_{k = m}^n c \cdot a_k = c \cdot \sum\limits_{k = m}^n a_k$
+
+\1 $\left(\prod\limits_{k = m}^n a_k\right) \cdot \left(\prod\limits_{k = m}^n b_k\right) = \prod\limits_{k = m}^n (a_k \cdot b_k)$
+
+\end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\subsection*{Factorial and Binonmial Coefficients}
+
+\begin{definition}
+    For each positive integer $n$, \textbf{n factorial}, denoted $n!$, is defined to be the product
+    \[
+    n! = \prod_{k = 1}^n k .
+    \]
+    Note: $0! := 1$.
+\end{definition}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\textbf{Python Code}
+\begin{verbatim}
+def fac(n):
+  if n > 0:
+    result = 1
+    for i in range(1,n+1):
+      result *= i
+  elif n == 1:
+    result = 1
+  else:
+    result = 'error'
+  return result
+\end{verbatim}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\begin{example}
+    Find $0!, 1!, 2!, 3!, 4!, 5!$, and $6!$. \\
+    By definition, 
+    \begin{align*}
+        0! &= 1\\
+        1! &= 1 \\
+        2! &= 1 \cdot 2  = 2 \\
+        3! &= 1 \cdot 2 \cdot 3 \\
+        4! &= 1 \cdot 2 \cdot 3 \cdot 4 \\
+        5! &= 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5\\
+        6! &= 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6
+    \end{align*}
+\end{example}
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\subsection*{Recursive Definition}
+\[
+n! = \begin{cases}
+    1 & \text{ if } n = 0\\
+    n \cdot (n-1)! & \text{ if } n \ge 1
+\end{cases}
+\]
+
+
+\textbf{Python Code}
+\begin{verbatim}
+def facr(n):
+  if n == 0:
+    result = 1
+  else:
+    result = n * facr(n-1)
+  return result
+\end{verbatim}
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+% \subsection*{Binomial Coefficient}
+\begin{definition}[Binomial Coefficient]
+    For all integers $n$ and $k$ with $0 \le k \le n$, 
+    \[
+    \binom{n}{k} = \frac{n!}{k! (n-k)!} .
+    \]
+\end{definition}
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\subsection*{Decimal to Binary}
+
+\begin{verbatim}
+# Write a function to write an integer in binary notation.
+def binnot(n):
+  r = []
+  while n > 0:
+    r.append(n % 2)
+    n = n >> 1
+  return r
+
+# driver
+n = 8
+print(''.join(str(e) for e in reversed(binnot(n))))
+\end{verbatim}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Homework}
+
+\# 1, 4, 6, 13, 14, 15, 27*, 58, 77
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 5.1 - Sequences
+% Problems: # 1, 4, 6, 13, 14, 15, 27*, 58, 77
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 1.
+\1 Write the first four terms of the sequence, $a_k = \frac{k}{10 + k}$, for every integer $k \ge 1$.
+
+
+% 4. 
+\1 Write the first four terms of the sequence, $d_m = 1 + \left(\frac{1}{2}\right)^m$, for every integer $m \ge 0$.
+
+
+% 6.
+\1 Write the first four terms of the sequence, $f_n = \lfloor\frac{n}{4}\rfloor$, for every integer $n \ge 1$.
+
+
+
+% 13.
+\1 Find the explicit formulas for the sequence: $1 - \frac{1}{2},  \frac{1}{2} - \frac{1}{3},  \frac{1}{3}-\frac{1}{4},    \frac{1}{4} - \frac{1}{5},     \frac{1}{5} - \frac{1}{6},    \frac{1}{6} - \frac{1}{7}$.    
+
+
+% 14.
+\1 Find the explicit formulas for the sequence: $\frac{1}{3}, \frac{4}{9}, \frac{9}{27}, \frac{16}{81}, \frac{25}{243}, \frac{36}{729}$
+
+
+
+% 15.
+\1 Find the explicit formulas for the sequence: $0, -\frac{1}{2}, \frac{2}{3},  -\frac{3}{4}, \frac{4}{5},  -\frac{5}{6}, \frac{6}{7}$
+
+
+
+% 27*
+\1 Compute the summation:
+
+\[
+	\sum_{n=1}^6 \left(\frac{1}{n} - \frac{1}{n+1}\right)
+\]
+ 
+
+
+
+% 58. 
+\1 Make a change of variable $j = i - 1$ for 
+\[
+	\prod_{i = n}^{2n} \frac{n - i +1}{n + i}
+\]
+
+
+
+% 77. 
+\1
+	\2 Prove that $n! + 2$ is divisible by $2$, for every integer $n \ge 2$.
+
+	\2 Prove that $n! + k$ is divisible by $k$, for every integer $n \ge 2$ and $k = 2, 3, \dots, n$.
+
+
+
+\end{outline}
+% Solution
+
+ % Answer
+    \if \sols1
+    {\color{blue}
+     \pf 
+     
+    }
+    \fi 
+    \hfill
+
+
+
+

@@ -1,0 +1,246 @@
+% 4.5 - 
+
+\section*{Objectives}
+\begin{outline}
+\1 State the Quotient-Remainder Theorem
+\1 Identify the \texttt{div} and \texttt{mod} operators
+\1 Introduce the parity property
+\1 Proof by Cases
+\1 Define absolute value and State triangle inequality
+\end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\section*{Quotient-Remainder Theorem}
+\begin{thm}
+    Given any integer $n$ and positive integer $d$, there exist unique integers $q$ and $r$ such that, 
+    \[
+    n = dq + r \hspace{1em} \text{ and } \hspace{1em} 0 \le r < d
+    \]
+\end{thm}
+
+\textbf{NOTE}: $n = dq + r$ translates to 
+\begin{align*}
+    q &= n \; (\rm{div} \; d) \\ 
+    r &= n \; (\rm{mod} \; d)
+\end{align*} 
+Each programming language has a method to compute the \texttt{div} and the \texttt{mod}.  In Python it is \texttt{//} and \texttt{\%} respectively.  Consult the documentation of your programming language.  
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Proof by Cases}
+To prove $A_1 \vee A_2 \vee \cdots \vee A_n \Rightarrow B$, prove
+\begin{align*}
+    A_1     & \Rightarrow  B\\
+    A_2     & \Rightarrow  B\\
+    A_3     & \Rightarrow  B\\
+            & \vdots  \\
+    A_n     & \Rightarrow  B\\
+\end{align*}
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+% \subsection*{Parity Property}
+
+\begin{thm}
+    Any two consecutive integers have opposite parity.
+\end{thm}
+\pf (by cases).  Let $n$ and $n+1$ be given.
+
+\textbf{Case 1} ($n$ is even).  If $n$ is even, then $n = 2k$ for some $k$.  Now, $n+1 = 2k +1$, which is odd.  
+
+\textbf{Case 2} ($n$ is odd).  If $n$ is odd, then $n = 2k+1$ for some $k$.  Now, $n+1 = (2k +1) + 1 = 2k + 2 = 2(k+1)$, which is even.
+
+\qed 
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\begin{thm}
+    The square of any odd integer has the form $8m+1$ for some integer $m$.
+\end{thm}
+\pf Let $n$ be an odd integer, then $n = 4k + 1$ or $n = 4k + 3$.  
+
+\textbf{Case 1} ($n = 4k + 1$). We have, upon squaring, 
+\begin{align*}
+    n^2 &= (4k + 1)^2 \\
+        &= 16k^2 + 8k + 1 \\
+        &= 8(2k^2 + k) + 1 .
+\end{align*}
+
+
+\textbf{Case 2} ($n = 4k + 3$). 
+\begin{align*}
+    n^2 &= (4k + 3)^2 \\
+        &= 16k^2 + 24k + 9 \\
+        &= 16k^2 + 24k + 8 + 1\\
+        &= 8(2k^2 + 3k + 1) + 1. 
+\end{align*}
+
+In both cases, we have that $n^2 = 8m+1$ for some $m$.
+\qed 
+% By definition, there exists a $k$ such that $n = 2k+1$.  Then, $n^2 = (2k+1)(2k+1) = 4k^2 + 4k + 1 = 4(k^2 +k) + 1$.  Therefore,  
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\begin{definition}
+    The \textbf{absolute value of} $x$, denoted $|x|$ is defined as:
+    \[
+     |x| =
+    \begin{cases}
+       \;\;\, x & \text{\rm{if } $x \ge 0$}\\
+       -x & \text{\rm{if } $x< 0$}. 
+    \end{cases}
+    \]    
+    
+\end{definition}
+    
+ 
+
+\begin{thm}
+    For all $x \in \R$, $-|x| \le x \le |x|$. 
+\end{thm}
+
+\pf By cases.  
+
+\textbf{Case 1}: ($x = 0$). Then, $|x| = x = 0$ and $-|x| = - 0 = 0$, and the inequality holds.
+
+\textbf{Case 2}: ($x \ge 0$).  Since $x \ge 0$, $-|x| \le x$.  Also, by definition, $|x| = x$.  Therefore, the inequality holds.
+
+\textbf{Case 3}: ($x < 0$).  By definition, $|x| = -x$.  So, $-|x| = -(-x) = x < 0$.  We have, $-|x| \le x$ and $x < 0 \le |x|$. 
+
+\qed 
+
+
+
+\begin{thm}
+    For all $x \in \R$, $|x| = |-x|$. 
+\end{thm}
+\pf 
+
+  \begin{align*}
+    |-x| &=
+    \begin{cases}
+        -x & \text{\rm{if } $-x > 0$} \\
+         0 & \text{\rm{if } $-x = 0$} \\
+       - (-x) & \text{\rm{if } $-x < 0$}
+    \end{cases} \\  
+     &=
+    \begin{cases}
+        -x & \text{\rm{if } $x < 0$} \\
+         0 & \text{\rm{if } $x = 0$} \\
+         x & \text{\rm{if } $-x < 0$}
+    \end{cases}\\
+     &=
+    \begin{cases}
+        -x & \text{\rm{if } $x < 0$} \\
+         0 & \text{\rm{if } $x = 0$} \\
+         x & \text{\rm{if } $x > 0$} 
+    \end{cases}\\
+     &=
+    \begin{cases}
+        x & \text{\rm{if } $x \ge 0$} \\
+        -x  & \text{\rm{if } $x < 0$} 
+    \end{cases}\\
+    &= |x|
+  \end{align*}    
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\section*{Triangle Inequality}
+
+\begin{thm}
+    $|x + y| \le |x| + |y|$ for all $x,y \in \R$.
+\end{thm}
+\pf (by cases) Suppose $x,y \in \R$.
+
+\textbf{Case 1}: ($x+y \ge 0$).  Then, $|x+y| = x+y$.  By Lemma \ref{lem:454}, 
+\[
+x \le |x| \hspace{1em } \text{ and } \hspace{1em}  y \le |y|.
+\]
+Therefore, $|x + y| \le |x| + |y|$.
+
+\textbf{Case 2}:  ($x+y < 0$).  Then, $|x+y| = -(x+y) = (-x) + (-y)$.  It follows, 
+\[
+-x \le |-x| = |x|.
+\]
+Similarly for $-y \le |-y| = |y|$.  Combining these, we have our result,
+\[
+|x + y| \le |x| + |y|.
+\]
+\qed 
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Homework}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.5 - Direct Proof
+% Problems: # 2, 7, 9, 18, 24, 33
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 2. Find integers $q$ and $r$ such that $n = dq + r$ and $0 \le r < d$.   
+\1 Find integers $q$ and $r$ such that $n = dq + r$ and $0 \le r < d$ where $n = 62, d = 7$.
+
+
+% 7. 
+\1 Evaluate $43 \texttt{ div } 9$
+
+
+% 9. 
+\1 Evaluate $28 \texttt{ div } 5$
+
+
+% 18.
+\1 Prove that 
+	\2 the product of any two consecutive integers is even.
+
+
+	\2 Rewrite proof of Theorem 4.5.3 based on part (a).
+
+
+
+% 24.
+\1 Prove that for all integers $m$ and $n$,if $m \mod{5} = 2$ and $n \mod{5} = 1$, then $mn \mod{5} = 2$.
+
+
+
+% 33
+\1 Given any integer $n$, if $n > 3$, could $n, n+2$, and $n+4$ all be prime?  Prove or give a counterexample.  
+
+
+\end{outline}

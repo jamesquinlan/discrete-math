@@ -1,0 +1,353 @@
+% 4.7 - Indirect Proof: Contradiction and Contrapositive
+
+
+\section*{Objectives}
+\begin{outline}
+\1 Prove statements indirectly using contradiction and contrapositive
+\1 Discuss proof as a problem-solving tool
+\end{outline}
+
+
+\subsection*{Overview}
+
+We introduce indirect proof methods from the context of number theory on statements about the properties of integers. For example, ``there is no greatest integer."
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\section*{Proof by Contradiction}
+
+Table \ref{tab:pq} provides true values for various statements. 
+These are relevant to the current discussion.  
+
+The logical underpinning of the proof-by-contradiction method is to show that $\overline{P} \Rightarrow (Q \wedge \overline{Q})$ is true. That is, $(\overline{P} \Rightarrow (Q \wedge \overline{Q})) \equiv T$.  By examining Table \ref{tab:pq}, it must be that $\overline{P}$ is false; in other words, $P$ is true! 
+
+
+\begin{table}[h!]
+\centering
+    \begin{tabular}{cccccc}
+    \toprule
+    $P$ & $Q$ & $P \Rightarrow Q$  & $\overline{P}$ & $P \wedge \overline{P}$   & $\overline{P} \Rightarrow Q$\\
+    \midrule
+    T   & T   & T   & F   &  F   &  T  \\
+    T   & F   & F   & F   &  F   &  T  \\
+    F   & T   & T   & T   &  F   &  T \\
+    F   & F   & T   & T   &  F   &  F \\
+    \bottomrule
+    \end{tabular}
+    \caption{Truth Table(s)}
+    \label{tab:pq}
+\end{table}
+
+\subsection*{To prove $P$ is True ($P = T$ for short)}
+\begin{outline}[enumerate]
+\1 Suppose $\overline{P}$ is true.
+\1 Find or use another statement that is true, call it $R$.
+\1 Deduce using logic, algebra, etc. that $\overline{R}$ is true.  
+\end{outline}
+
+\[
+(\overline{P} \rightarrow R \land \overline{R} )  \equiv T
+\]
+$\therefore \overline{P} \equiv F$.
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\begin{thm}
+    There is no greatest integer.
+\end{thm}
+\pf Suppose $N \ge n$ for all $n \in \Z$. Let $M = N + 1$.  $M \in \Z$ since $1 \in \Z$ and the integers are closed.  Moreover, $M = N+1 > N$.  So $N$ is both the greatest integer and not the greatest integer.  
+\qed 
+
+Note: symbolically, $P = $ There is no greatest integer.
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+\begin{thm}
+    No integer is both even and odd.
+\end{thm}
+\pf Suppose $n$ is both even and odd.  Then, be definition, $\exists a, b \in \Z$ such that $n = 2a$ and $n = 2b+1$.  Note, since $a,b \in \Z, a-b \in \Z$. We have, 
+\begin{align*}
+    n & = n \\
+    2a &= 2b + 1    \\
+    2(a - b) &=1 \\
+    a-b &= \frac{1}{2} \not \in \Z .
+\end{align*}
+\qed  
+
+\textbf{Note}: In the proof above, $P = $ ``no integer is both even and odd'' and $Q = a - b \in \Z$.  We assumed $\overline{P} = $ ``there is an integer that is both even and odd''.  We found $a - b \in \Z$ and $a - b \not \in \Z$.  Therefore, $\overline{P} \equiv F$, thus $P \equiv T$. 
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\begin{thm}
+    The sum of a rational and an irrational is irrational.
+\end{thm}
+\pf Let $x \in \Q    \;\land\; y \in \R \setminus \Q$.  Suppose $x + y \in \Q$.  By definition, there exists $a, b, c, d \in \Z$ with $b,d \ne 0$.  Consider, 
+\begin{align*}
+    x + y   &= \frac{a}{b} + y= \frac{c}{d} 
+\end{align*}
+and so, 
+\begin{align*}
+    \frac{a}{b} + y &= \frac{c}{d} \\
+       y &= \frac{c}{d} - \frac{a}{b}\\
+       &= \frac{bc - ad}{bd} \in \Q .
+\end{align*}
+This says $y \in \Q  \land  y \in \R \setminus \Q$.  Therefore, the supposition that $x + y \in \Q$ must be false. \qed 
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\begin{thm}
+    If $x, y \in \Q$, then $xy \in \Q$. 
+\end{thm}
+\pf (Direct Proof).  $x = a/b$ and $y = c/d$ with $a,b,c,d \in \Z$ and $b,d \ne 0$.  
+\[
+xy = \frac{a}{b} \cdot \frac{c}{d}  = \frac{ac}{bd} \in \Q .
+\]
+\qed 
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\begin{thm}
+    If $x \in \Q^*  \land y \in \R \setminus \Q$, then $xy \in \R \setminus \Q$. 
+\end{thm}
+\pf Suppose $xy \in \Q$. We have
+\[
+\frac{a}{b} \cdot y = \frac{c}{d} .
+\]
+So, $ady = bc \Rightarrow y = \frac{bc}{ad} \in \Q^*$ since we know that  $a,b,c,d \in \Z^*$.  \qed 
+
+
+
+
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+
+
+\section*{Contrapositive}
+
+To prove the universal statement, 
+\[
+\forall x \in D, P(x) \Rightarrow Q(x)
+\]
+use the following as a logical equivalence:
+\[
+P \Rightarrow Q \equiv \overline{Q} \Rightarrow \overline{P} .
+\]
+
+
+\begin{thm}
+    $\forall n \in \Z$, if $n^2$ is even then $n$ is even.  
+\end{thm}
+\pf Suppose $n$ is odd, there exists $k \in \Z$ such that $n = 2k+1$.  Then, $n^2 = 4k^2 + 4k +1 = 2(2k^2 + 2) + 1$ is odd.  By contrapositive, if $n$ is even, $n^2$ is even.  
+\qed 
+
+
+
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+\section*{Homework}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.7 - Indirect Proof
+% Problems: #  6, 7, 18, 24, 30
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\textsection 4.7 \#  6, 7, 18, 24, 30
+
+\begin{outline}[enumerate]
+
+% 6.  Formulate the negation, then prove by contradiction.
+\1 There is no greatest negative real number.
+
+
+ % Answer
+    \if \sols1
+    {\color{blue}
+    The negation is: \text{there is a greatest negative real number.}
+
+    \pf Suppose $a$ is the greatest negative real number. Then $a<0$ and $a \ge x$ for all negative $x \in \R$.  By assumption, $a \ge \frac{a}{2}$.   However, we also have $1 > \frac{1}{2} \Rightarrow a < \frac{a}{2}$ since multiplication by a negative ($a$) reverses the inequality.  Therefore, we have both $a \ge \frac{a}{2}$ and $a < \frac{a}{2}$.
+    }
+    \fi 
+    \hfill
+
+% 7. Formulate the negation, then prove by contradiction.
+\1 There is no least positive rational number.
+
+ % Answer
+    \if \sols1
+    {\color{blue}
+    The negation is: there is a least positive rational number. 
+
+    \pf Suppose there is a least positive rational $0 < a \in \Q$ and $a \le x$ for all $x \in \Q$. 
+    
+    Note that % Dividing both sides by $2$, we have, 
+    \[
+    0 < \frac{a}{2} 
+    \]
+    from $0 < a$ that $a < 2a$ by adding $a$ to both sides, which says that  
+    \[
+    \frac{a}{2} < a .
+    \]
+   So, we have that $\frac{a}{2}$ is positive and less than $a$.
+    }
+    \fi 
+    \hfill
+
+% 18. Prove by contradiction
+\1 If $a$ and $b$ are rational numbers, $b \ne 0$, and $r$ is an irrational number, then $a + br$ is irrational.  
+
+
+ % Answer
+    \if \sols1
+    {\color{blue}
+     \pf Suppose  $a$ and $b$ are rational numbers, $b \ne 0$, and $r$ is an irrational number. 
+     Let $P:= a + br$ is irrational.  Assume $\overline{P}$, that $a + br$ is rational.  Then 
+     \[
+     a + br = \frac{x}{y} 
+     \]
+     where $x,y \in \Z$ and $y \ne 0$. 
+     Since $a,b \in \Q$, there exists $s,t,u,v \in \Z$ such that $a = s/t$ and $b = u/v$ where $t,v \ne 0$.
+     Then, 
+     \[
+     \frac{s}{t} + \frac{u}{v} r = \frac{x}{y} .
+     \]
+     Solving for $r$, 
+     \[
+     r = \frac{vx}{uy} - \frac{vs}{ut}
+     \]
+     Note $b \ne 0$, then $u \ne 0$.  Thus, we have that $r \in \Q$.  Since $r$ is both rational and irrational, $a+br$ is irrational must be false.  
+    }
+    \fi 
+    \hfill
+
+
+
+
+
+
+
+
+
+
+% 24. Prove both ways: by contradiction and by contraposition
+\1 The reciprocal of any irrational number is irrational.  (The \textbf{reciprocal} of a nonzero real number $x$, is $1/x$).
+
+
+ % Answer
+    \if \sols1
+    {\color{blue}
+     \pf (by Contrapositive) Suppose $x \in \R$ and $1/x = a/b \in \Q$ for some $a,b \in \Z$ with $b \ne 0$.  Note, we also have $a \ne 0$.    
+     \[
+     \frac{1}{x} = \frac{a}{b} \Rightarrow x = \frac{b}{a} \in \Q .
+     \]
+     
+     % Let $P:= 1/x$ is irrational.  Suppose $\overline{P}$ is true, that is there exists $a,b \in \Z$ with $b \ne 0$ such that $1/x = a/b$.  
+     
+    }
+    \fi 
+    \hfill
+
+
+
+
+
+
+
+
+
+
+% 30. 
+\1
+	\2 Let $n=53$.  Find an approximate value for $\sqrt{n}$ and write a list of all the prime numbers less
+	   	than or equal to $\sqrt{n}$.  Is the following statement true or false? When $n=53$, $n$ is not divisible 
+		by any prime number less than or equal to $\sqrt{n}$.
+
+    
+ % Answer
+    \if \sols1
+    {\color{blue}
+    $\sqrt{53} \approx 7$, the primes less than $\sqrt{53}$ are $2, 3, 5$, and $7$, none of which divide $53$, so the statement is false.  
+     
+    }
+    \fi 
+    \hfill
+    
+
+	\2 Suppose $n$ is a fixed integer.  Let $S$ by the statement, ``$n$ is not divisible by any prime number less than or equal to $\sqrt{n}$.''  
+		The following is equivalent to $S$:
+		
+		\begin{quote}
+			$\forall$ prime numbers $p$, if $p$ is less than or equal to $\sqrt{n}$ then $n$ is not divisible by $p$
+		\end{quote}
+
+	Which of the following are negations for $S$?
+
+		\3 $\exists$ a prime number $p$ such that $p \le \sqrt{n}$ and $n$ is divisible by $p$.
+		\3 $n$ is divisible by every prime number less than or equal to $\sqrt{n}$.
+		\3 $\exists$ a prime number $p$ such that $p$ is a multiple of $n$ and $p$ is less than or equal to $\sqrt{n}$.
+		\3 $n$ is divisible by some prime number that is less than or equal to $\sqrt{n}$.
+		\3 $\forall$ prime number $p$, if $p$ is less than or equal to $\sqrt{n}$, then $n$ is divisible by $p$.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    Let $P:= p \le \sqrt{n}$ and $Q:= p\not | \; n$,
+    \begin{align*}
+        P \Rightarrow Q & \equiv \overline{P}  \lor Q \\
+        \neg (P \Rightarrow Q) & \equiv \neg (\overline{P}  \lor Q) \\
+                                & \equiv P \land \overline{Q}
+    \end{align*}
+     
+    }
+    \fi 
+    \hfill
+
+\end{outline}

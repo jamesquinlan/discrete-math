@@ -1,0 +1,264 @@
+% 4.3 Direct Proof Continued: Number Theory
+\vspace{-1.5em}
+\section*{Overview}
+In this lecture, we continue discussing direct proofs using familiar number systems for our context (e.g., $\Z$).  In this case, we look at more properties of integers and extend the investigation to rational numbers. The material follows \chapsec from the textbook.    
+
+
+\section*{Objectives}
+By the end of the lecture, you should be able to:
+\begin{outline}
+    \1 Determine whether a number is rational or irrational
+    \1 Prove properties of rational numbers
+    \1 Use previous mathematical results to derive new results % mathematical results  = true statements
+\end{outline}
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+ 
+
+%\begin{example}
+    %If $a,b \in \Z$, is $3a+3b$ divisible by $3$?  Yes, since $3a+3b = 3(a+b) = 3k$ (where $k = a+b$). % Thus, $3 \,|\, 3a+3b$.  
+%\end{example}
+
+
+
+
+% -----------------------------------
+\subsection*{Determine whether a number is rational or irrational}
+\textbf{Rational} comes from \textit{ratio}.  The definition of a rational number is given.
+
+\begin{definition}
+    A real number $r$ is \textbf{rational} if it can be expressed as a quotient of two integers with a nonzero denominator.  A real number that is not rational is \textbf{irrational}.  More formally, 
+    \[
+    r \in \Q \Longleftrightarrow \exists a,b \in \Z : r = \frac{a}{b} \wedge b \ne 0
+    \]
+\end{definition}
+\vspace{1em}
+
+To determine whether a real number is rational, we check the definition.
+
+\begin{example}
+    The number $2/3$ is a rational since it is a ratio of integers $2$ and $3$ where the denominator $3 \ne 0$. \\
+\end{example}
+
+
+\begin{example}
+    The number $0.121212121212\dots$ is rational since if we let $x = 0.121212121212\dots$, then 
+    \[
+    100x - x = 99x
+    \] 
+    In this case, $12.12121212\dots  - 0.0.121212121212\dots = 12$.  That is, $99x = 12$ or $x = \frac{12}{99}$.   
+\end{example}
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+\subsection*{Proving properties of rational numbers}
+
+Although not strictly a property of rational number, we have the following important property of real numbers (which include the rational numbers).
+
+\begin{thm}[Zero Factor Property]
+    If both $a, b  \ne 0$, then $ab \ne 0$.
+    
+    \pf Equivalently, ``if $ab = 0$, then $a = 0$ or $b = 0$''. Suppose $a \ne 0$, then since $a \in \R$, $\exists a^{-1} \in \R$.  We have,   
+    \begin{align*}
+        ab &= 0  &  \\
+        a^{-1}ab &= a^{-1}0  & \text{Multiply both sides}\\
+        b &= 0 & \text{Cancel and multiply}.
+    \end{align*}
+ 
+\end{thm}
+
+
+
+
+
+
+\vspace{1em}
+\begin{thm}
+    The rational numbers are closed under addition and multiplication.
+
+    \pf Let $x,y \in \Q$. Then $x = \frac{a}{b}$ and $y = \frac{c}{d}$ for some $a,b,c,d \in \Z$.  We have, 
+    \[
+        x + y = \frac{ad + bc}{bd}  
+    \]
+    and
+    \[
+        x  y = \frac{ac}{bd} .  
+    \]
+    In both cases, the numerator and denominator are integers. Furthermore, from the Zero Factor Property, since $b,d \ne 0$, then $bd \ne 0$.  
+    \qed
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+\subsection*{New Results from Old}
+
+Notice in Theorem above regarding the closure of the rational numbers, we use a previous known results, namely that the integers are closed and the Zero Factor Property.  This is the idea of this section.
+
+Suppose we established the following:
+\begin{outline}[enumerate]
+    \1\label{1} The sum, product, and difference of any two even integers are even.
+
+    \1\label{2} The sum and difference of any two odd integers are even.
+
+    \1\label{3} The product of any two odd integers is odd.
+
+    \1\label{4} The product of an even and odd integers is even.
+
+    \1\label{5} The sum of an even and odd integer is odd.
+
+    \1\label{6} The difference of an odd and even (or odd and even) is odd.
+\end{outline}
+
+
+\begin{example}
+    Use the properties above to prove if $a$ is even and $b$ is odd integer, then 
+    \[
+    \frac{a^2 + b^2 + 1}{2} \in \Z .
+    \]
+    \pf We know from (3) and (4) that $a^2$ is even and $b^2$ is odd.  We also know, from (5) that $a^2 + b^2$ is odd, and from (2) then the numerator $a^2 + b^2 + 1$ is even.  By definition, there exists a $k \in \Z$ such that $a^2 + b^2 + 1 = 2k$.  Finally, we have   
+    \begin{align*}
+        \frac{a^2 + b^2 + 1}{2} &= \frac{2k}{2} \\
+        &= \frac{\cancel{2} k}{\cancel{2}} \\
+        &= k .
+    \end{align*}
+\end{example}\qed
+
+
+
+
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+\section*{Exercises}
+
+\# 5, 8, 11, 22, 24
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.3 - Direct Proof
+% Problems: # 5, 8, 11, 22, 24
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 5
+\1 Write $0.56565656\dots$ as a ratio of two integers.
+
+% Answer
+\if \sols1
+{\color{blue}
+ $\frac{56}{99}$
+}
+\fi 
+\hfill
+
+
+% 8
+\1 The zero product property says that if a product of two real numbers is $0$, then one of the numbers must be $0$.
+
+	\2 Write this property formally using quantifiers and variables.
+    % Answer
+    \if \sols1
+    {\color{blue}
+     \[
+     \forall a,b \in \R, ab = 0 \Rightarrow (a = 0 \vee b = 0) .
+     \]
+    }
+    \fi 
+    \hfill
+
+	\2 Write the contrapositive of your answer to part (a).
+    % Answer
+    \if \sols1
+    {\color{blue}
+     \[
+     \forall a,b \in \R, (a \ne 0 \wedge b \ne 0)  \Rightarrow ab \ne 0) .
+     \]
+    }
+    \fi 
+    \hfill
+
+	\2 Write an informal version (without quantifier symbols or variables) 
+		for answer to part (b).
+  
+    % Answer
+    \if \sols1
+    {\color{blue}
+    If neither of two real numbers is zero, then their product is nonzero.
+    }
+    \fi 
+    \hfill
+
+    % If neither of two real numbers is zero, then their product is nonzero.
+
+% 11
+\1 Prove that every integer is a rational number.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    Let $x \in \Z$, then $x = \frac{x}{1}$.  Since $1 \ne 0 \in \Z$, by definition, $x \in \Q$.
+    }
+    \fi 
+    \hfill
+
+
+% 22 Use properties of even and odd integers. 
+%    Indicate which properties are used to justify reasoning.
+\1 True or False?  If $a$ is any odd integer, then $a^2 + a$ is even. 
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    Let $a$ be an odd integer, then $\exists k \in \Z : a = 2k + 1$.  Consider $a^2 + a = (2k+1)^2 + (2k+1) = 4k^2 +4k + 1 + 2k + 1 = 4k^2 + 6k + 2 = 2(2k^2 + 3k + 1) = 2K$ where $K = 2k^2 + 3k + 1$.  Since the integers are closed under addition and multiplication, $K \in \Z$.  Therefore, by definition, $a^2 + a$ is even.
+    }
+    \fi 
+    \hfill
+
+
+
+% 24 Derive as a corollary from Theorems 4.3.1, 4.3.2, and exercises 12, 13, 14, 15, and 17.
+\1 For any rational numbers $r$ and $s$, $2r + 3s$ is rational.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    If $r,s \in \Q$, then there exists $a_r, b_r, a_s$, and $b_s$, with $b_r$ and $b_s$ nonzero, such that $r =  \frac{a_r}{b_r}$ and $s =  \frac{a_s}{b_s}$.  Then we have
+    \[
+    r+s = \frac{a_r}{b_r} + \frac{a_s}{b_s} = \frac{a_r b_s + a_s b_r}{b_r b_s} .
+    \]
+    Because of closure properties, the numerator and denominator are integers.  Furthermore, the denominator is nonzero by the Zero Factor Theorem.
+    }
+    \fi 
+    \hfill
+
+\end{outline}

@@ -1,0 +1,249 @@
+% 4.2 Direct Proof II
+\section*{Objectives}
+\begin{outline}
+\1 Provide directions for writing proofs of universal statements
+\1 Show how to disprove an existential statement
+\1 Identify and List Common Proof Mistakes
+% \1 List some common proof mistakes
+\end{outline}
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+% ----------------------------------
+%\begin{outline}
+%\1 Proof is a way to communicate an argument for the truth of a mathematical statement.
+
+%\1 Proof should lead to a better understanding of the statement's truth.
+
+%\end{outline}
+
+% The sum of the first n odd integers is n^2
+%\[ 1+ 3 + 5 + 7 + \cdots + (2k - 1) = n^2 \]
+
+% ----------------------------------
+\subsection*{Directions for Writing Proofs of Universal Statements}
+Although there are no hard rules, here are some fairly standard styles of proofs.
+
+\begin{outline}[enumerate]
+\1 Write the statement (completely).  This also serves as a reference to the reader.
+
+\1 Mark the beginning of the proof with \textit{Proof}, \textbf{Proof}, or \textit{pf}.
+
+\1 Start your proof with the assumptions (analogous to declaring variables and type in a programming language).  For example, ``Suppose $m$ and $n$ are even integers'' or ``Let $x$ be a real number greater than $2$''.
+
+\1 Use complete, grammatically correct sentences.  You may use mathematical equivalent sentences or incorporate symbols into your sentences.  
+
+\1 Any assumption should be prefaced with ``suppose'' or ``assume''.  
+
+\1 Remind the reader what needs to be shown, e.g., ``We must show that...''.  
+
+\1 Justify each step (or assertion) in the proof.  Each assertion should come from the hypothesis, followed by definition, a result of a previous step or theorem using phrases such as ``\textit{by hypothesis}'', ``\textit{by theorem} ...'', ``\textit{by definition} ...'' and so forth.  Use the name or number of a theorem or definition to be specific.
+
+
+\1 Include words like: \textit{Because}, \textit{Since}, \textit{Then}, \textit{Thus}, \textit{Hence}, \textit{So}, \textit{Therefore}, \textit{Consequently}.
+
+\1 If a previous result is needed, use \textit{recall} or \textit{note}.
+
+\1 Introduce new variables by ``\textit{Let}'', e.g., ``Let $x$ be an integer.  
+
+\end{outline}
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+% ----------------------------------
+\subsection*{Common Mistakes in Proofs}
+%  
+\begin{outline}[enumerate]
+
+\1 Argue by example.  ``I like pizza, and she likes pizza; therefore, everyone likes pizza.''
+% A general statement can never be proven by a few examples, even if those examples are many. 
+Note: Looking at examples gives remarkable insight and provides evidence to support the claim; however, it does not constitute proof.
+A general statement can never be proven by a few examples, even if those examples are many. 
+
+\1 Begging the question - \textit{assume what is being proven.}  For example, proving the product of odd integers is odd might (erroneously) go like:  ``Suppose $m$ and $n$ are odd integers.  Because the product of odd integers is odd, $mn$ is odd.''
+
+% 
+
+\1 Jumping to a conclusion.  This occurs when a crucial step that needs to be justified is missing.  For example, ``Suppose $m$ and $n$ be arbitrary even integer.  By definition, $m = 2r$ and $n = 2s$ for some integers $r,s$.  Then $m+n = 2r + 2s$ and so is even.  Note that a key step, namely, \hl{$2(r + s)$ where $r+s$ is an integer since the integers are closed under addition}, was left out.  
+
+
+
+\1 Using the same letter for different things.  The definition of odd says -- $n$ is odd if an integer $k$ exists such that $n = 2k+1$.  Now, if applying that definition to two odd numbers naively, this could happen:
+\begin{quote}
+    \textit{Suppose $m$ and $n$ are odd integers.  By definition, $m = 2k+1$ and $n = 2k+1$.}
+\end{quote}
+Note here the $m = n$, which is likely not the case.  
+Continuing this proof would only show that twice an odd is odd, not what was intended.
+
+\1 Confusing what \textit{is} shown and what \textit{remains} to be shown.  
+
+\1 Use ``any'' or ``some''.
+
+\1 Misuse of ``\textit{if}'' instead of ``\textit{because}'', e.g., ``Suppose $p$ is prime.  Now, \textbf{if} $p$ is prime, then $p$ cannot be written as a product of two smaller positive integers.''  The ``primness'' of $p$ is in doubt.  
+
+ 
+%
+\end{outline}
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+
+
+
+
+\begin{example}
+The difference between any odd integer and any even integer is odd.
+
+\pf Suppose $a$ is any odd integer and $b$ is any even integer.  By definition, there are integers $r$ and $s$ such that $a = 2r + 1$ and $b = 2s$.  Then, 
+\begin{align*}
+    a - b   &= 2r+1 - 2s \\
+            &= 2r - 2s + 1 \\
+            &= 2(r-s) + 1
+\end{align*}
+Because the integers are closed under subtraction, $r - s \in \Z$, therefore $a - b$ is odd by definition of odd.
+\end{example}
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+\subsection*{Showing an Existential Statement is False}
+
+The negation of an existential statement is a universal statement.  Therefore, one way to show an existential statement is false is to prove its negation is true.  
+
+\[
+\neg\ \exists x : P(x) \equiv \forall x : \neg\ P(x)
+\]
+
+
+
+
+\begin{example}
+    
+\end{example}
+
+
+
+
+
+
+
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+\section*{Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.2 - Direct Proof
+% Problems: # 2, 5, 13, 23, 25, 36
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\# 2, 5, 13, 23, 25, 36
+
+\begin{outline}[enumerate]
+
+% 2
+\1 Prove every integer $m$, if $m$ is even then $3m+5$ is odd.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    Suppose $m = 2k+1$ for some $k \in Z$, then $3m+5 = 3(2k+1) + 5 = 6k + 8 = 2(3k+4) = 2M$ where $M = 3k+4 \in \Z$.
+    }
+    \fi 
+    \hfill
+
+
+% 5
+\1 Prove if $a$ and $b$ are any odd integers, then $a^2 + b^2$ is even.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    Suppose $a = 2k + 1$ and $b = 2j+1$ for (some) $k,j \in \Z$.  It follows that 
+    \[ 
+    a^2 + b^2 = (2k+1)^2 + (2j+1)^2 = 4(k^2 + j^2) + 4(k+j) + 2 = 2M
+    \]
+    where $M = 2(k^2 + j^2) + 2(k+j) + 1 \in \Z$.  
+    Hence, $a^2 + b^2$ is even. 
+    }
+    \qed
+    \fi 
+    \hfill
+    
+
+% 13
+\1 Disprove the statement: ``There exists an integer $n$ such that $6n^2 + 27$ is prime.''
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    The statement written with quantifiers is, 
+    \[
+    \exists n \in \Z : 6n^2 + 27 \text{ is prime.}
+    \]
+    We instead prove, 
+    \[
+    \forall n \in \Z, 6n^2 + 27 \text{ is composite.}
+    \]
+    We have $6n^2 + 27 = 3(2n^2 + 9)$.  That is, we have a factor, $p = 3$ such that  $1 < p < 6n^2 + 27$.  Note: $1 < 9 < 2n^2 + 9 < 6n^2 + 27$.  
+    }
+    \qed
+    \fi 
+    \hfill
+
+    
+% 23
+\1 Prove or give a counterexample: ``The product of any even integer and any integer is even.''
+
+    % Answer
+    \if \sols1
+    
+    {\color{blue}
+    \pf Let $m = 2k$ for some $k \in \Z$ and $n \in \Z$ be arbitrary.  The product, $m n = 2(kn)$.  Since the integers are close under multiplication, $kn \in \Z$, therefore $m n$ is even by definition.  
+    }
+    \fi 
+    \hfill
+
+    
+% 25
+\1 Prove or give a counterexample: ``The difference of any two even integers is even.''
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+     \pf Let $m = 2k$ for some $k \in \Z$ and $n = 2j$ for $j \in \Z$.  We have, 
+     \[
+     m - n = 2k - 2j = 2(k-j) .
+     \]
+     Since $\Z$ is closed under addition, $k - j \in \Z$, thus by definition, $m - n$ is even.
+    }
+    \fi 
+    \hfill
+    
+% 36
+\1 Prove or give a counterexample: ``The difference of the squares of any two consecutive integers is odd.''
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+    Let $m = 2k \pm 1$ and $n = 2k$ for $k \in \Z$.  It follows, 
+    \[
+    m^2 - n^2 = (4k^2 \pm 4k + 1)  - 4k^2  = 1 \pm 4k =  2(\pm2k) + 1. 
+    \]
+    Since $\pm 2k \in \Z$, by definition the difference is odd.
+    We could also reverse the difference.  
+    \[
+    n^2 - m^2 = -1 \mp 4k = \mp 4k -1 = 2(\mp 2k +1 - 1) -1 = 2(\mp2k -1) + 1.
+    \]
+    Now since $\mp2k - 1 \in \Z$, we have $n^2 - m^2$ is also odd.  
+    }
+    \fi 
+    \hfill
+\end{outline}

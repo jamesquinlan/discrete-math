@@ -1,0 +1,316 @@
+% 4.4 Direct Proof Continued: Number Theory
+
+\section*{Objectives}
+\begin{outline}
+\1 Define divisibility
+\1 Prove (or disprove) properties of divisibility
+\1 Prove divisibility of algebraic expressions
+\1 State unique factorization of integers theorem 
+
+\end{outline}
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Definition of Divisibility}
+%\begin{definition}
+    If $n$ and $d$ are integers and $d \ne 0$, then
+    \[
+    d \,|\, n  \Leftrightarrow \exists k \in \Z : n = d \cdot k
+    \]
+    We say $n$ is \textbf{divisible by} $d$ or
+        \begin{outline}
+            \1 $n$ is a \textbf{multiple} of $d$
+            \1 $d$ is a \textbf{factor} of $n$
+            \1 $d$ is a \textbf{divisor} of $n$
+            \1 $d$ \textbf{divides} $n$
+        \end{outline}
+%\end{definition}
+
+\begin{example}
+    \begin{outline}[enumerate]
+        \1 Is $21$ divisible by $3$?  (\textit{Yes, but state why using the definition}.)
+        \1 Does $5$ divide $40$?
+        \1 Is $7$ a factor of $-7$?
+        \1 Is $32$ a multiple of $-16$?
+        \1 Does any nonzero $k$ divide $0$?
+    \end{outline}
+\end{example}
+
+\begin{lemma}\label{lem:1}
+If $x,y \in  \R$ and $xy > 0$, then either $x,y >0$ or $x,y <0$.
+\end{lemma}
+\pf Note that $x,y \ne 0$.  By trichotomy (the partitioning into three parts), $x > 0$ or $x < 0$ (similarly for $y$).  If $x > 0$, we have, 
+\begin{align*}
+xy &> 0 \\
+x^{-1} xy &> x^{-1} \cdot 0\\
+y &> 0 .
+\end{align*}\qed
+%b = 1 \cdot b = a^{-1} a b 
+
+%% THEOREM: 
+\begin{thm}
+    $\forall a,b \in \Z^+$, if $a | b$, then $a \le b$.
+\end{thm}
+\pf Let $a,b \in \Z^+$ and suppose $a | b$ (i.e., $b = ak$ for some $k \in \Z$).
+Since $a > 0$ and $b > 0$, then by Lemma \ref{lem:1}, $k \ge 1$.  Then, 
+\[
+a \le ak = b .
+\]\qed
+
+\begin{thm}
+    The only divisors of $1$ are $1$ and $-1$.
+\end{thm}
+\pf It is easy to see that $\pm 1$ are divisors of $1$.  Suppose $m \in \Z$ is a divisor of $1$ that is not $1$ or $-1$.  There exists $n \in \Z$ such that $mn = 1$.  Then, by the lemma above, either $m$ and $n$ are positive or negative.  By the theorem, $m \le 1$, however, the only positive integer less than or equal to $1$ is $1$.  On the other hand, if $m < 0$, then $(-m)(-n) = mn = 1$ and so $-m$ is a positive divisor of $1$.  Therefore, $-m = 1 \Rightarrow m = -1$. \qed 
+
+% \rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+\subsection*{Divisibility of Algebraic Expressions}
+
+%\begin{example}
+%    If $a,b \in \Z$, is $3a+3b$ divisible by $3$?  Yes, since $3a+3b = 3(a+b) = 3k$ (where $k = a+b$). % Thus, $3 \,|\, 3a+3b$.  
+% \end{example}
+
+
+
+
+Given an algebraic expression, is it divisible by X?
+
+\begin{example}
+    If $a$ and $b$ are integers, show $3a + 3b$ is divisible by $3$.  
+\end{example}
+ \proof $3a + 3b = 3(a+b)$. Since the expression can be written as $3$ times an integer. 
+
+
+\begin{example}
+    If $a$ and $b$ are integers, show $6a(2b + 10)$ is divisible by $4$.  
+\end{example}
+ 
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+\section*{Properties of Divisibility}
+
+By properties
+\begin{outline}
+    \1 Commutative
+    \1 Transitive
+    \1 Divisibility by a prime
+    \1 Can you think of other properties?
+\end{outline}
+
+\begin{example}
+(\textbf{Commutativity}): Does the following hold?  If $a | b$, then $b | a$.    
+\end{example}
+
+\textbf{Note}: try to disprove with a counterexample first. We are all familiar enough with divisibility.  If a property is false, we can probably find a counterexample with integers less than $50$ (in absolute value to include negative integers).
+
+\begin{example}
+    Prove or disprove the statement: for all integers $a$ and $b$, if $a | b$ and $b | a$, then $a = b$.  
+\end{example}
+
+
+\begin{thm}[Transitivity of Divisibility]
+    $\forall a,b,c \in \Z$, if $a | b \;\wedge\; b | c$, then $a | c$.
+
+    \pf Suppose $a, b$, and $c$ are integers such that $a | b$ and $b | c$.  By definition, a $r$ and $s$ exist, such as $b = ar$ and $c = bs$.  Substituting we have, 
+    \begin{align*}
+        c = bs    &= (ar) s \\
+                    &= a (r s).
+    \end{align*}
+    Therefore, by definition, $a | c$.
+\end{thm}
+
+
+% ------------------------------------------
+
+
+
+\begin{thm}[Prime Divisibility]
+    Any integer $n > 1$ is divisible by a prime number.
+\end{thm}
+\pf Suppose $n > 1$.  
+We're done if $n$ is prime because $n | n$ (i.e., $n = 1 \cdot n$).  
+So, assume $n$ is not prime. Therefore, $n$ must be composite. By definition of composite (see Section 4.1 p. 163), % there exists $r_0, s_0 \in \Z$ such that. 
+\[
+n = r_0 s_0
+\]
+where $r_0$ and $s_0$ are integers and $1 < r_0 < n$ and $1 < s_0 < n$. We have that $r_0 | n$ (by definition of divisibility).  
+If $r_0$ is prime, then we're done.  If not, then we repeat the argument above and have, 
+\[
+r_0 = r_1 s_1
+\]
+where $r_1$ and $s_1$ are integers and $1 < r_1 < r_0$ and $1 < s_1 < s_1$. We have that $r_1 | r_0$ and by transitivity, $r_1 | n$.  If $r_1$ is prime, we are done.  Otherwise, we continue this way until we find a prime that divides $n$ since $1 < r_k < n$, the process is finite.  
+
+
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+% -------------------------------------------------
+\section*{Fundamental Theorem of Arithmetic}
+
+\begin{thm}[Unique Factorization Theorem]
+Any integer $n > 1$, there exists $k \ge 1$ distinct prime numbers $p_1, \dots, p_k$ and positive integers $e_1, \dots, e_k$ such that
+\[
+n = p_{1}^{e_1} p_{2}^{e_2}  \cdots p_{k}^{e_k} .
+\]
+Moreover, this factorization, up to reordering, is unique.  In other words, switching $p_1$ and $p_k$ does not change the factorization.  
+\end{thm}
+
+
+% EXAMPLE
+\begin{example}
+    The integer $24 = 2 \cdot 2 \cdot 2 \cdot 3 = 2^3 \cdot 3$.  Note: $24 = 2 \cdot 3 \cdot 2 \cdot 2$, but this is the same; thus, the prime factorization of $24$ is unique.  
+\end{example}
+
+A \textbf{standard} way to write the factorization is in increasing primes powers.
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+\section*{Homework}
+\# 3, 5, 17, 28, 31, 45
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 4.4 - Direct Proof
+% Problems: # 3, 5, 17, 28, 31, 45
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 3
+\1 Does $5 | 0$?
+% Answer
+    \if \sols1
+    {\color{blue}
+    Yes.  $0 = 5 \cdots 0$.
+    }
+    \fi 
+    \hfill
+
+% 5
+\1 Is $6m(2m + 10)$ divisible by $4$?
+
+% Answer
+    \if \sols1
+    {\color{blue}
+    Yes.  $6m(2m + 10) = 12m^2 + 60m = 4(3m^2 + 15m)$.
+    }
+    \fi 
+    \hfill
+
+% 17
+\1 For all integers $a, b, c$, and $d$, if $a | c$ and $b | d$, then $ab | cd$.   
+% Answer
+    \if \sols1
+    {\color{blue}
+    \pf Let $a, b, c$, and $d$ be integers and suppose $a | c$ and $b | d$.  By definition, $c = ar$ and $d = bs$ for $r,s \in \Z$.  Substituting and using associative and commutative properties, we have,  
+    \[
+    cd = (ar)(bs) = (ab)(rs).
+    \]
+    Therefore, $ab | cd$, since $rs \in \Z$.
+    }
+    \fi 
+    \hfill
+
+
+
+% 28 Prove or give counterexample
+\1 For all integers $a, b$, and $c$, if $a | bc$, then $a | b$ or $a | c$.
+
+% Answer
+    \if \sols1
+    {\color{blue}
+    False.  Let $a = 6$, $b  = 3$, and $c = 2$.  Clearly $a | bc$, however, $a$ divides neither.  
+    %Let $a, b$, and $c$ be integers and suppose $a | bc$.  By definition, $bc = a k$ for some $k \in \Z$.
+    }
+    \fi 
+    \hfill
+    
+
+
+% 31 Prove or give counterexample
+\1 For all integers $a$ and $b$, if $a | 10b$, then $a | 10$ or $a | b$.  
+
+% Answer
+    \if \sols1
+    {\color{blue}
+    False.  Let $a = 6$ and $b  = 3$.  Then clearly $6 | 30$, however, $a$ divides neither $10$ nor $3$.  
+    %Let $a, b$, and $c$ be integers and suppose $a | bc$.  By definition, $bc = a k$ for some $k \in \Z$.
+    }
+    \fi 
+    \hfill
+
+% 45
+\1 Prove that if $n$ is any nonnegative integer whose decimal representation ends in $5$, then $5 | n$. 
+
+% Answer
+    \if \sols1
+    {\color{blue}
+    \pf Suppose an integer $n \ge 0$ has a decimal representation ending in $5$.  Then $n = 10k + 5$.  Therefore, we can write $n = 5(2k+1)$, which matches the definition of divisibility.  
+
+    
+    %\[
+    %    n = d_j d_{j-1} \dots d_2 d_1 5
+    %\]
+    %where $d_i \in \{0,1,2,3,4,5,6,7,8,9\}$ for $1 \le i \le j$ are the digits in its representation.  
+    %We can use place value and write $n$ as, 
+    %\begin{align*}
+    %n   &= d_j \cdot 10^j + d_{j-1} \cdot 10^{j-1} + \cdots + d_1 \cdot 10 + 5 \\ 
+    %    &= 10 (d_j \cdot 10^{j-1} + d_{j-1} \cdot 10^{j-2} + \cdots + d_1) + 5 \\
+    %    &= 5 ( d_j \cdot 2 \cdot 10^{j-1} + d_{j-1} \cdot 2 \cdot  10^{j-2} + \cdots + 2 \cdot d_1  + 1).
+    %\end{align*}
+    %Because, $d_j \cdot 2 \cdot 10^{j-1} + d_{j-1} \cdot 2 \cdot  10^{j-2} + \cdots + 2 \cdot d_1  + 1 \in \Z$, we have $5 | n$.  
+    % To prove $5 | n$, we need to find an integer $k$ such that $n = 5k$.  
+    }
+    \fi 
+   % \hfill
+
+    %\1 (Extra Problem).  Prove that $n^4 + 4^n$ is factorable for $n > 1$.
+
+    % Answer
+    \if \sols1
+    {\color{blue}
+   If $n$ is even, then $n^4$ and $4^n$ are even. And so, $n^4 + 4^n$ is even and thus factorable (i.e., factor out a $2$).  Now, suppose $n$ is odd.  Then, 
+   \begin{align*}
+       n^4 + 4^n    &=  (n^2 + 2^n)^2 - 2n^2 2^n \\
+                    &=  (n^2 + 2^n)^2 - n^2 2^{n+1} \\
+                    &=  (n^2 + 2^n)^2 - (n 2^{(n+1)/2})^2 \\
+                    &=  \left((n^2 + 2^n) - (n 2^{(n+1)/2})^2 \right) \left((n^2 + 2^n) + (n 2^{(n+1)/2})^2 \right)
+   \end{align*}
+   And so is factorable.
+    }
+    \fi 
+   % \hfill
+
+    
+\end{outline}
