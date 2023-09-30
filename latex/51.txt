@@ -4,7 +4,7 @@
 % Discrete Mathematics II (COS 280)
 % James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
 % Section: 5.1 - Sequences
-% Problems: # 1, 4, 6, 13, 14, 15, 27*, 58, 77
+% Problems: # 1, 4, 6, 13, 14, 15, 24, 27*, 58, 77
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{outline}[enumerate]
@@ -35,6 +35,11 @@
 \1 Find the explicit formulas for the sequence: $0, -\frac{1}{2}, \frac{2}{3},  -\frac{3}{4}, \frac{4}{5},  -\frac{5}{6}, \frac{6}{7}$
 
 
+% 24
+\1 Compute the summation:
+\[
+	\sum_{n=0}^0 (n+1) \cdot 2^n
+\]
 
 % 27*
 \1 Compute the summation:
@@ -56,7 +61,7 @@
 
 % 77. 
 \1
-	\2 Prove that $n! +3$ is divisible by $2$, for every integer $n \ge 2$.
+	\2 Prove that $n! + 2$ is divisible by $2$, for every integer $n \ge 2$.
 
 	\2 Prove that $n! + k$ is divisible by $k$, for every integer $n \ge 2$ and $k = 2, 3, \dots, n$.
 
