@@ -1,8 +1,12 @@
+# Discrete Math II Labs (in Python)
+
 
 [University of Southern Maine Department of Computer science](https://cs.usm.maine.edu)<br>
 [COS 280 Discrete Mathematics II](https://cs.usm.maine.edu/~james.quinlan/cos280/)<br>
 Instructor: [James Quinlan](https://cs.usm.maine.edu/~james.quinlan) <br>
 
+
+## Descriptions
 
 [Lab 1](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L1.md) - an introduction to Python covering comments (single line and block), assigments and variables, math operations, logical and relational operators, if-then-else statements, loops, lists, random numbers and functions.
 
