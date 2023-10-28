@@ -20,4 +20,7 @@ Instructor: [James Quinlan](https://cs.usm.maine.edu/~james.quinlan) <br>
 
 [Lab 6](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L6.md) - Coding exercises will "show" formulas that will be proven in class using mathematical inducation.
 
-[Lab 7](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L7.md) - In class we are moving on to set theory.  Therefore, we will introduce and work with sets and set operations (i.e., union, intersection, and difference) in Python.  Coding exercises will ask that you verify elements belong to a set and test whether one set is a subset of another.  Python dictionaries are also introduced.   
+[Lab 7](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L7.md) - In class we are moving on to set theory.  Therefore, we will introduce and work with sets and set operations (i.e., union, intersection, and difference) in Python.  Coding exercises will ask that you verify elements belong to a set and test whether one set is a subset of another.  Python dictionaries are also introduced.  
+
+ 
+
