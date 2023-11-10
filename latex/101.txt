@@ -1,3 +1,4 @@
+
 % +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % University of Southern Maine
 % Department of Computer Science
@@ -13,7 +14,7 @@
 \1 Consider the graph
 	
 	
-\begin{figure}[!h]
+\begin{figure}[ht!]
     \centering
 	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 		\clip(-3.28,0.64) rectangle (7.06,5.08);
@@ -54,6 +55,7 @@
 
 		\end{scriptsize}
 	\end{tikzpicture}
+ \caption{Graph in Problem 1.}
 \end{figure}
 
 
@@ -69,39 +71,246 @@
 
 
 % 6bc.
-\1 An edge whose removal disconnects the graph of which it is a part of is called a \textbf{bridge}.
-Find all brides for each of the following graphs. 
+\1 An edge whose removal disconnects the graph it is a part of is called a \textbf{bridge}.
+ 
 
-	\2 
+	\2 Find all bridges in the graph: 
+
+\begin{figure}[ht!]
+    \centering
+     \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.18,0.7) rectangle (6.46,6.24);
+\draw [line width=1.pt] (1.,5.)-- (3.,5.);
+\draw [line width=1.pt] (5.,5.)-- (3.,5.);
+\draw [line width=1.pt] (1.,5.)-- (1.,4.);
+\draw [line width=1.pt] (1.,4.)-- (3.,4.);
+\draw [line width=1.pt] (3.,4.)-- (3.,3.);
+\draw [line width=1.pt] (3.,3.)-- (2.,2.);
+\draw [line width=1.pt] (2.,2.)-- (4.,2.);
+\draw [line width=1.pt] (4.,2.)-- (3.,3.);
+\draw [line width=1.pt] (3.,5.)-- (3.,4.);
+\draw [line width=1.pt] (1.,4.)-- (0.,3.);
+\begin{scriptsize}
+\draw [fill=black] (1.,5.) circle (2.5pt);
+\draw[color=black] (0.88,5.47) node {$A$};
+\draw [fill=black] (3.,5.) circle (2.5pt);
+\draw[color=black] (2.98,5.47) node {$B$};
+\draw [fill=black] (5.,5.) circle (2.5pt);
+\draw[color=black] (4.96,5.43) node {$C$};
+\draw [fill=black] (1.,4.) circle (2.5pt);
+\draw[color=black] (0.98,3.69) node {$D$};
+\draw [fill=black] (3.,4.) circle (2.5pt);
+\draw[color=black] (3.22,4.11) node {$E$};
+\draw [fill=black] (3.,3.) circle (2.5pt);
+\draw[color=black] (3.22,3.19) node {$F$};
+\draw [fill=black] (2.,2.) circle (2.5pt);
+\draw[color=black] (1.62,1.85) node {$G$};
+\draw [fill=black] (4.,2.) circle (2.5pt);
+\draw[color=black] (4.22,1.85) node {$H$};
+\draw [fill=black] (0.,3.) circle (2.5pt);
+\draw[color=black] (-0.3,3.31) node {$I$};
+\end{scriptsize}
+\end{tikzpicture}
+\caption{Graph in Problem 2}
+\end{figure}
 
 
-	\2
+
+
+\2 
+\begin{center}
+ \begin{tikzpicture}
+ % define coordinates
+\def\a{(0,0)}
+\def\b{(0,2)}
+\def\c{(0,4)}
+\def\d{(1,4)}
+\def\e{(3,4)}
+\def\f{(4,5)}
+\def\g{(4,3)}
+\def\h{(2,2)}
+\def\i{(3,2)}
+\def\j{(2.5,1)}
+
+% Offset adjustments
+\def\p{0.35}
+\def\q{0.25}
+
+% define label positions
+\def\aa{(0-\p,0)}
+\def\bb{(0-\p,2)}
+\def\cc{(0-\p,4)}
+\def\dd{(1,4+\p)}
+\def\ee{(3,4+\p)}
+\def\ff{(4,5+\p)}
+\def\gg{(4+\p,3)}
+\def\hh{(2+\q,2+\q)}
+\def\ii{(3,2+\p)}
+\def\jj{(2.5,1-\p)}
+
+%% vertices
+\draw[fill=black] \a circle (3pt);
+\draw[fill=black] \b circle (3pt);
+\draw[fill=black] \c circle (3pt);
+\draw[fill=black] \d circle (3pt);
+\draw[fill=black] \e circle (3pt);
+\draw[fill=black] \f circle (3pt);
+\draw[fill=black] \g circle (3pt);
+\draw[fill=black] \h circle (3pt);
+\draw[fill=black] \i circle (3pt);
+\draw[fill=black] \j circle (3pt);
+
+%% vertex labels
+\node at \aa {$a$};
+\node at \bb {$b$};
+\node at \cc {$c$};
+\node at \dd {$d$};
+\node at \ee {$e$};
+\node at \ff {$f$};
+\node at \gg {$g$};
+\node at \hh {$h$};
+\node at \ii {$i$};
+\node at \jj {$j$};
+
+%%% edges
+\draw[thick] \a -- \c;
+\draw[thick] \c -- \e;
+\draw[thick] \e  -- \f -- \g -- \e;
+\draw[thick] \b -- \i -- \h -- \d -- \b ;
+\draw[thick] \i -- \j;
+\end{tikzpicture}
+\end{center}
+
+
+
+
+
+
+
 
 
 
 
 % 8.
-\1 Find the number of connected components for each the following graphs.
+\1 Find the number of connected components for each of the following graphs (see graphs in book page 694).  You do not have to draw the graphs.
+
+
+
+
 
 
 
 % 24. 
 \1 Find the complement of each of the following graphs.  
 
-	\2
+\2 The graph is given by: 
+ 
+\begin{center}
+ \begin{tikzpicture}
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (0,4) circle (3pt);
+\draw[fill=black] (2,2) circle (3pt);
+\draw[fill=black] (-2,2) circle (3pt);
+%% vertex labels
+\node at (-0.5,0) {$v_1$};
+\node at (0,4.5) {$v_2$};
+\node at (2.5,2) {$v_3$};
+\node at (-2.5,2) {$v_4$};
+%%% edges
+\draw[thick] (0,0) -- (-2,2) -- (0,4) -- (2,2) -- (0,4) -- (0,0);
+\end{tikzpicture}
+     
+\end{center}
 
-	\2
 
+
+	\2 The graph, 
+
+\begin{center}
+ \begin{tikzpicture}
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (2,0) circle (3pt);
+\draw[fill=black] (0,2) circle (3pt);
+\draw[fill=black] (2,2) circle (3pt);
+%% vertex labels
+\node at (-0.5,0) {$v_1$};
+\node at (2.5,0) {$v_2$};
+\node at (-0.5,2) {$v_3$};
+\node at (2.5,2) {$v_4$};
+%%% edges
+\draw[thick] (0,0) -- (2,0);
+\draw[thick] (0,2) -- (2,2);
+\end{tikzpicture}
+\end{center}
 
 
 % 30.
 \1 Find Hamiltonian circuits for the graph.
+% SOLUTION: a - l - k - j - e -d - c -f -i - h - g - b - a
+\begin{center}
+ \begin{tikzpicture}
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (2,0) circle (3pt);
+\draw[fill=black] (3,0) circle (3pt);
+\draw[fill=black] (0,2) circle (3pt);
+\draw[fill=black] (2,2) circle (3pt);
+\draw[fill=black] (3,2) circle (3pt);
+
+\draw[fill=black] (1,2.5) circle (3pt);
+\draw[fill=black] (2,3) circle (3pt);
+\draw[fill=black] (0,4) circle (3pt);
+\draw[fill=black] (1,4) circle (3pt);
+\draw[fill=black] (3,4) circle (3pt);
+\draw[fill=black] (2,6) circle (3pt);
+
+%% vertex labels
+\node at (-0.35,0) {$j$};
+\node at (-0.35,2) {$k$};
+\node at (-0.35,4) {$l$};
+\node at (3.35,0) {$d$};
+\node at (3.35,2) {$c$};
+\node at (3.35,4) {$b$};
+
+\node at (2,-0.35) {$e$};
+\node at (0.75,4) {$h$};
+\node at (0.75,2.65) {$i$};
+\node at (2.35,1.75) {$f$};
+\node at (2.35,3) {$g$};
+\node at (2,6.35) {$a$};
+
+
+%%% edges
+\draw[thick] (0,0) -- (3,0) -- (3,4) -- (2,6) -- (0,4) -- ( 0,0);
+
+\draw[thick] (2,2) -- (2,0) -- (1,2.5) -- (1,4) -- (3,4) -- (2,3) -- (1,4) -- (2,3) -- (2,2) -- (3,2);
+\draw[thick] (0,2) -- (1,2.5) -- (2,2);
+\end{tikzpicture}
+\end{center}
+
+
 
 
 
 % 42. A traveler in Europe wants to visit each of the cities.  
-\1
+\1 A European traveler wants to visit each city (see table).  List a few ``tours'' (Hamilton Cycle); only a few have a chance of being minimal distance.  Then, take the one with the least distance.    
 
 
-
+\begin{table}[h]
+\begin{tabular}{lccccc}
+\toprule
+           & Berlin & Brussels & Dusseldorf & Luxembourg & Munich \\
+           \midrule 
+Brussels   & 783    &          &            &            &        \\
+Dusseldorf & 564    & 223      &            &            &        \\
+Luxembourg & 764    & 219      & 224        &            &        \\
+Munich     & 585    & 771      & 613        & 517        &        \\
+Paris      & 1057   & 308      & 497        & 375        & 832   \\
+\bottomrule
+\end{tabular}
+\caption{European Tour}
+\end{table}
 \end{outline}
+

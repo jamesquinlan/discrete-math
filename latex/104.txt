@@ -9,28 +9,100 @@
 
 \begin{outline}[enumerate]
 
-% 7. 
-\1 
+% 7. Find all leaves (or terminal vertices) and all internal (or branch) vertices for the following trees. 
+\1 Find all leaves (or terminal vertices) and all internal (or branch) vertices for the following trees. 
+
+% DRAW TREES
+
+% Side by side subfigures 
+\begin{figure}[ht!]
+\centering
+\begin{subfigure}[h]{0.4\linewidth}
+\begin{tikzpicture}[scale=1]
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (-1,1) circle (3pt);
+\draw[fill=black] (0,2) circle (3pt);
+\draw[fill=black] (1,3) circle (3pt);
+\draw[fill=black] (-1,3) circle (3pt);
+\draw[fill=black] (0,4) circle (3pt);
+\draw[fill=black] (2,4) circle (3pt);
+
+
+%% vertex labels
+\node at (-0.4,0) {$v_1$};
+\node at (-1.4,1) {$v_2$};
+\node at (0,1.4) {$v_3$};
+\node at (-1.4,3) {$v_4$};
+\node at (0,4.4) {$v_5$};
+\node at (1,2.6) {$v_6$};
+\node at (2.4,4) {$v_7$};
+
+%% edges
+\draw[thick] (0,0) -- (-1,1) -- (0,2) -- (0,4) -- (-1,3);
+\draw[thick] (0,4) -- (1,3) -- (2,4);
+\end{tikzpicture}    
+\caption{\;}
+\end{subfigure}
+%\hfill
+%
+%
+% TREE 2
+% -----------------------------------------
+\begin{subfigure}[h]{0.4\linewidth}
+\begin{tikzpicture}[scale=1]
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (2,0) circle (3pt);
+\draw[fill=black] (1,1) circle (3pt);
+\draw[fill=black] (0,1.25) circle (3pt);
+\draw[fill=black] (2,1.25) circle (3pt);
+\draw[fill=black] (-1,2) circle (3pt);
+\draw[fill=black] (1,2) circle (3pt);
+\draw[fill=black] (2,3) circle (3pt);
+
+%% vertex labels
+\node at (-0.4,0) {$v_1$};
+\node at (2.45,0) {$v_2$};
+\node at (1,.5) {$v_3$};
+\node at (0,0.8) {$v_4$};
+\node at (2,0.8) {$v_5$};
+\node at (-1,2.4) {$v_6$};
+\node at (1,2.4) {$v_7$};
+\node at (2.4,3) {$v_8$};
+
+%% edges
+\draw[thick] (0,0) -- (1,1) -- (2,0);
+\draw[thick] (-1,2) -- (0,1.25) -- (1,2) -- (2,3) -- (1,2) -- (2, 1.25);
+\draw[thick] (1,1) -- (1,2);
+\end{tikzpicture}    \caption{\hspace{1cm}}
+\end{subfigure}%
+\caption{Trees of Problem \#7.}\label{fig:trees}
+\end{figure}
+
 
 
 % 14.
-\1
+\1 Draw a graph with {two vertices, one edge, but not a tree}, or explain why no such graph exists.  
 
 
 % 16.
-\1
+\1 Draw a {tree with 12 vertices and 15 edges}, or explain why no such graph exists.
 
 
 % 18.
-\1
+\1 Draw a tree with five vertices and a degree total of 10, or explain why no such graph exists.
 
 
 % 21.
-\1
+\1 Draw a tree with 10 vertices of total degree 24, or explain why no such graph exists.
 
 
 % 30.
-\1
+\1 (SKIP - isomorphic graphs not covered).  Find all nonisomorphic trees with five vertices.  
+
+
 
 
 \end{outline}
+
