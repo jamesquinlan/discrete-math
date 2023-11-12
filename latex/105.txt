@@ -10,23 +10,117 @@
 \begin{outline}[enumerate]
 
 % 2.
-\1 
+\1 Consider the tree in Figure \ref{fig:1052} with root $v_0$.
 
+	\2 What is the level of $v_8$?
+
+	\2 What is the level of $v_0$?
+
+	\2 What is the height of this rooted tree?
+
+	\2 What are the children of $v_{10}$?
+
+	\2 What is the parent of $v_5$?
+
+	\2 What are the siblings of $v_1$?
+
+	\2 What are the descendants of $v_{12}$?
+
+	\2 How many leavers (terminal vertices) are on the trees?
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[scale=1]
+%% vertices
+\draw[fill=black] (0,5) circle (3pt);   % 0
+\draw[fill=black] (-3, 4) circle (3pt);      % 1
+\draw[fill=black] (3, 4) circle (3pt);      % 2
+\draw[fill=black] (-5,3) circle (3pt);      % 3
+\draw[fill=black] (-3,3) circle (3pt);      % 4 
+\draw[fill=black] (-1,3) circle (3pt);      % 5
+\draw[fill=black] (3,3) circle (3pt);      % 6
+\draw[fill=black] (-5,2) circle (3pt);      % 7
+\draw[fill=black] (-2,2) circle (3pt);      % 8
+\draw[fill=black] (0,2) circle (3pt);      % 9
+\draw[fill=black] (2,2) circle (3pt);      % 10
+\draw[fill=black] (4,2) circle (3pt);      % 11
+\draw[fill=black] (6,2) circle (3pt);      % 12
+\draw[fill=black] (-2,1) circle (3pt);      % 13
+\draw[fill=black] (1,1) circle (3pt);      % 14
+\draw[fill=black] (2,1) circle (3pt);      % 15
+\draw[fill=black] (3,1) circle (3pt);      % 16
+\draw[fill=black] (6,1) circle (3pt);      % 17
+\draw[fill=black] (5,0) circle (3pt);      % 18
+\draw[fill=black] (7,0) circle (3pt);      % 19
+
+
+%% vertex labels
+% \node at (-0.4,1) {$v_0$};
+% \node at (-1.4,2) {$v_1$};
+% \node at (0.1,2.5) {$v_2$};
+% \node at (-1.4,3) {$v_3$};
+% \node at (0,4.4) {$v_4$};
+% \node at (1,2.6) {$v_5$};
+% \node at (2.4,2) {$v_6$};
+% \node at (2.4,2) {$v_7$};
+% \node at (2.4,2) {$v_8$};
+% \node at (2.4,2) {$v_9$};
+% \node at (2.4,2) {$v_{10}$};
+% \node at (2.4,2) {$v_{11}$};
+% \node at (2.4,2) {$v_{12}$};
+% \node at (2.4,2) {$v_{13}$};
+% \node at (2.4,2) {$v_{14}$};
+% \node at (2.4,2) {$v_{15}$};
+% \node at (2.4,2) {$v_{16}$};
+% \node at (2.4,2) {$v_{17}$};
+% \node at (2.4,2) {$v_{18}$};
+% \node at (2.4,2) {$v_{19}$};
+
+%% edges
+\draw[thick] (0,5) -- (-3,4) -- (-5,3);
+\draw[thick] (-3,4) -- (-3,3);
+\draw[thick] (-5,3) -- (-5,2);
+\draw[thick] (-3,4) -- (-1,3);
+\draw[thick] (-2,2) -- (-1,3);
+\draw[thick] (-2,2) -- (-2,1);
+\draw[thick] (-1,3) -- (0,2);
+\draw[thick] (-1,3) -- (0,2);
+\draw[thick] (3,3) -- (4,2);
+\draw[thick] (3,3) -- (2,2);
+\draw[thick] (3,1) -- (2,2);
+\draw[thick] (1,1) -- (2,2);
+\draw[thick] (2,1) -- (2,2);
+\draw[thick] (0,5) -- (3,4) -- (3,3) -- (6,2);
+\draw[thick] (6,1) -- (6,2);
+\draw[thick] (6,1) -- (5,0);
+\draw[thick] (6,1) -- (7,0);
+
+\end{tikzpicture}    
+    \caption{Tree in \textsection 10.5 \#2}
+    \label{fig:1052}
+\end{figure}
 
 % 3.
-\1
+\1 Draw binary trees to represent the following expressions:
+    \2 $a \cdot b - (c / (d + e))$
+    \2 $a / (b - c \cdot d)$
 
 
 % 12.
-\1
+\1 Draw a full binary tree with eight internal nodes and seven leaves, or explain why no such graph exists.
 
 
 % 13.
-\1
+\1 Draw a binary tree of height 4 with eight leaves, or explain why no such graph exists.
 
 
 % 24.
-\1
+\1 Use the steps of the algorithm given to build a binary search tree using alphabetical order for the sentence from the \textit{Star Wars} films:
+\[
+\textit{May the force be with you.}
+\]
+
 
 
 \end{outline}
