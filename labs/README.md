@@ -8,20 +8,34 @@ Instructor: [James Quinlan](https://cs.usm.maine.edu/~james.quinlan) <br>
 
 ## Descriptions
 
-[Lab 1](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L1.md) - an introduction to Python covering comments (single line and block), assigments and variables, math operations, logical and relational operators, if-then-else statements, loops, lists, random numbers and functions.
+[Lab 1](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L1.md) - an introduction to Python covering comments (single line and block), assignments and variables, math operations, logical and relational operators, if-then-else statements, loops, lists, random numbers, and functions.
 
 [Lab 2](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L2.md) - coding exercises working with sums and products of lists, factorial function, binomial coefficients, Fermat's Little Theorem, greatest common factor, and relatively primeness. 
 
-[Lab 3](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L3.md) - In this lab you will explore conjectures and code (in any language) to solve mathematical problems such as finding a smallest prime factor of a given number or determine the digital sum of a positive integer.
+[Lab 3](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L3.md) - In this lab, you will explore conjectures and code (in any language) to solve mathematical problems such as finding the smallest prime factor of a given number or determine the digital sum of a positive integer.
 
 [Lab 4](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L4.md) - Continue working with prime numbers, divisibility, and summation.  Congruence and modulo arithmetic are used in coding exercises.
 
-[Lab 5](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L5.md) - In this lab we will generate terms of a sequence and verify summation formulas.  Python lambda function will be used and various formulas will be tested.
+[Lab 5](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L5.md) - In this lab, we will generate terms of a sequence and verify summation formulas.  Python lambda function will be used, and various formulas will be tested.
 
-[Lab 6](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L6.md) - Coding exercises will "show" formulas that will be proven in class using mathematical inducation.
+[Lab 6](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L6.md) - Coding exercises will "show" formulas that will be proven in class using mathematical induction.
 
-[Lab 7](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L7.md) - In class we are moving on to set theory.  Therefore, we will introduce and work with sets and set operations (i.e., union, intersection, and difference) in Python.  Coding exercises will ask that you verify elements belong to a set and test whether one set is a subset of another.  Python dictionaries are also introduced.  
+[Lab 7](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L7.md) - In class, we are moving on to set theory.  Therefore, in Python, we will introduce and work with sets and set operations (i.e., union, intersection, and difference).  Coding exercises will ask that you verify elements belonging to a set and test whether one set is a subset of another.  Python dictionaries are also introduced.  
 
+[Lab 8](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L8.md) - This lab focuses on sets, operations, and functions. Tasks include building sets, determining if a set is a subset, and creating a partition. The Cartesian product is examined.  
+
+
+[Lab 9](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L9.md) - In this lab, you will test and verify subset relations and identities, including DeMorgan's laws.
+
+
+
+[Lab 10](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L10.md) - Graphs are fundamental in computer science and model many situations, especially networks (computer, transportation, friends).  In this lab, you will review Python dictionaries, represent a graph in code, determine the order and size of the graph represented as a dictionary, find vertices adjacent to a given vertex, rind and sum the degree of each vertex in a graph,  write a function to find a walk in a graph between two vertices and use the library to view the graph.
+
+
+[Lab 11](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L11.md) - Graphs and Matrix Operations.  In particular, implement matrix multiplication, transpose a matrix, and calculate the number of paths of a given length between two vertices in a graph.
+
+
+[Lab 12](https://github.com/jamesquinlan/discrete-math/blob/main/labs/L12.md) - Trees in computer science are a foundational structure, providing an essential framework for organizing and managing data efficiently. They are integral in facilitating operations like searching, sorting, indexing, and hierarchical representation, serving as the backbone for diverse algorithms and data storage paradigms in computational problem-solving.  In this lab, you will work with trees and represent them with a matrix, a dictionary, and an array.  
  
 
 
