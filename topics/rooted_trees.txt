@@ -1,0 +1,424 @@
+\section*{Objectives}
+\begin{outline}
+\1 Introduce Rooted Binary Trees
+\1 Identify characteristics of trees (height, level, children, etc.)
+\1 Draw binary trees
+\1 Determine the existence of binary trees
+\1 Build binary search tree
+\end{outline}
+
+% ----------------------------------------------------
+\rule[0.051in]{\textwidth}{0.0025in}
+
+\section*{Definitions}
+
+\begin{outline}[enumerate]
+    \1 A \textbf{rooted tree} is a tree in which one vertex is distinguished from the others called the \textbf{root}.
+
+    \1 The \textbf{level} (or \textbf{depth}) of a vertex is the length of the path from the root.
+
+    \1 The \textbf{height} of a rooted tree is the maximum level of any vertex of the tree.
+
+    \1 Any vertex of degree 1 is called a \textbf{leaf} (or \textbf{terminal node}).  If the root is the only vertex, then in this special case, it is also a leaf. 
+
+        
+    \1 A vertex of degree greater than 1 is called an \textbf{internal} (node or vertex).
+        \2 An internal node is any node with a child (see below).  
+
+      
+     \1 For any root or internal node, a \textbf{child node} has one level greater. 
+
+     \1 A \textbf{parent node} is any node with a child.
+
+    
+\end{outline}
+
+
+\begin{example}
+    Consider the example below.  What is the level of $v_5$?  What is the height of the tree?  What is the level of $v_6$? Who is the parent of $v_5$?  Who are $v_0$'s children? Who is/are the siblings of $v_1$?  
+\end{example}
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[scale=1]
+%% vertices
+\draw[fill=black] (0,1) circle (3pt);   % 1
+\draw[fill=black] (-1,2) circle (3pt);  % 5
+\draw[fill=black] (0,3) circle (3pt);   % 3
+\draw[fill=black] (1,3) circle (3pt);   % 4
+\draw[fill=black] (-1,3) circle (3pt);  % 5 
+\draw[fill=black] (0,4) circle (3pt);   % 6
+\draw[fill=black] (2,2) circle (3pt);   % 7
+
+
+%% vertex labels
+\node at (-0.4,1) {$v_6$};
+\node at (-1.4,2) {$v_5$};
+\node at (0.1,2.5) {$v_2$};
+\node at (-1.4,3) {$v_1$};
+\node at (0,4.4) {$v_0$};
+\node at (1,2.6) {$v_3$};
+\node at (2.4,2) {$v_4$};
+
+%% edges
+\draw[thick] (0,1) -- (-1,2) -- (0,3) -- (0,4) -- (-1,3);
+\draw[thick] (0,4) -- (1,3) -- (2,2);
+\end{tikzpicture}    
+    \caption{Example 1}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
+\section*{Binary Trees}
+
+% -----------------
+\begin{definition}
+    A rooted tree is called an $m$-\textbf{ary tree} if every internal vertex has no more than $m$ children.  The tree is called a \textbf{full $m$-ary tree} if every internal vertex has exactly $m$ children. When $m=2$, it is called a \textbf{binary tree}. 
+\end{definition}
+
+
+\begin{definition}
+    A \textbf{binary tree} is a rooted tree in which each parent has at most two children.  Each child in a binary tree is designated either a \textbf{left} or \textbf{right} \textbf{child}.  That is, the children are ordered.  
+    Every parent has at most one left and one right child.  A \textbf{full binary tree} is a binary tree in which each parent has exactly two children.  
+    Given a parent node $v$, a (left) subtree is a binary tree that has $v$'s left child as its root.    
+\end{definition}
+
+
+% ----------------
+\begin{theorem}\label{thm:mary}
+A full $m$-ary tree with $i$ internal vertices contains $mi+1$ vertices.  
+\end{theorem}
+\pf Every vertex (except the root) is a child of an internal vertex.  Since each $i$ internal vertices has $m$ children, there are $mi$ vertices other than the root.  Therefore, there are $mi + 1$ vertices.  \qed
+
+
+% ----------------
+\begin{corollary}
+If $T$ is a full binary tree with $i$ internal nodes, then $T$ has a total of $2i+1$ nodes and $i+1$ leaves.      
+\end{corollary}
+   \pf For the first part, let $m=2$.  Thus, by Theorem \ref{thm:mary} there are $2i+1$ vertices.  Now let $\ell$ be the number of leaves.  The total number of vertices is equal the number of internal vertices plus the number of leaves.  Note: the root is an internal vertex since it presumably has children.  That is, 
+   \[
+   n = |V| = i + \ell .
+   \]
+   But we know $|V| = 2i+1$, therefore, $\ell = 2i+1 - i = i + 1$.  \qed 
+%\end{theorem}
+%\pf Partition the vertices (i.e., nodes) into ones with a parent and the ones without a parent.  There is only one node (the root) without a parent.  
+
+\hspace{2em}
+
+% The following theorem provides the value of full $m$-ary parameters 
+Once one of the quantities, $n$, $i$, or $\ell$ are known, we can calculate the others of a full $m$-ary tree.  
+
+\begin{theorem}
+    A full $m$-ary tree with:
+    \begin{outline}
+        \1 $|V| = n$ vertices has $i = (n-1)/m$ internal vertices and $\ell = [(m-1)n + 1] / m$ leaves,
+
+        \1 $i$internal vertices has $n = mi + 1$ vertices and $\ell = (m-1)i +1$ leaves, 
+
+        \1 $\ell$ leaves has $n = (m\ell - 1) / (m-1)$ vertices and $i = (\ell - 1) / (m-1)$ internal vertices.  
+    \end{outline}
+\end{theorem}
+\pf We have that $n = i + \ell$ since every vertex is either internal or a leaf.  Furthermore, Theorem \ref{thm:mary} we have the relation $n = mi + 1$.  \qed 
+
+
+
+
+\begin{theorem}
+    If $T$ is a rooted binary tree with height $h$ and $\ell$ leaves, then 
+    \[
+    \ell \le 2^h.
+    \]
+    In other words, $\log_2 \ell \le h$.
+\end{theorem}
+%\pf 
+%(by strong induction - see Section 5.4). Let $P(h):=$ any binary tree of height $h$ has at most $2^h$ leaves.  
+
+% \textbf{Base Case}: 
+\pf For $h = 1$, there are no more than $2^1 = 2$ leaves.
+Now assume that the result is true for all binary trees of height less than $h$.  
+Let $T$ be a binary tree of height $h$.  
+The leaves of $T$ are the sum of the leaves of the (at most two) subtrees with a root at level 1.  
+Each subtree has a height less than or equal to $h-1$ by induction hypothesis.  So, each of these rooted binary trees has at most $2^{h-1}$ leaves.  
+Since there are at most $2$ subtrees, each with maximum of $2^{h-1}$ leaves, we have 
+\[
+2 \cdot 2^{h-1} = 2^h 
+\]
+leaves in the rooted binary tree.
+\qed 
+
+\textbf{Question}: Can you generalize to $m-$ary tree of height $h$?
+
+%For a tree of height $h=0$, $T$ consists of only the root, which, by definition, is also a leaf.  
+
+%\textbf{Inductive Case}: Suppose $P(k)$ is true for each integer $k \in 0, 1, ..\dots, n$.  
+
+
+% \textbf{Note}: Recursion is a standard and helpful method for  trees and subtrees.
+
+
+
+
+
+
+\begin{figure}
+    \centering
+\begin{tikzpicture}[level distance=1.5cm,
+level 1/.style={sibling distance=3.5cm},
+level 2/.style={sibling distance=1cm}]
+\tikzstyle{every node}=[circle,draw]
+    \node (Root) [black] {1}
+        child [black] {
+        node {2}
+        child { node {5} }
+        child [black] { node {6} }
+        child [black] { node {7} }
+    }
+    child {
+        node {3}
+        child { node {8} }
+        child { node {9} }
+        child { node {10} }
+    }
+    child {
+        node {4}
+        child { node {11} }
+        child { node {12} }
+        child { node {13} }
+        };
+\end{tikzpicture}
+    \caption{Ternary tree (or Full $3-$ary tree).  There are  $3(4) + 1 = 13$ nodes.}
+    \label{fig:enter-label}
+\end{figure}
+
+
+% ----------------------------------------------------
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Binary Search Trees}
+
+\textbf{Binary search trees} (BST) are fundamental in organizing data efficiently, primarily serving the purpose of enabling fast search operations. Their hierarchical structure, where for each node $v$, \textbf{all values in the left subtree are less than the value of $v$ and all values in the right subtree of $v$ are greater than the value of $v$}, allows for a systematic search pattern that significantly reduces the search space, ensuring a logarithmic time complexity in searching. Beyond search, they {maintain a sorted order of data}, simplifying tasks that require ordered information retrieval, such as finding minimum or maximum values and iterating through elements in sorted order. This ordered arrangement not only aids in searches but also facilitates a range of other operations, including insertion and deletion, as the structure adapts dynamically while preserving the ordering, enabling relatively efficient modifications to the tree.  Here is an example of a binary search tree.
+
+\begin{figure}[h!]
+    \centering
+     \begin{tikzpicture}[level distance=1.5cm,
+    level 1/.style={sibling distance=3.5cm},
+    level 2/.style={sibling distance=2cm}]
+    level 3/.style={sibling distance=2cm}]
+    \tikzstyle{every node}=[circle,draw]
+        \node (Root) [black] {19}
+        child [black] { node {15}
+            child [black] { node { 11} }
+            child [black] { node {16} 
+                    child {node {12}}
+                    child { node {17}}
+            }
+        }
+        child {
+            node {25}
+            child [black] { node { 21} }
+            child [black] { node {36} }
+        };
+    \end{tikzpicture}
+    \caption{Binary Search Tree.  For each node, all values in its left subtree are less than its value; greater than in the right subtree.}
+    \label{fig:bst}
+\end{figure}
+
+
+% ------------------------------------
+\subsection*{Code Representations}
+
+\begin{outline}[enumerate]
+    \1 \textbf{Class}: Each node is an instance of a \texttt{Node} class.  The \texttt{Node} class contains data and references to its children.  Methods can be added for inserting, deleting, and finding.  
+
+    \begin{verbatim}
+    class Node:
+      def __init__(self, data):
+        self.data = value
+        self.left = None
+        self.right = None
+
+    # Create a node with two children
+    x = Node(1)
+    x.left = Node(2)
+    x.right = Node(3)
+
+    \end{verbatim}
+
+    Including a parent property facilitates easier movement up the tree from child to parent, enabling various operations without the need for complex traversal algorithms. It simplifies tasks such as backtracking or finding the parent of a node without needing additional traversal.   
+
+    However, it increases memory overhead and the complexity of managing parent references, thus a trade-off.
+    
+    \1 \textbf{Array-based}: A list can store the tree structure. This method requires a bit of calculation to determine parent-child relationships. Still, it can be more memory-efficient for certain types of trees, especially when they are complete or nearly complete (like in a binary heap). The root is generally stored at index $0$, and for any node at index \texttt{i}, its left child is at index $2i + 1$ and the right child at $2i + 2$.  The parent node of a node at index $i$ is $\lfloor \frac{i - 1}{2} \rfloor$.  % For example, 
+
+    \1 \textbf{Dictionary}: A dictionary can be used, but as the number of nodes (or the height of the tree) increases, working with a dictionary representation becomes progressively challenging due to the deep nesting levels, which can lead to complex and cumbersome code. Traversing or manipulating deeply nested structures within the dictionary can become less efficient and harder to manage, potentially leading to more intricate and error-prone code as the tree structure grows in size or height.
+    
+    % depending on the tree height, code nesting can become cumbersome.   
+\end{outline}
+
+
+% % Algorithm: BST
+% \begin{algorithm}[h!]
+% \caption{ -- Building a Binary Search Tree}\label{alg:name}
+% \begin{algorithmic}[1] % Line numbers
+
+% \Require  A totally ordered, nonempty set $K$ of keys
+% \Ensure Binary tree
+
+% \State Initialize $T$ to have the root and no edges.  Insert a key into the value of the root
+% \While{$K \ne \varnothing$ }
+    
+% \EndWhile
+
+% \end{algorithmic}
+% \end{algorithm}
+
+
+
+
+
+
+% ----------------------------------------------------
+\rule[0.051in]{\textwidth}{0.0025in}
+
+\subsection*{Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 10.5 - Rooted Trees
+% Problems: # 2, 3, 12, 13, 24
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 2.
+\1 Consider the tree in Figure \ref{fig:1052}
+
+% 2.
+\1 Consider the tree in Figure \ref{fig:1052} with root $v_0$.
+
+	\2 What is the level of $v_8$?
+
+	\2 What is the level of $v_0$?
+
+	\2 What is the height of this rooted tree?
+
+	\2 What are the children of $v_{10}$?
+
+	\2 What is the parent of $v_5$?
+
+	\2 What are the siblings of $v_1$?
+
+	\2 What are the descendants of $v_{12}$?
+
+	\2 How many leavers (terminal vertices) are on the trees?
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[scale=1]
+%% vertices
+\draw[fill=black] (0,5) circle (3pt);   % 0
+\draw[fill=black] (-3, 4) circle (3pt);      % 1
+\draw[fill=black] (3, 4) circle (3pt);      % 2
+\draw[fill=black] (-5,3) circle (3pt);      % 3
+\draw[fill=black] (-3,3) circle (3pt);      % 4 
+\draw[fill=black] (-1,3) circle (3pt);      % 5
+\draw[fill=black] (3,3) circle (3pt);      % 6
+\draw[fill=black] (-5,2) circle (3pt);      % 7
+\draw[fill=black] (-2,2) circle (3pt);      % 8
+\draw[fill=black] (0,2) circle (3pt);      % 9
+\draw[fill=black] (2,2) circle (3pt);      % 10
+\draw[fill=black] (4,2) circle (3pt);      % 11
+\draw[fill=black] (6,2) circle (3pt);      % 12
+\draw[fill=black] (-2,1) circle (3pt);      % 13
+\draw[fill=black] (1,1) circle (3pt);      % 14
+\draw[fill=black] (2,1) circle (3pt);      % 15
+\draw[fill=black] (3,1) circle (3pt);      % 16
+\draw[fill=black] (6,1) circle (3pt);      % 17
+\draw[fill=black] (5,0) circle (3pt);      % 18
+\draw[fill=black] (7,0) circle (3pt);      % 19
+
+
+%% vertex labels
+% \node at (-0.4,1) {$v_0$};
+% \node at (-1.4,2) {$v_1$};
+% \node at (0.1,2.5) {$v_2$};
+% \node at (-1.4,3) {$v_3$};
+% \node at (0,4.4) {$v_4$};
+% \node at (1,2.6) {$v_5$};
+% \node at (2.4,2) {$v_6$};
+% \node at (2.4,2) {$v_7$};
+% \node at (2.4,2) {$v_8$};
+% \node at (2.4,2) {$v_9$};
+% \node at (2.4,2) {$v_{10}$};
+% \node at (2.4,2) {$v_{11}$};
+% \node at (2.4,2) {$v_{12}$};
+% \node at (2.4,2) {$v_{13}$};
+% \node at (2.4,2) {$v_{14}$};
+% \node at (2.4,2) {$v_{15}$};
+% \node at (2.4,2) {$v_{16}$};
+% \node at (2.4,2) {$v_{17}$};
+% \node at (2.4,2) {$v_{18}$};
+% \node at (2.4,2) {$v_{19}$};
+
+%% edges
+\draw[thick] (0,5) -- (-3,4) -- (-5,3);
+\draw[thick] (-3,4) -- (-3,3);
+\draw[thick] (-5,3) -- (-5,2);
+\draw[thick] (-3,4) -- (-1,3);
+\draw[thick] (-2,2) -- (-1,3);
+\draw[thick] (-2,2) -- (-2,1);
+\draw[thick] (-1,3) -- (0,2);
+\draw[thick] (-1,3) -- (0,2);
+\draw[thick] (3,3) -- (4,2);
+\draw[thick] (3,3) -- (2,2);
+\draw[thick] (3,1) -- (2,2);
+\draw[thick] (1,1) -- (2,2);
+\draw[thick] (2,1) -- (2,2);
+\draw[thick] (0,5) -- (3,4) -- (3,3) -- (6,2);
+\draw[thick] (6,1) -- (6,2);
+\draw[thick] (6,1) -- (5,0);
+\draw[thick] (6,1) -- (7,0);
+
+\end{tikzpicture}    
+    \caption{Tree in \textsection 10.5 \#2}
+    \label{fig:1052}
+\end{figure}
+
+% 3.
+\1 Draw binary trees to represent the following expressions:
+    \2 $a \cdot b - (c / (d + e))$
+    \2 $a / (b - c \cdot d)$
+
+
+% 12.
+\1 Draw a full binary tree with eight internal nodes and seven leaves, or explain why no such graph exists.
+
+
+% 13.
+\1 Draw a binary tree of height 4 with eight leaves, or explain why no such graph exists.
+
+
+% 24.
+\1 Use the steps of the algorithm given to build a binary search tree using alphabetical order for the sentence from the \textit{Star Wars} films:
+\[
+\textit{May the force be with you.}
+\]
+
+
+\end{outline}
