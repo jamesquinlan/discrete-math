@@ -52,7 +52,19 @@ Grades will be based on a group project, in-class exercises, assignments, and pa
 
 ## Topics
 
+Notes from textbook.
+
 * [Direct Proof](topics/directproof1.txt)
+* [Set Definitions](topics/sets1.txt)
+* [Set Properties](topics/sets2.txt)
+* [Graphs: Walks and Circuits](topics/walks.txt)
+* [Matrix representation of graph: adjacency matrix](topics/adjacency-mat.txt)
+* [Trees](topics/trees.txt)
+* [Binary Trees](topics/binary-trees.txt)
+* [Minimial Spanning Trees and Shortest Path Algorithms](topics/mst.txt)
+* [Big O](topics/bigo.txt)
+* [Analysis of Algorithms](topics/algo.txt)
+* [Regular Languages/Regular Expressions](topics/regex.txt)
 
 ## Additional Resources
 
