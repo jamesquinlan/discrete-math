@@ -1,0 +1,324 @@
+\section*{Overview}
+The time required to execute an algorithm depends on the input size.  Typically, we count comparisons or arithmetic operations (or both).  
+In any case, we need a mechanism to compare algorithms, for example, sorting algorithms such as selection sort, merge sort, insertion sort, bubble sort, and quick sort (e.g., {Lab 13},  \url{https://cs.usm.maine.edu/~james.quinlan/cos280/labs/L13.html}).  
+
+
+
+
+% Big O, Omega, and Theta
+\section*{Objectives}
+\begin{outline}
+\1 Define $\Omega, O, \Theta$ notation
+\1 Identify relations between $\Omega, O, \Theta$
+\1 Express statements in $\Omega, O, \Theta$
+\1 Use polynomial orders to bound functions
+\end{outline}
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+
+
+
+
+% ----------------------------------
+\subsection*{Definitions}
+Let $f$ and $g$ be real-valued functions defined on the same domain of nonnegative integers, with $g(n) \ge 0$ for every integer $n \ge r$, where $r$ is a positive real number.  Then, 
+
+\begin{outline}
+    \1 $f$ is of order \textbf{at least} $g$, written $f(n) \in \Omega(g(n))$ if and only if there exist positive real numbers $A$ and $a \ge r$ such that 
+    \[
+    A g(n) \le f(n) \hspace{1cm} \forall n \ge a
+    \]
+
+    \1 $f$ is of order \textbf{at most} $g$, written $f(n) \in O(g(n))$ if and only if there exist positive real numbers $B$ and $b \ge r$ such that 
+    \[
+    0 \le  f(n) \le Bg(n) \hspace{1cm} \forall n \ge b
+    \]
+
+
+    \1 $f$ is of order $g$, written $f(n) \in \Theta(g(n))$ if and only if there exist positive real numbers $A, B$ and $k \ge r$ such that 
+    \[
+    Ag(n)  \le  f(n) \le Bg(n) \hspace{1cm} \forall n \ge k
+    \]
+
+\end{outline}
+% Note: \O is the empty set.
+
+
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+
+
+
+\subsection*{Examples}
+
+\begin{outline}[enumerate]
+
+    % Example:
+    \1 Consider the vectors ${\bf x} = (x_1, x_2, \dots , x_n)^T$ and ${\bf y} = (y_1, y_2, \dots , y_n)^T$ in $\R^n$.  The inner product is one of the most used quantities in scientific computing and is defined as:
+    \[
+    \langle {\bf x}, {\bf y} \rangle = x_1 y_1 + x_2 y_2 + \cdots + x_n y_n .
+    \]
+    How many \textbf{floating-point operations} (flops) are there in this vector product?  Let $f(n) = $ number of flops.  We count $n$ multiplications and $n-1$ additions, therefore, $f(n) = n + n - 1 = 2n - 1$.  The number of flops is linear with the dimension $n$.
+
+    % Example:
+%     \1 Given a 3-dimensional grid of size $256 \times 64 \times 16$, we solve the single-phase steady-state flow equation, 
+%     \begin{equation}\label{eqn:darcywG}
+%     {\bf u} = -\frac{1}{\mu} K({\bf x}) \left(  \nabla p   -\gamma \nabla z   \right),
+% \end{equation}
+% where $\mu$ is the fluid viscosity, $K$ is permeability tensor, ${\bf x}$ is the spatial coordinates, $\nabla p$ is pressure gradient, and $\gamma \nabla z$ is component of gravity in the downward vertical direction.
+% The matrix $A$
+%
+% Upon discretizing, this boils down to solving a system of equations, $Ax = b$.
+    
+    % Example:
+    \1 If $f(n) = 60n^2 + 5n + 1$, then since $ 60n^2 + 5n + 1 \le 60 n^2 + 5n^2 + n^2 = 66n^2$ for all $n \ge 1$, we take $B = 66$ and in the definition and write 
+    \[
+    f(n) \in O(n^2).  
+    \]
+    Since $f(n) \ge 60n^2$ for $n \ge 1$ we take $A = 60$ and write, 
+    \[
+        f(n) \in \Omega(n^2).
+    \]
+    Similarly, it is seen that,
+    \[
+    f(n) \in \Theta(n^2)
+    \]
+
+    % Example
+    \1 Recall that $\log_2 n < n$ for all $n \ge 1$.  It can be easily proven by induction with the inductive step proceeding as:
+    \[
+    2^{n+1} = 2 \cdot 2^n > 2 n = n + n \ge n + 1 .
+    \]
+    We have, $2n + 3\log_2 n \in O(n)$.
+
+    
+    % Example
+    \1 Use $\Omega$-notation to express the statement
+    \[
+    \frac{11}{4}n^2 \le 3 \left( \left\lfloor \frac{n}{4} \right\rfloor \right)   + 5 n^2 \hspace{0.5cm} \text{ for } n \ge 2.
+     \]
+    Using definition, let $A = \frac{11}{4}$ and $a = 2$.  This translates to, 
+    \[
+    A n^2 \le 3 \left( \left\lfloor \frac{n}{4} \right\rfloor \right)   + 5 n^2 \in \Omega(n^2)
+    \]
+
+     % Example
+     \1 Use $O$-notation to express the statement 
+     \[
+     0 \le 3 \left( \left\lfloor \frac{n}{4} \right\rfloor \right)   + 5 n^2 \le 6n^2
+     \]
+
+
+    % Example
+    \1 Show $n^4 - 5n - 8 \in O(n^4)$.
+    
+    \pf To show
+    
+    % Example
+    \1 Show $\log_2 n! \in \Theta(n \log_2 n)$.
+
+    \pf By properties of logarithms, $\log_2 n! = \log_2 n + \log_2 (n-1) + \cdots \log_2 3 + \log_2 2 + \log_2 1$.
+    It is easy to see that $\log_2 n! < n \log_2 n$.
+
+\end{outline}
+
+
+
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+
+
+
+
+\section*{Theorems}
+\begin{outline}[enumerate]
+
+\1 If $f,g:D \to \R$ for $D \subset \N$ and $f(n), g(n) \ge 0$ for all $n \ge r \in \R^+$, then 
+\[
+f(n) \in \Theta(g(n)) \Longleftrightarrow f(n) \in \Omega(g(n)) \land f(n) \in O(g(n)) . % \text{ if and only if }
+\]
+
+
+% 
+\1 If $r \le s$, then $n^r \le n^s$.  
+
+\pf See Exercises 46 \& 47.  % Suppose $n \ge 1$. Then by induction, suppose $n^r \le n^s$ and co 
+
+\qed
+
+% 
+\1 For any $f$ and $r, s \in  \R^+$ with $r < s$, 
+then 
+\[
+f(n) \in O(n^r) \Rightarrow f(n) \in O(n^s) .
+\]
+\pf Suppose $r < s$ and $f(n) \in O(n^r)$.  Then there exists $B$ and $b$ such that 
+\[
+0 \le f(n) \le Bn^r  \;\; \text{ for } n \ge b.
+\]
+Now, $B n^r \le B n^s$ for all $n \ge 1$.  Then, 
+\[
+0 \le f(n) \le B n^s \;\; \text{ for } n \ge \max(b,1) .
+\]
+
+\qed 
+
+
+\1 (Reciprocal Relationship between $\Omega$ and $O$)  Let $f$ and $g$ be real-valued functions defined on the same set of nonnegative integers and suppose there is a positive real number $r$ such that $f(n), g(n) \ge 0$ for $n \ge r$. Then
+    
+    \2 If $f(n) \in \Omega(g(n))$, then $g(n) \in O(f(n))$.
+
+    \2 If $g(n) \in O(f(n))$, then $f(n) \in \Omega(g(n))$.
+
+
+
+
+\1 (Reflexive, Symmetric, and Transitive) Let $f, g$, and $h$ be real-valued functions defined on the same set of nonnegative integers, and suppose there is a positive real number $r$ such that $f(n), g(n), h(n) \ge 0$ for $n \ge r$.  Then
+
+    \2 $f(n) \in \Theta(f(n))$
+    \2 If $f(n) \in \Theta(g(n))$, then $g(n) \in \Theta(f(n))$.
+
+    \pf If $f(n) \in \Theta(g(n))$, then for some $A, B$ and $b$
+\[
+A g(n) \le f(n) \le Bg(n) .
+\]
+Then $g \le \frac{1}{A} f$ and $\frac{1}{B} f \le g$. \qed
+
+
+
+
+    \2 If $f(n) \in \Theta(g(n))$ and $g(n) \in \Theta(h(n))$, then $f(n) \in \Theta(h(n))$.
+
+    \pf $A_1 g \le f \le B_1 g$ and $A_2 h \le g \le B_2 h$.  Putting these together we have, 
+    \[
+    A_1 A_2 h \le A_1 g \le f \le B_1 g \le B_1 B_2 h .
+    \]
+    \qed
+
+
+
+\1 $\Theta(\cdot)$ is closed addition and multiplication.  That is, 
+    \2 If $f_1,f_2 \in \Theta(g(n))$, then $f_1+f_2 \in \Theta(g(n))$.
+    \2 If $f_1 \in \Theta(g_1(n))$ and $f_2 \in \Theta(g_2(n))$, then $f_1 f_2 \in \Theta(g_1(n) g_2(n))$.
+    \2 If $f_1 \in \Theta(g_1(n))$ and $f_2 \in \Theta(g_2(n))$ with $g_1 \le g_2$, for every $n \ge s$, then $f_1 + f_2 \in \Theta(g_2(n))$. 
+
+
+
+\1 Let $p(n) = a_m n^m + \cdots a_1 n + a_0$ with $a_m > 0$, then $p(n) \in \Theta(n^m)$.
+
+\pf Since 
+\[
+\lim_{n \to \infty} \frac{p(n)}{n^m} = a_m
+\]
+there exists $k$ such that for $n > k$,
+\[
+a_m - \epsilon < \frac{p(n)}{n^m} < a_m + \epsilon .
+\]
+This is true for all $\epsilon$, therefore, in particular for $\epsilon = \frac{a_m}{2}$ there exists $k^*$. So we have, 
+\[
+\frac{a_m}{2} < \frac{p(n)}{n^m} < \frac{3a_m}{2} 
+\]
+for $n > k^*$.
+
+Multiplying by $n^m$ we have, 
+\[
+\frac{a_m}{2} n^m < {p(n)} < \frac{3a_m}{2} n^m .
+\]
+
+\qed
+
+\end{outline}
+
+
+\subsection*{Finding bounds of polynomial functions with negative coefficients}
+
+Either use ad hoc calculations or the following procedure.  Let $m$ be the degree of the polynomial.
+\begin{outline}[enumerate]
+    \1 $C = \frac{1}{2}a_m$
+
+    \1 $n_0 = \max(1, \frac{2}{a_m} \sum_{i=0}^{m-1} a_i)$
+   %  \1 $S \to \frac{2}{a_m}S$
+\end{outline}
+\begin{example}
+    Show $n^4 - 5n - 8 \in \Theta(n^4)$.  
+
+    \pf $n^4 - 5n - 8 \le n^4 + 5n^4 + 8n^4 = 14 n^4$ for $n \ge 1$.  Using procedure above we take: $C = \frac{1}{2}$ and $n_0 = 26$.   
+\end{example}
+    
+
+
+
+
+
+
+
+
+% \rule[0.051in]{\textwidth}{0.0025in}
+
+% \section*{Applications}
+% How many operations are required to sort a list of numbers?  It is well known the selection sort algorithm uses the sum.
+% \[
+% 1 + 2 + \dots + n = \frac{n(n+1)}{2}
+% \]
+
+
+
+
+
+
+
+
+
+
+
+\rule[0.051in]{\textwidth}{0.0025in}
+
+\section*{Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 11.2 - Big O
+% Problems: # 8, 11ab, 14, 28, 33, 41
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 8. Express using $O$ notation.
+\1 $0 \le \frac{n(3n-2)}{2} \le n^2$ \;\;\; for every integer $n \ge 2$
+
+
+% 11ab.  
+\1 
+	\2 Show that for any integer $n \ge 1$, $0 \le 23n^4 + 8 n^2 +4n \le 35 n^4$.
+
+	\2 Show that for any integer $n \ge 1$, $23n^4 \le 23n^4 + 8n^2  + 4n$.
+
+
+% 14. 
+\1 Use the definition of $\Theta$-notation to show that $n^2 + 100n + 88 \in \Theta(n^2)$.
+
+
+% 28. Use the theorem on polynomial orders to prove. 
+\1 Use the theorem on polynomial orders to prove $\frac{n(n-1)}{2} + 3n  \in \Theta(n^2)$
+
+
+% 33. Use the theorem on polynomial orders to prove. 
+\1 Use the theorem on polynomial orders to prove $1^3 + 2^3 + 3^3 + \cdots + n^3 \in \Theta(n^4)$.
+
+
+
+% 41. 
+\1 Prove if $c$ is a positive real number and $f(n) = c$ for every integer $n \ge 1$, then $f(n) \in \Theta(1)$. 
+
+
+\end{outline}

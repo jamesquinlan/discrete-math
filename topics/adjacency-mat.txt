@@ -1,0 +1,300 @@
+% Matrix Representations of Graphs
+\section*{Overview}
+\begin{outline}[enumerate]
+\1 Matrix Representations of Graphs
+\end{outline}
+% https://www.youtube.com/watch?v=-ViPmcdlfbQ
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\section*{Learning Outcomes}
+\begin{outline}[enumerate]
+\1 Represent a graph with an (adjacency) matrix
+
+\1 Obtain a Directed Graph from a Matrix
+
+\1 Multiply matrices
+
+\1 Count walks of  length $n$
+
+\1 Explore the association between matrices and connected components
+
+\end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+\section*{Matrices}
+
+Representing a graph using a \textbf{matrix} is possible. Moreover, we can use \textit{matrix theory} and linear algebraic properties to analyze graphs and obtain certain structural information about the graph (see \cite{bapat2010graphs,brualdi2011mutually,harary1967graphs,kepner2011graph}).    But first, what is a matrix? 
+
+\begin{definition}
+    An $m \times n$ matrix $A$ over a set $S$ is a rectangular array (double indexed) of elements of $S$ arranged into $m$ rows and $n$ columns:
+
+    \[
+    A = \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1j} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2j} & \cdots & a_{2n} \\
+        \vdots &  \vdots & \cdots &  \vdots & \cdots &  \vdots \\
+        a_{i1} & a_{i2} & \cdots & a_{ij} & \cdots & a_{in} \\
+        \vdots &  \vdots & \cdots &  \vdots & \cdots &  \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mj} & \cdots & a_{mn} \\
+    \end{bmatrix}
+    \]
+    We can write $A = (a_{ij})$ for short.
+\end{definition}
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\subsection*{Matrix Terminology and Properties}
+
+
+\begin{outline}[enumerate]
+\1 The first index is the row number.  For instance, the $i$-th row is: 
+\[
+\begin{bmatrix}
+a_{i1} & a_{i2} & \cdots  & a_{in}
+\end{bmatrix} .
+\]
+
+\1 The second index is the column number. The $j$-th column is:
+\[
+\begin{bmatrix}
+a_{1j} \\ a_{2j} \\ \vdots  \\ a_{mj}
+\end{bmatrix} .
+\]
+
+\1 The matrix is \textbf{square} if $m = n$.
+
+\1 The main \textbf{diagonal} of a square matrix consists of entries: $a_{11}, a_{22}, \cdots, a_{nn}$.
+
+\1 Let $G$ be a directed graph with ordered vertices $v_1, v_2, \dots, v_n$.  The \textbf{adjacency matrix} of $G$ is the matrix with entries $a_{ij} = $ number of directed edges from $v_i$ to $v_j$. 
+
+
+\1 \textbf{Matrix Multiplication}: The $i$-th row of $A$ times the $j$-th columns of $B$ is the $i,j$ entry of the product.  It is calculated by:
+\begin{equation}\label{eqn:dotprod}
+\sum_{k=1}^n a_{ik}b_{kj} = a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{ik}b_{kj} + \cdots + a_{in}b_{nj} .    
+\end{equation}
+
+\textbf{Note}: Equation (\ref{eqn:dotprod}) is  one of the most useful calculations in all science and mathematics. 
+
+% update this to algorithm environment
+Algorithm for matrix multiplication:
+\begin{verbatim}
+    for i = 1:m
+      for j = 1:q
+        c(i,j)
+        for k = 1:n
+          c(i,j) = c(i,j) + a(i,k)*b(k,j)
+\end{verbatim}
+
+%
+\1 Given compatible sizes, \textit{matrix multiplication is associative}.
+\[
+(AB)C = A(BC)
+\]
+
+%
+\1 The $n \times n$ \textbf{identity matrix} $I$, is the matrix with 1's on the main diagonal and 0's elsewhere. It is defined by \textbf{Kronecker delta}:
+\[
+\delta_{ij} = \begin{cases}
+    1 & \text{ if }  i = j \\
+    0 & \text{ if } i \ne j
+\end{cases}\; , \quad \text{for all } i, j = 1, 2, \dots, n .
+\]
+
+%
+\1 An $n \times n$ matrix $A = (a_{ij})$ is \textbf{symmetric} if and only if for all $i$ and $j$
+\[
+a_{ij} = a_{ji}.
+\]
+
+
+%
+\1 A graph with $k$ connected components has an adjacency matrix that is block diagonal where each block, $G_i$ is the adjacency matrix for that block.  That is, 
+\[
+\begin{bmatrix}
+    G_1 & 0 & 0 & \dots & 0\\
+    0 & G_2 & 0 & \dots & 0\\
+    \vdots & \vdots & \ddots & \dots & \vdots\\
+    0 & 0 & 0 & \ddots & 0\\
+    0 & 0 & 0 & \dots & G_k\\
+\end{bmatrix}
+\]
+
+
+\end{outline}
+
+
+\begin{example}
+    Consider the graph with three connected components:
+\begin{center}
+\begin{tikzpicture}
+%Vertices
+
+    \draw[fill=black] (0,0) circle (3pt);
+    \draw[fill=black] (-1.25,1.5) circle (3pt);
+    \draw[fill=black] (1.25,1.5) circle (3pt);
+    \draw[fill=black] (0,3) circle (3pt);
+    \draw[fill=black] (2,2.5) circle (3pt);
+    \draw[fill=black] (2.75,1.5) circle (3pt);
+    \draw[fill=black] (4,3) circle (3pt);
+    \draw[fill=black] (5.25,1.5) circle (3pt);
+
+%Edges
+    \draw[thick] (0,0)--(-1.25,1.5);
+    \draw[thick] (0,0)--(1.25,1.5);
+    \draw[thick] (-1.25,1.5)--(0,3);
+    \draw[thick] (0,3)--(1.25, 1.5);
+    \draw[thick] (5.25,1.5)--(4,3);
+    \draw[thick] (4,3)--(2.75,1.5);
+
+%Vertex labels
+    \node at (0,-0.5) {d};
+    \node at (-1.5,1.5) {a};
+    \node at (1.5,1.5) {c};
+    \node at (0,3.5) {b};
+    \node at (2,3) {e};
+    \node at (2.5,1.5) {f};
+    \node at (4,3.5) {g};
+    \node at (5.5,1.5) {h};
+\end{tikzpicture}
+\end{center}
+
+The adjacency matrix is:
+\[
+\left[
+\begin{array}{cccc|c|ccc}
+    0   &   1   &   0   &   1   &   0   &   0   &   0   &   0 \\
+    1   &   0   &   1   &   0   &   0   &   0   &   0   &   0 \\
+    0   &   1   &   0   &   1   &   0   &   0   &   0   &   0 \\
+    1   &   0   &   1   &   0   &   0   &   0   &   0   &   0 \\\hline
+    0   &   0   &   0   &   0   &   0   &   0   &   0   &   0 \\\hline
+    0   &   0   &   0   &   0   &   0   &   0   &   1   &   0 \\
+    0   &   0   &   0   &   0   &   1   &   1   &   0   &   1 \\
+    0   &   0   &   0   &   0   &   0   &   0   &   1   &   0 
+\end{array}
+\right]
+\]
+\end{example}
+    
+
+%\input{graphs/manyTikz}
+
+% \begin{center}
+% \begin{tikzpicture}
+% \draw[fill=black] (0,0) circle (3pt);
+% \draw[fill=black] (4,0) circle (3pt);
+% \draw[fill=black] (2,3) circle (3pt);
+
+% %% vertex labels
+% \node at (-0.5,0) {$v_3$};
+% \node at (4.5,0) {$v_2$};
+% \node at (2,3.3) {$v_1$};
+
+% % Directed edges
+% \draw[->] (0,0) -- (4,0);
+% \draw[->] (4,0) -- (2,3);
+% \draw[->] (2,3) -- (0,0);
+% \end{tikzpicture}
+% \end{center}
+
+
+% \begin{tikzpicture}
+
+% % Adjust the arrow style and size
+%   \tikzset{
+%     >=stealth, % Arrowhead style
+%     every node/.style={draw, circle, minimum size=3pt}, % Node (circle) size
+%   }
+
+%   \node[circle, draw] (A) at (0,0) {$v_3$};
+%   \node[circle, draw] (B) at (4,0) {$v_2$};
+%   \node[circle, draw] (C) at (2,3) {$v_1$};
+
+%   % Directed edges with arrows
+%   \draw[->, very thick] (A) -- (B);
+%   \draw[->] (B) -- (C);
+%   \draw[->] (C) -- (A);
+% \end{tikzpicture}
+
+
+% https://tikz.dev/tikz-graphs
+% \begin{tikzpicture}
+%   % Adjust the arrow style and size
+%   \tikzset{
+%     >=stealth, % Arrowhead style
+%     every node/.style={draw, circle, minimum size=15pt}, % Node (circle) size
+%   }
+
+%   \graph [grow down, branch right, simple]
+%   {
+%     % Define vertices and their labels
+%     A/$v_3$ -> B/$v_2$ -> C/$v_1$ -> A/$v_3$;
+%     A -> B;
+%     B -> C;
+%   };
+% \end{tikzpicture}
+
+
+
+\begin{theorem}
+    If $G$ is a graph with vertices $v_1, v_2, \dots, v_m$ and $A$ is the adjacency matrix of $G$, then for each positive integer $n$ and for all integers $i,j = 1,2, \dots m$, 
+    \begin{center}
+        the $ij$th entry of $A^n = $ the number of walks of length $n$ from $v_i$ to $v_j$.
+    \end{center}
+\end{theorem}
+\pf (by induction):
+
+Let $P(n) = $ the $ij$th entry of $A^n = $ the number of walks of length $n$ from $v_i$ to $v_j$ for all $i$ and $j$.
+
+$P(1)$ is the number of walks of length 1 from $v_i$ to $v_j$ (the definition of adjacency matrix).
+
+Assume $P(n)$ is true and consider $A^{n+1} = A A^{n}$. Let $A^{n} = (b_{ij})$.
+The $ij$-th entry of $A^{n+1}$ is obtained by multiplying the $i$-th row of $A$ by the $j$-th column of $A^{n}$:  
+\[
+\text{the } ij\text{-th entry of } A^{n+1} =  a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{ik}b_{kj} + \cdots + a_{im}b_{mj} .
+\]
+
+Now $a_{ik}$ is the number of adjacent edges from $v_i \to v_k$; and by induction hypothesis, $b_{kj}$ is the number of of walks of length $n$ from $v_k \to v_j$.  Now add any adjacent edge from $v_i \to v_k$ with the walks of length $n$ from $v_k \to v_j$. \qed  %with $v_k$ as its second vertex.
+
+
+
+\section*{Summary}
+
+\begin{outline}
+    \1 A graph can be represented by an adjacency matrix (or by an incidence matrix, not covered here).
+
+    \1 The $ij$-th entry in the product of matrices is given by
+
+   \[
+\sum_{k=1}^n a_{ik}b_{kj} = a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{ik}b_{kj} + \cdots + a_{in}b_{nj} .    
+\]
+
+\2 The code would looks something like:
+\begin{verbatim}
+    for i = 1:m
+      for j = 1:q
+        c(i,j)
+        for k = 1:n
+          c(i,j) = c(i,j) + a(i,k)*b(k,j)
+\end{verbatim}
+
+
+    \1 If $A$ is an adjacency matrix of $G$, then the $(i,j)$ entry of $A^k$ is the number of walks of length $k$ from $v_i \to v_j$. 
+
+    \1 Connected components of a graph form a block diagonal matrix where each block corresponds to a connected component.  
+
+    \1 For further reading consult \cite{bapat2010graphs,brualdi2011mutually,harary1967graphs,kepner2011graph}.
+\end{outline}

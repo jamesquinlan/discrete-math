@@ -1,0 +1,378 @@
+\section*{Formal Languages and Regular Expressions}
+
+
+\subsection*{Introduction}
+ 
+\begin{outline}
+    \1 Theoretical foundations of computer science come from several disciplines
+        \2 electrical engineering (switches) 
+        \2 brain research (networks)
+        \2 logic
+        \2 linguistics
+
+        \1 Alan Turing developed a simple abstract model of a computing machine (circa 1930)
+            \2 Defined what it meant for a function to be computable.
+            \2 Universal - anything that can ever be computed can be with a Turning Machine
+            
+
+        \1 Isomorphic models of computation developed by Alonzo Church
+
+        \1 Noam Chomsky (MIT) - Theory of Formal Languages.  Three language classifications are: 
+            \2 Regular languages
+            \2 Context-free languages (CFL) based on context-free grammar (CFG) %(or \textit{grammars})
+            \2 Context-sensitive grammar
+\end{outline}
+
+
+\section*{Overview}
+\begin{outline}[enumerate]
+\1 $\Sigma$ is a finite set of characters called an \textbf{alphabet}.
+
+\1 \textbf{Strings} (or \textbf{words}) over $\Sigma$ a finite juxtaposition of elements from the alphabet (or the null string).
+
+\1 \textbf{Formal language} over $\Sigma$ is a set of strings over the alphabet.  Because languages are a \textit{set} (of strings), we can create languages using some (set) operations (or rules).  In particular, we will create a ``regular" language by using regular expression rules.  
+\end{outline}
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+%\begin{outline}[enumerate]
+%    \1 
+% \end{outline}
+
+\begin{example}
+    Let the alphabet be $\Sigma = \{ 0,1\}$.  Define a language $L_1$ over $\Sigma$ as the set of all strings that begin with the character $0$ and have a length of at most three characters.
+
+    \[
+    L_1 = \{ 0, 00, 01, 000, 001, 010, 011 \}.
+    \]
+\end{example}
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Regular Expressions}
+Regular expressions describe character patterns and have three basic operations:
+\begin{outline}[enumerate]
+    \1 Concatenation
+    \1 Repetition (indicated by use of asterisks)
+    \1 Selection or choice (indicated by a vertical bar)
+ \end{outline}
+
+
+\section*{Definitions}
+
+
+\begin{outline}[enumerate]
+
+    % Concat 
+    \1 Let $\Sigma$ be an alphabet.  
+    % Given any strings $x$ and $y$ over $\Sigma$, the \textbf{concatenation} of $X$ and $y$ is the string obtained by writing all the characters of $x$ followed by all the characters of $y$.  
+    Three new languages can be defined for any languages $L_1$ and $L_2$ over $\Sigma$.
+        \2 \textbf{Concatenation} 
+        \[
+        L_1 L_2 = \{ xy \;|\; x \in L_1 \land y \in L_2 \}
+        \]
+
+        \2 \textbf{Union}
+        \[
+        L_1 \cup L_2 = \{ x \;|\; x \in L_1 \lor x \in L_2  \}
+        \]
+
+        \2 \textbf{Kleenee Closure} ($L = L_1$)
+        \[
+        L^* = \{ x \;|\; x \text{ concatenation of any finite number of strings in } L  \}
+        \]
+
+
+
+
+    \1 regular languages over an alphabet $\Sigma$ is defined recursively
+
+
+
+
+        
+    %  RegX
+    \1  Given $\Sigma$, the following are \textbf{regular expressions over} $\Sigma$
+
+        \2\label{regx:base} Base: $\varnothing, \epsilon$, and each letter $x \in \Sigma$ are regular expressions over $\Sigma$.
+
+        \2\label{regx:recurse} Recursion: if $r$ and $s$ are regular expressions over $\Sigma$, then 
+           \begin{align*}
+            &(rs) \\
+            &(r \;|\; s) \\
+            &(r^*)
+            \end{align*}
+            are regular expressions.  
+            
+
+        \2 Restriction: Only \ref{regx:base} and \ref{regx:recurse} are regular expressions
+
+    % 
+    \1 For any finite $\Sigma$, there is a function $L:r \to \mathcal{L}$ that defines a language.  That is, for each regular expression $r$, $L(r)$ is the  \textbf{language defined by $r$}
+
+        \2 Base: $L(\varnothing) = \varnothing$, $L(\epsilon = \{\epsilon\})$, $L(a) ] \{a\}$ for every $a \in \Sigma$.
+
+        \2 Recursion: If $L(r)$ and $L(r')$ are languages defined by the regular expressions $r$ and $r'$ over $\Sigma$, then 
+        \begin{align*}
+             L(rr') &= L(r)L(r') \\
+             L(r\;|\;r') &= L(r) \cup L(r') \\
+             L(r^*) &= (L(r))^*
+        \end{align*}
+
+        \2 Restriction: The function $L$ is completely determined by (a) and (b).
+
+\end{outline}
+
+\textbf{Note}: If the alphabet contains characters such as ``(", ``)", ``|", and ``*", a backslash will be used to include it.  
+
+
+\subsection*{Using Set Notation to Describe Language Defined by RegX}
+
+Let $\Sigma = \{a, b \}$ and consider the language defined by the regular expression $(a | b)^*$.  Use set notation to find this language and describe it in words.
+
+\begin{align*}
+L((a | b)^*)    &= (L(a | b))^*             \\
+                &= (L(a)) \cup L(b))^*      \\
+                &= (\{a \} \cup \{b\})^*    \\
+                &= \{a, b\}^*               \\
+                &= \Sigma^*
+\end{align*}
+This is the set of all words (strings) composed of a's and b's.  
+\qed
+
+
+
+% Example -----------------------------------------------
+\begin{example}[Language Defined by a Regular Expression]
+Let $\Sigma = \{0,1\}$.  Use words to describe the language defined by the following regular expressions over $\Sigma$. 
+
+\[
+0^*1^* \;|\;  1^*0^*
+\]
+
+\textbf{Answer}: Recall $^*$ means ``zero or more'' letters.  Therefore, this language consists of strings of 1's followed by a string of 0's or a string of 0's followed by a string of 1's.  For example, 0000011, 01111, 10, 11111000, 000, and 11 are all words in this language.  The empty string is also a word in this language. 
+\end{example}
+
+
+% Example -----------------------------------------------
+\begin{example}[Language Defined by a Regular Expression]
+Let $\Sigma = \{0,1\}$.  Use words to describe the language defined by the following regular expressions over $\Sigma$. 
+
+\[
+0 ( 0 \;|\;  1)^*
+\]
+
+\textbf{Answer}: This language consists of a 0 followed by zero or more 0's and 1's.  For example, 0, 00, 0000, 0100111001, and 001 are all words in this language.  
+\end{example}
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+% Example -----------------------------------------------
+\begin{example}[Individual Strings in the Language]
+Let $\Sigma = \{a,b\}$, consider the language $L$ over $\Sigma$ defined by the regular expression: $a^*b(a \;|\; b)^*$.  
+
+  a).   Write five strings that belong to $L$.
+ 
+\textbf{Answer}: $aaab, babbbb, aaabbbb, aabababab, a, b, ab$
+
+
+
+b). Given the regular expression is $a^* \;|\; (ab)^*$.  Indicate which of the following strings belong to $L$: $a, b, aaaa, abba, ababab$.
+
+\textbf{Answer}: Yes, no, yes, no, yes.  
+\end{example}
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+% Example -----------------------------------------------
+\begin{example}[Regular Expression that defines a language] Let $\Sigma = \{0,1\}$.  Find regular expressions over $\Sigma$ that define the following languages.
+
+a).  The language consisting of all strings of 0's and 1's that have even length and in which the 0's and 1's alternate.
+
+\textbf{Answer}: $(01)^* | (10)^*$.  
+
+
+b). The language consists of all strings of 0's and 1's with an even number of 1's.  Such strings are said to have even parity.
+
+\textbf{Answer}: $(0 \;|\; 10^*1)^*$
+
+
+c). The language over $\Sigma$ that does not contain two consecutive 1's. 
+
+\textbf{Answer}: $(0^* \;|\; (1 0)^* \;|\; (\lambda \;|\; 1)$
+
+\end{example}
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+\subsection*{Order of Precedence}
+
+The order of precedence for regular expressions is:
+\begin{outline}[enumerate]
+    \1 $*$  (highest)
+    \1 Concatenation
+    \1 $\;|\;$ (lowest)
+\end{outline}
+
+
+\begin{example}
+    Add parentheses to emphasize the order of precedence in $ab^*\;|\; b^*a$.
+
+    \textbf{Answer}: 
+    \[
+        (  (a(b^*)) \;|\; ((b^*)a)   )
+    \]
+\end{example}
+
+
+
+\begin{example}
+    Use order of precedence to remove the parenthesis in: $((a \;|\; ((b^*) c)) (a^*))$.
+
+    \textbf{Answer}: 
+    \[
+      (a   \;|\; b^*c) a^*
+    \]
+\end{example}
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+
+
+
+
+
+\subsection*{Practical Uses of Regular Expressions}
+Many applications in computer science operate on strings (e.g., compilers scan lines of code looking for keywords, identifiers, and literals).  
+Regular expressions (or regex) provide a powerful way to search and describe patterns.  Regular expressions are used frequently in exploratory data analysis (EDA) to extract data, clean data (replace missing values), and  transform data (normalize/standardize).  
+
+
+
+Some common practical examples of using regex include:
+\begin{outline}
+\1 Checking ZIP code data contains proper number of characters.
+\1 A string contains only letters, spaces, apostrophes, and hyphens (e.g., as last names might)
+\1 An email address
+\1 Social Security number is of the form: xxx-xx-xxxx.    
+\end{outline}
+
+
+
+Regular expressions have three basic operations: 
+\begin{outline}[enumerate]
+    \1 concatenation - given by a sequence of items
+    \1 repetition - by use of an asterisk * or +
+    
+    \1 selection - indicated by vertical bar, $\;|\;$
+
+\end{outline}
+Repetition symbols include * and + indicating zero or more and one or more, respectively.  Parenthesis are used for grouping, square brackets and hyphen for ranges, (e.g., [0-9]).  The question mark, ?,  indicates optional character. 
+
+\begin{example} Floating-point values consisting of one or more digits followed by an optional fractional part consisting of a decimal point (backslash is an escape character) followed by one or more digits.  
+    \begin{verbatim}
+        [0-9]+(\.[0-9]+)?
+    \end{verbatim}
+\end{example}
+\vspace{-1.0cm}
+
+
+
+%\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+Many UNIX utilities make use of regular expressions, for example:
+
+\begin{outline}[enumerate]
+    \1 \texttt{grep} - \textbf{G}lobal search for \textbf{R}egular \textbf{E}xpressions and \textbf{P}rinting
+
+    \1 \texttt{sed} - \textbf{S}tream \textbf{ED}itor
+
+    \1 \texttt{Emacs} - \textbf{E}ditor \textbf{MAC}ro\textbf{S} 
+
+    \1 \texttt{vim} - \textbf{V}isual \textbf{I}nterface i\textbf{M}proved
+    
+\end{outline}
+
+
+% Python uses regular expressions
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\subsection*{Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 12.1 - Formal Languages
+% Problems: # 2, 8, 12, 23, 26
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 2.
+\1 
+	\2 Let $L_3$ be the language consisting of all strings over $\Sigma$ of length $\le 3$ in which all the $x$'s appear to the left of all the $y$'s.  List the elements of $L_3$ between braces.
+
+	\2 List between braces the elements of $\Sigma^4$, the set of all strings of length $4$ over $\Sigma$. 
+
+	\2 Let $A = \Sigma^1 \cup \Sigma^2$ and $B = \Sigma^3 \cup \Sigma^4$.  Describe $A$, $B$, and $A \cup B$ in words.  
+
+
+
+% 8. Add Parentheses to emphasize the order of precedence in the expression.
+\1 $0^*1\;|\;0(0^*1)^*$
+
+
+
+% 12. Use the rules about the order of precedence to eliminate the parentheses in the given regular expression. 
+\1 $(xy)(((x^*)y)^*)|(((yx)|y)(y^*))$
+
+
+
+% 23. Indicate whether the string belongs to the language defined by the given regular expression.  
+\1 Expression: $(x^*y|zy^*)^*$, strings: $zyyxz$, $zyyzy$. 
+
+
+
+% 26. Find a regular expression that defines the given language. 
+\1 The language consists of all strings of $a$'s and $b$'s in which the third character is a $b$ from the end.  
+
+
+
+\end{outline}

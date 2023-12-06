@@ -1,0 +1,360 @@
+% trees
+\section*{Overview}
+\begin{outline}[enumerate]
+\1 Determine whether a graph is a tree
+\1 Finding tree satisfies a given condition
+\1 Identifying properties of trees (and equivalent definitions)
+\end{outline}
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% -------------------------------------------------------------------
+
+
+\section*{Applications of Trees}
+Trees are an important and useful tool for application modeling and analysis.  Here are some common uses of trees.
+\begin{outline}[enumerate]
+\1 \textbf{Decision Tree}: used in medicine to determine treatment options.  Used in college for math placement.
+
+\1 \textbf{Parse Tree}: In the study of grammar(s), trees are often used to verify the grammatical structure of sentences (also called \textit{syntactic tree}).
+
+\1 \textbf{Molecular Structure}: Molecular bonding of hydrocarbons can be viewed and analyzed using trees.
+
+\1 \textbf{Binary Search Trees} (BST): In computer science, sorting and searching are standard algorithms.  A binary tree is a data structure (in some ways better than all others) that provides $O(\lg n)$ time complexity. 
+
+\1\textbf{ Computer file systems}: Files can be organized into directories containing both files and subdirectories.  
+
+\1 \textbf{Organizational Hierarchies}: Organizations such as the U.S. Army have a chain of command that follows a hierarchical tree structure.  Colleges and universities have a president, provost, deans, chairs, and faculty members.  
+
+\1 \textbf{Huffman Compression}: a data compression technique.
+
+\end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% -------------------------------------------------------------------
+
+
+
+% -------------------------------------------------------------------
+% DEFINITION: TREE
+% -------------------------------------------------------------------
+\begin{definition}
+    A connected graph $T = (V,E)$ is a tree if it has no cycles. 
+\end{definition}
+
+
+\begin{example}
+Figure \ref{fig:trees} contains three tree graphs.  What properties are common among them? 
+ 
+
+\end{example}
+
+
+
+% Side by side subfigures 
+\begin{figure}[ht!]
+\begin{subfigure}[h]{0.25\linewidth}
+\begin{tikzpicture}[scale=0.8]
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (4,0) circle (3pt);
+\draw[fill=black] (2,3) circle (3pt);
+
+%% vertex labels
+\node at (-0.5,0) {$v_3$};
+\node at (4.5,0) {$v_2$};
+\node at (2,3.3) {$v_1$};
+
+%% edges
+\draw[thick] (0,0) -- (2,3) -- (4,0);
+\end{tikzpicture}    
+\caption{Tree $n=3$}
+\end{subfigure}
+\hfill
+%
+%
+% TREE 2
+\begin{subfigure}[h]{0.25\linewidth}
+\begin{tikzpicture}[scale=0.8]
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (4,0) circle (3pt);
+\draw[fill=black] (2,1.5) circle (3pt);
+\draw[fill=black] (2,3) circle (3pt);
+
+%% vertex labels
+\node at (-0.5,0) {$v_3$};
+\node at (4.5,0) {$v_2$};
+\node at (2,3.3) {$v_1$};
+\node at (2.35,1.6) {$v_4$};
+
+%% edges
+\draw[thick] (0,0) -- (2,1.5);
+\draw[thick] (4,0) -- (2,1.5);
+\draw[thick] (2,3) -- (2,1.5);
+\end{tikzpicture}    \caption{Tree $n = 4$}
+\end{subfigure}%
+\hfill
+%
+%
+% TREE 3
+\begin{subfigure}[h]{0.25\linewidth}
+\begin{tikzpicture}[scale=0.8]
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (3,0) circle (3pt);
+\draw[fill=black] (0,3) circle (3pt);
+\draw[fill=black] (3,3) circle (3pt);
+
+%% vertex labels
+\node at (-0.5,0) {$v_3$};
+\node at (3.5,0) {$v_2$};
+\node at (3.5,3) {$v_4$};
+\node at (-0.5,3) {$v_1$};
+
+%% edges
+\draw[thick] (0,0) -- (3,0) -- (3,3) -- (0,3);
+\end{tikzpicture}    \caption{Tree $n = 4$}
+\end{subfigure}%
+\caption{Examples of  Trees}\label{fig:trees}
+\end{figure}
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% -------------------------------------------------------------------
+
+\section*{Theory: Properties of Trees}
+
+\begin{definition}
+    Let $T$ be a tree.  If $T$ has at least two vertices, then every vertex of degree 1 is a \textbf{leaf} (or \textbf{terminal vertex}).
+    A vertex with degree greater than 1 is an \textbf{internal vertex} (or \textbf{branch vertex}).  
+\end{definition}
+
+\begin{theorem}
+    A graph is a tree if and only if there is a unique path between any two vertices.
+\end{theorem}
+\pf ($\Rightarrow$) Let $T = (V,E)$ be a tree. Recall a path is a walk with no repeated edges.  Since $T$ is a tree, it is \textit{connected}, meaning there exists a path between every pair of (distinct) vertices.  To show this path is unique.   
+Let $u \ne v \in V$ be arbitrary. Suppose (for contradictory purposes\footnote{It is common to use contradiction to prove uniqueness.}) that $P_1$ and $P_2$ are distinct paths from $u \to v$.  Then by reversing $P_2$, we have a path from $v \to u$.  This forms a cycle which we cannot have since $T$ is a tree.  
+
+($\Leftarrow$) Suppose there is a unique path between $u$ and $v$ for any two vertices in $V$.  Therefore, the graph is connected.  We must show there is no cycles.  Suppose there is a cycle going through $v$.  Then we have two distinct paths between $u$ and $v$, contradicting the supposition of unique paths.  \qed 
+
+
+
+\begin{lemma}\label{lem:tree}
+    A tree such that $|V| > 1$ has at least one vertex of degree $1$.  
+\end{lemma}
+\pf (Outline) Start at any vertex (there is more than one).  Either the selected vertex has degree 1 or not.  If not, then there are at least two edges incident, use one to move to an adjacent vertex.  Either it is degree one (the incoming edge) or not.  If not, use another edge to move to an adjacent vertex. Repeat. Since a tree is finite, the process must come to end.  Moreover, because a tree has no cycles, no previous selected vertex will be select moving forward.
+
+\begin{definition}
+    Let $G$ be connected.  
+    A \textbf{bridge} is an edge that disconnects $G$ if removed.  
+\end{definition}
+
+\begin{theorem}
+    Every edge is a bridge in a tree.
+\end{theorem}
+
+
+\begin{theorem}
+    For all $n \in \N$, a tree with $n$ vertices has $n-1$ edges.
+\end{theorem}
+\pf Let $P(n):=$ Any tree with $n$ vertices has $n-1$ edges.  In the base case, $n=1$, and the tree has no edges, $n-1 = 0$.  Show $P(n+1)$ is true.  To that end, suppose $P(n)$ is true and consider a tree with $n+1$ vertices. Since $n \in \N$, $n \ge 1$, therefore $n+1 \ge 2$.  By Lemma \ref{lem:tree}, there is at least one vertex of degree 1, label it $v$.  Now, the graph when removing that vertex and the edge connecting it to the rest of the graph has:
+\[
+V' = V \setminus \{v\} \text{ and } E' = E \setminus \{e\}
+\]
+where $e$ is the edge connecting $v$ to the remaining graph.  
+Thus, the remaining graph is a tree (removing an edge does \textit{not} create a cycle and it stays connected).  By the inductive hypothesis, the number of edges in that subgraph is $n-1$.  Therefore, the number of edges is $n - 1 + 1$, where the $+1$ is the edge removed.  \qed  
+
+
+\begin{lemma}
+    Let $G$ be connected graph and $C$  any cycle of $G$.  
+    If any one edge of $C$ is removed from $G$, then $G$ remains connected.
+\end{lemma}
+
+\begin{theorem}
+    If $G$ is connected with $n$ vertices and $n-1$ edges, then $G$ is a tree. 
+\end{theorem}
+
+
+\begin{corollary}
+    If $G$ is a graph with order $n$ and size $m \ge n$, then $G$ has a cycle.  
+\end{corollary}
+\pf Suppose the $G$ does not have a cycle.  Let $G_1, G_2, \dots, G_k$ be connected components of $G$.  Since $G$ has no cycles, $G_i$ has no cycle(s).  
+Thus, $G_i$ is a tree for each $i \in 1, 2, \dots, k$. Let $n_i$ be the number of vertices of $G_i$, thus there are $n_i - 1$ edges in each $G_i$ connected component.  We have in total, (total equals the sum of the parts), the number of edges of $G$ is,  
+\begin{align*}
+m   &= \sum_{i = 1}^k (n_i - 1)\\
+    &= \sum_{i = 1}^k n_i - k \\
+    &= n - k \\
+    &< n .
+\end{align*}
+That is, $m < n$, which contradicts the assumption that $m \ge n$.  
+Therefore, $G$ has a cycle. \qed
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% -------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+\section*{Summary}
+Let $T = (V,E)$ be a graph.  The following statements are equivalent.
+
+\begin{outline}[enumerate]
+\1 $T$ is a tree.
+\1 $T$ is connected, and the number of vertices is one more than the number of edges.
+    \2 Note the importance of being \textit{connected}.
+
+\1 $T$ has no cycles and is connected.
+
+\1 $T$ has no cycles, and the number of vertices is one more than the number of edges.
+
+\1 There is precisely one simple path between each pair of vertices in $T$. 
+    \2 A \textbf{simple path} is a walk in which no vertex (hence no edge) is repeated.  Note: This could be different from how your book defines these terms.
+
+\1 $T$ has no cycles, and adding any edge between two nonadjacent vertices results in a graph with a cycle.
+
+\1 Every edge is a bridge. 
+
+% \1 $T$ is a tree if and only if a unique simple path exists between any two vertices.
+\end{outline}
+
+
+\subsection*{Further Resources}
+For more information see \cite{brualdi1977introductory,dossey1987discrete,epp2014discrete,valiente2002algorithms}.
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% -------------------------------------------------------------------
+
+
+
+\subsection*{Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 10.4 - Trees
+% Problems: # 7, 14, 16, 18, 21, 30
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 7. 
+\1 Find all leaves (or terminal vertices) and all internal vertices of the following trees.  
+
+
+
+% Side-by-side subfigures 
+\begin{figure}[ht!]
+\centering
+\begin{subfigure}[h]{0.4\linewidth}
+\begin{tikzpicture}[scale=1]
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (-1,1) circle (3pt);
+\draw[fill=black] (0,2) circle (3pt);
+\draw[fill=black] (1,3) circle (3pt);
+\draw[fill=black] (-1,3) circle (3pt);
+\draw[fill=black] (0,4) circle (3pt);
+\draw[fill=black] (2,4) circle (3pt);
+
+
+%% vertex labels
+\node at (-0.4,0) {$v_1$};
+\node at (-1.4,1) {$v_2$};
+\node at (0,1.4) {$v_3$};
+\node at (-1.4,3) {$v_4$};
+\node at (0,4.4) {$v_5$};
+\node at (1,2.6) {$v_6$};
+\node at (2.4,4) {$v_7$};
+
+%% edges
+\draw[thick] (0,0) -- (-1,1) -- (0,2) -- (0,4) -- (-1,3);
+\draw[thick] (0,4) -- (1,3) -- (2,4);
+\end{tikzpicture}    
+\caption{\;}
+\end{subfigure}
+%\hfill
+%
+%
+% TREE 2
+% -----------------------------------------
+\begin{subfigure}[h]{0.4\linewidth}
+\begin{tikzpicture}[scale=1]
+%% vertices
+\draw[fill=black] (0,0) circle (3pt);
+\draw[fill=black] (2,0) circle (3pt);
+\draw[fill=black] (1,1) circle (3pt);
+\draw[fill=black] (0,1.25) circle (3pt);
+\draw[fill=black] (2,1.25) circle (3pt);
+\draw[fill=black] (-1,2) circle (3pt);
+\draw[fill=black] (1,2) circle (3pt);
+\draw[fill=black] (2,3) circle (3pt);
+
+%% vertex labels
+\node at (-0.4,0) {$v_1$};
+\node at (2.45,0) {$v_2$};
+\node at (1,.5) {$v_3$};
+\node at (0,0.8) {$v_4$};
+\node at (2,0.8) {$v_5$};
+\node at (-1,2.4) {$v_6$};
+\node at (1,2.4) {$v_7$};
+\node at (2.4,3) {$v_8$};
+
+%% edges
+\draw[thick] (0,0) -- (1,1) -- (2,0);
+\draw[thick] (-1,2) -- (0,1.25) -- (1,2) -- (2,3) -- (1,2) -- (2, 1.25);
+\draw[thick] (1,1) -- (1,2);
+\end{tikzpicture}    \caption{\hspace{1cm}}
+\end{subfigure}%
+\caption{Trees of Problem \#7.}\label{fig:trees}
+\end{figure}
+
+
+% 14.
+\1 Draw a graph with {two vertices, one edge, but not a tree}, or explain why no such graph exists.  
+
+
+% 16.
+\1 Draw a {tree with 12 vertices and 15 edges}, or explain why no such graph exists.
+
+
+% 18.
+\1 Draw a tree with 5 vertices and degree total 10, or explain why no such graph exists.
+
+
+% 21.
+\1 Draw a tree with 10 vertices of total degree 24, or explain why no such graph exists.
+
+
+% 30.
+\1 (SKIP - isomorphic graphs not covered).  Find all nonisomorphic trees with five vertices.  
+
+
+\end{outline}
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% -------------------------------------------------------------------
+
+

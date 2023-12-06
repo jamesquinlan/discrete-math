@@ -1,0 +1,223 @@
+% 6.2 Set Properties
+
+\section*{Objectives}
+\begin{outline}[enumerate]
+\1 Identify subset relations
+\1 List set properties and algebra laws 
+ \end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Subset Relations}
+\begin{outline}
+\1 \textbf{Intersection Inclusion}
+ \begin{align*}
+     A \cap B &\subseteq A \\
+     A \cap B &\subseteq B 
+ \end{align*}
+
+\1 \textbf{Union Inclusion}
+ \begin{align*}
+     A &\subseteq A \cup B  \\
+     B &\subseteq A \cup B 
+ \end{align*}
+
+\1 \textbf{Transitivity}
+\[
+    A \subseteq B \;\land\; B \subseteq C \Rightarrow A \subseteq C
+\]     
+  
+\end{outline}
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+\section*{Procedural Set Definitions}
+\begin{outline}[enumerate]
+ \1 $x \in X \cup Y \Leftrightarrow x \in X \;\lor\; x \in Y$
+
+  \1 $x \in X \cap Y \Leftrightarrow x \in X \;\land\; x \in Y$
+
+ \1 $x \in X - Y \Leftrightarrow x \in X \;\land\; x \not\in Y$
+
+ \1 $x \in X^c \Leftrightarrow x \not\in X$
+
+  \1 $(x,y) \in X \times Y \Leftrightarrow x \in X \;\land \; y \in Y$
+ \end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\section*{Set Properties / Laws}
+
+\begin{outline}[enumerate]
+
+    \1 \textbf{Identity Laws}: 
+    \begin{align*}
+     A \cup \varnothing &= A\\
+     A \cap U &= A
+    \end{align*}
+
+    \1 \textbf{Complement Laws}: 
+    \begin{align*}
+     A \cup A^c &= U\\
+     A \cap A^c &= \varnothing 
+    \end{align*}
+
+    \1 \textbf{Universal Bound Laws}: 
+    \begin{align*}
+     A \cup U &= U\\
+     A \cap \varnothing &= \varnothing 
+    \end{align*}
+
+ 
+    \1 \textbf{Commutative Laws}: 
+    \begin{align*}
+     A \cap B &= B \cap A\\
+     A \cup B &= B \cup A
+    \end{align*}
+	
+	\1 \textbf{Associative Laws}
+	\begin{align*}
+	A \cup (B \cup C) &= (A \cup B) \cup C \\ 
+	A \cap (B \cap C) &= (A \cap B) \cap C 
+	\end{align*}
+
+	
+	\1 \textbf{Distributive Laws}
+	\begin{align*}
+	A \cup (B \cap C) = (A \cup B) \cap (A \cup C) \\ 
+	A \cap (B \cup C) = (A \cap B) \cup (A \cap C) 
+	\end{align*}
+
+
+	\1 \textbf{Double Complement}: 
+     \[
+     (A^c)^c = A
+     \]  
+ 
+	
+    \1 \textbf{Idempotent Laws} For every set $A$, 
+	\begin{align*}
+	A \cup A  &= A \\ 
+	A \cap A &= A  
+	\end{align*}
+
+	
+    \1 \textbf{Set Difference}
+    \[
+    A - B = A \cap B^c
+    \]
+
+    \1 \textbf{ Absorption Laws}
+	\begin{align*}
+	A \cup (A \cup B) &= A \\ 
+	A \cap (A \cup B) &= A 
+	\end{align*}
+
+
+    \1 \textbf{DeMorgan's Laws}
+	\begin{align*}
+	(A \cup B)^c &= A^c \cap B^c \\ 
+	(A \cap B)^c  &= A^c \cup B^c 
+	\end{align*}
+
+    
+\end{outline}
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+% \section*{Proofs of (Some) Set Properties}
+
+\begin{outline}[enumerate]
+
+%\1 $(A \cup B)^c = A^c \cap B^c$. 
+%\pf Let $x \in (A \cup B)^c$, then
+
+\1 For all sets $A, B$, and $C$, prove, 
+\[
+(A \cup B) - C \subseteq (A-C) \cup (B - C)
+\]
+\pf Let $x \in (A \cup B) - C$.  By set difference law, 
+\[
+x \in (A \cup B) \cap C^c .
+\]
+Then, by distributive law, $x \in A \cap C^c$ or $x \in B \cap C^c$.  In the first case, $x \in A$ but not $C$.  And so, $x \in A-C$. 
+
+In the second case, if $x \in B$ but not $C$; again $x \in B - C$.  
+
+
+
+\1 The empty set is a subset of all sets.  
+
+\pf Suppose not. Let $A$ be a set.  Then, the empty set is not a subset of $A$, meaning at least one element of $\varnothing$ is not in $A$.  But $\varnothing$ has no elements.  
+\end{outline}
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+\section*{Homework Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 6.2 - Set Properties 
+% Problems: # 8, 13, 17, 34, 38, 42
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 8. Assume that all sets are subsets of a universal set $U$.
+\1 For all sets $A$ and $B$, $(A \cap B) \cup (C \cap B^c) = A$. 
+
+
+% 13. Assume that all sets are subsets of a universal set $U$. 
+\1 For all sets $A, B$, and $C$, 
+\[
+	(A - B) \cap (C - B) =  (A \cap C) - B .
+\]
+
+
+% 17. Assume that all sets are subsets of a universal set $U$.
+\1 For all sets $A, B$, and $C$, if $A \subseteq B$ then $A \cup C \subseteq B \cup C$.
+
+
+% 34. Assume that all sets are subsets of a universal set $U$.
+\1 For all sets $A$ and $B$, if $B \subseteq A^c$ then $A \cap B = \varnothing$.
+
+
+% 38. Assume that all sets are subsets of a universal set $U$.
+\1 For all sets $A$, $B$, $C$, and $D$, 
+\[
+	\text{if } A \cap C = \varnothing \text{ then } (A \times B) \cap (C \times D) = \O .
+\]
+
+
+% 42. Prove
+\1 For every positive integer $n$, if $A_1, A_2, A_3, \dots$ and $B$ are any sets, then 
+\[
+	\bigcap_{i = 1}^{n} \left(A_i - B) \right) = \left( \bigcap_{i = 1}^{n} A_i \right)  -  B
+\]
+
+
+\end{outline}

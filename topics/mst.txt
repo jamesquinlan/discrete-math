@@ -1,0 +1,441 @@
+% 10.6 - Spanning Trees
+\section*{Objectives}
+\begin{outline}
+\1 Find spanning tree
+\1 Find Minimum spanning tree using Kruskal's (edge-based) and Prim's (vertex-based) Algorithms
+
+\1 Use Dijkstra's algorithm to find the shortest path
+\end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Basic Definitions and Propositions}
+\begin{outline}
+\1 A \textbf{spanning tree} of $G$ is a subgraph of $G$ that contains every vertex and is a tree. 
+
+\1 Every connected graph has a spanning tree.
+
+\pf Let $G$ be connected.  If $G$ is circuit-free, it is a (spanning) tree.  If not, then $G$ has a cycle, call it $C_1$.  If an edge from $C_1$ is removed, then it remains connected, and either is a spanning tree or has a cycle, $C_2$.  Continue until we have a connected acyclic graph, a spanning tree. 
+
+\1 Any two spanning trees for a graph have the same number of edges.
+
+\1 There are typically multiple spanning trees for the same graph $G$.  
+\end{outline}
+
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Minimal Spanning Trees}
+\begin{outline}
+\1 A \textbf{weighted graph} is a graph for which each edge has an associated positive real number \textbf{weight}.
+
+\1 The sum of the weights of all the edges is the \textbf{total weight} of the graph. 
+    \2 The \textbf{weight of an edge} $e$ is given by $w(e)$ and the \textbf{weight of graph } $G$ is the total weight $w(G)$.
+
+
+\1 A \textbf{minimum spanning tree} for a connected weighted graph is a spanning tree with the least possible total weight compared to all other spanning trees. 
+
+\end{outline}
+
+
+\subsection*{Algorithms for Finding Minimum Spanning Trees}
+Let $G$ be a connected graph of order $n$.
+\begin{outline}
+\1 \textbf{Brute-force}: List all spanning trees, compute the total weight, and select the minimum.  
+    \2 Infeasible solution.  For $G = K_n$, there are $n^{n-2}$ spanning trees.  With $n=100$,  it would take the remainder of the universe's life to compute.
+
+
+% --------------------------
+\1 \textbf{Kruskal's Algorithm} -  is ``edge-based'' and works by sorting all the edges in the graph based on their weights and then greedily adding edges to the growing MST, while avoiding cycles. % Kruskal's algorithm does not start from a particular vertex; instead, it considers the edges in increasing order of weight and adds the edge if it does not form a cycle.
+
+% Algorithm: Kruskal
+\begin{algorithm}[h!]
+\caption{ -- Kruskal's Algorithm}\label{alg:krusty}
+\begin{algorithmic}[1] % Line numbers
+
+% IO
+\Require A connected weighted graph $G$
+\Ensure Minimum Spanning Tree
+
+\State $T = (V(G), \varnothing)$
+\State $m = 0$
+\While{$m < n - 1$}
+    \State Select $e \in E(G)$ such that $w(e) < w(x) \;\; \forall x \in E(G)$
+        \State {$E = E \setminus \{e\}$}
+        \If {$E(T) \cup \{e\}$ does not make cycle}
+            \State {$E(T) = E(T) \cup \{e\}$}
+            \State {$m = m+1$} (i.e., Increment $m$)
+        \EndIf 
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+
+
+% EXAMPLE
+\begin{example} Find the minimum spanning tree in Figure \ref{fig:graph1}.  The edge weights are unique so we will identify the edges by weights.  We have $|V(G)| = 6$, therefore we need 5 edges.  Select: 1.41, 1.64, 2.24, 2.83, 3.16. 
+\end{example}
+
+
+\begin{figure}[h!]
+    \centering
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-0.1,0.4) rectangle (7.9,6.84);
+\draw [line width=0.8pt] (4.,6.)-- (2.,4.);
+\draw [line width=0.8pt] (2.,4.)-- (3.,3.);
+\draw [line width=0.8pt] (3.,3.)-- (4.,6.);
+\draw [line width=0.8pt] (4.,6.)-- (4.74,4.54);
+\draw [line width=0.8pt] (4.74,4.54)-- (6.,2.);
+\draw [line width=0.8pt] (6.,2.)-- (1.,2.);
+\draw [line width=0.8pt] (1.,2.)-- (3.,3.);
+\draw [line width=0.8pt] (2.,4.)-- (1.,2.);
+\draw [line width=0.8pt] (6.,2.)-- (3.,3.);
+\begin{scriptsize}
+\draw [fill=black] (2.,4.) circle (3.0pt);
+\draw [fill=black] (4.74,4.54) circle (3.0pt);
+\draw [fill=black] (4.,6.) circle (3.0pt);
+\draw [fill=black] (3.,3.) circle (3.0pt);
+\draw [fill=black] (1.,2.) circle (3.0pt);
+\draw [fill=black] (6.,2.) circle (3.0pt);
+\draw[color=black] (2.56,5.37) node {$2.83$};
+\draw[color=black] (2.16,3.27) node {$1.41$};
+\draw[color=black] (3.72,4.09) node {$3.14$};
+\draw[color=black] (4.88,5.25) node {$1.64$};
+\draw[color=black] (5.84,3.39) node {$2.84$};
+\draw[color=black] (3.64,1.65) node {$5$};
+\draw[color=black] (2.32,2.39) node {$2.25$};
+\draw[color=black] (0.9,3.37) node {$2.24$};
+\draw[color=black] (4.04,2.99) node {$3.16$};
+\end{scriptsize}
+\end{tikzpicture}
+   \caption{Weighted graph $G$}
+    \label{fig:graph1}
+\end{figure}
+
+
+
+% --------------------------
+\1 \textbf{Prim's Algorithm} - is \textbf{vertex-based}, and at each step, it adds the minimum-weight edge that connects a vertex in the MST to a vertex outside the MST.
+
+%starts from an initial vertex and grows the MST by adding the shortest edge that connects a vertex in the MST to a vertex outside the MST. Prim's algorithm 
+
+% Algorithm: Prim
+\begin{algorithm}[h!]
+\caption{ -- Prim's Algorithm}\label{alg:krusty}
+\begin{algorithmic}[1] % Line numbers
+
+% IO
+\Require A connected weighted graph $G$
+\Ensure Minimum Spanning Tree
+
+ \State {Select $v \in V(G)$ and let $T = (\{v\}, \varnothing)$}
+ \State {Let $V = V(G) \setminus \{v\}$}
+\For{$i = 1, 2, \ldots, n-1$ }
+    \State {Select $e \in E(G)$ such that $e$ connects $T$ to a vertex in $V$ of mimimal weight}
+    \State{Let $w \in V(G)$ be incident to edge $e$}
+    \State{$V(T) = V(T) \cup \{w\}$}
+    \State{$E(T) = E(T) \cup \{e\}$}
+\EndFor
+
+\end{algorithmic}
+\end{algorithm}
+
+\end{outline}
+
+
+
+
+%\textbf{Kruskal's Algorithm}: It works by sorting all the edges in the graph based on their weights and then greedily adding edges to the growing MST, avoiding cycles. Kruskal's algorithm does not start from a particular vertex; instead, it considers the edges in increasing order of weight and adds the edge if it does not form a cycle.
+
+
+% \textbf{Prim's Algorithm}: It starts from an initial vertex and grows the MST by adding the shortest edge that connects a vertex in the MST to a vertex outside the MST. Prim's algorithm is vertex-based, and at each step, it adds the minimum-weight edge that connects a vertex in the MST to a vertex outside the MST.
+
+
+
+
+
+
+
+In summary, the primary distinction is that Kruskal's algorithm is edge-based and considers all edges independently, while Prim's algorithm is vertex-based and focuses on growing the MST from a starting vertex. Both algorithms, however, achieve the same result—a minimum spanning tree for the given graph. The choice between the two often depends on the specific characteristics of the graph and the available data structures for efficient edge or vertex selection.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Dijkstra's Shortest Path Algorithm}
+While Kruskal's and Prim's algorithms find MST, they do not always produce the shortest distance between any two vertices of $G$.  
+
+There are several algorithms for \textbf{finding the shortest path between two vertices in a weighted graph}.  See the book Algorithm (included here in a future release).  
+
+% Algorithm: Dijkstra
+\begin{algorithm}[h!]
+\caption{ -- Dijkstra's Shortest Path Algorithm}\label{alg:dijkstra}
+\begin{algorithmic}[1] % Line numbers
+
+\Require  Weighted Graph, $W$, and start vertex $v_1$.
+\Ensure Length of shortest path to each node from start $v_1$ %Sequence of vertices
+
+%\State Initialize $V = \{v_0\}$
+\State Initialize vectors $V, D, P$ representing visited nodes, distance (where component $D_i$ is the distance from $v_1 \to v_i$), and previous node.  $V_i = 1$ if visited, else $0$.  $P_i = k$ where $k$ is the index of previous node.  Note: the vertices are indexed $1, 2, \dots, n$; therefore, storing those is unnecessary.
+% \State $V = (1, 2, \dots , n )^T$
+\State $V = (0, 0, \dots, 0)^T$
+\State $D = (0, \infty, \infty, \dots, \infty)^T$
+\State $P = (\varnothing, \dots, \varnothing)^T$
+\State $F = \{ \}$  ``fringe'' nodes (unvisited neighbors of current node)
+\State $C = \{  \}$ is the current vertex
+
+% \State Let $L(v_0) = 0$ and $L(v_i) = \infty$ for all $i \ne 0$.
+\While{$\sum_{i=1}^n V_i < n $ }
+    \State Set $C = \{ v_i \}$ where $v_i$ is an unvisited vertex of smallest distance from $v_1$.  Initially, this is $v_1$. 
+    \State Set $F = $ unvisited neighbors of $v_i$.
+    \State For each $v_j \in F(v_i)$, let $D_j = \min(D_j, D_i + w(v_i,v_j))$.
+    \State $P_j = v_i$ if $D_i$ is updated.
+    \State Set $V_i = 1$
+    % \State Set $F =$ vertices adjacent to the current node $C$
+    % \State For each vertex in $F$, update $D_i = \min(D_i,D_j + w(v_i,v_j))$.  That is, update the distance of each node in the fringe with the smaller of
+    % \State Set $C =$ vertex in $F$ with minimum $D$.
+    % \State Update $V_i = 1$ and $F = F \setminus \{V_i \}$
+    % \State Update $P$ with previous current
+\EndWhile
+
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+%  1  function Dijkstra(Graph, source):
+%  2      
+%  3      for each vertex v in Graph.Vertices:
+%  4          dist[v] ← INFINITY
+%  5          prev[v] ← UNDEFINED
+%  6          add v to Q
+%  7      dist[source] ← 0
+%  8      
+%  9      while Q is not empty:
+% 10          u ← vertex in Q with min dist[u]
+% 11          remove u from Q
+% 12          
+% 13          for each neighbor v of u still in Q:
+% 14              alt ← dist[u] + Graph.Edges(u, v)
+% 15              if alt < dist[v]:
+% 16                  dist[v] ← alt
+% 17                  prev[v] ← u
+% 18
+% 19      return dist[], prev[]
+
+% \rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\subsection*{Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 10.6 - Spanning Trees
+% Problems: # 4, 10, 14, 23, 29
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 4.
+\1 Find a spanning tree.
+
+\begin{figure}[h!]
+    \centering
+    \definecolor{qqttzz}{rgb}{0.,0.2,0.6}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.84,0.06) rectangle (7.58,6.36);
+\draw [line width=0.5pt,color=qqttzz] (-2.,3.)-- (-1.,4.);
+\draw [line width=0.5pt,color=qqttzz] (-2.,3.)-- (5.,5.);
+\draw [line width=0.5pt,color=qqttzz] (-1.,4.)-- (0.,2.);
+\draw [line width=0.5pt,color=qqttzz] (0.,2.)-- (1.,5.);
+\draw [line width=0.5pt,color=qqttzz] (0.,2.)-- (2.,3.);
+\draw [line width=0.5pt,color=qqttzz] (2.,3.)-- (1.,5.);
+\draw [line width=0.5pt,color=qqttzz] (2.,3.)-- (3.,2.);
+\draw [line width=0.5pt,color=qqttzz] (2.,3.)-- (5.,2.);
+\draw [line width=0.5pt,color=qqttzz] (2.,3.)-- (6.,3.);
+\draw [line width=0.5pt,color=qqttzz] (6.,3.)-- (5.,2.);
+\draw [line width=0.5pt,color=qqttzz] (5.,2.)-- (3.,2.);
+\draw [line width=0.5pt,color=qqttzz] (5.,5.)-- (2.,3.);
+\begin{scriptsize}
+\draw [fill=black] (-2.,3.) circle (2.pt);
+\draw[color=black] (-2.34,2.89) node {$z$};
+\draw [fill=black] (-1.,4.) circle (2.pt);
+\draw[color=black] (-0.86,4.37) node {$r$};
+\draw [fill=black] (0.,2.) circle (2.pt);
+\draw[color=black] (-0.04,1.79) node {$y$};
+\draw [fill=black] (1.,5.) circle (2.pt);
+\draw[color=black] (1.12,5.37) node {$s$};
+\draw [fill=black] (2.,3.) circle (2.pt);
+\draw[color=black] (1.92,2.69) node {$x$};
+\draw [fill=black] (3.,2.) circle (2.pt);
+\draw[color=black] (2.88,1.71) node {$w$};
+\draw [fill=black] (5.,2.) circle (2.pt);
+\draw[color=black] (4.94,1.63) node {$v$};
+\draw [fill=black] (6.,3.) circle (2.pt);
+\draw[color=black] (6.3,3.17) node {$u$};
+\draw [fill=black] (5.,5.) circle (2.pt);
+\draw[color=black] (5.1,5.45) node {$t$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+% 10.
+\1 Find (all) minimal spanning trees using (a) Kruskal's algorithm and (b) Prim's algorithm starting with vertex $a$ or $t$.
+
+\begin{figure}[h!]
+    \centering
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.4,1.7) rectangle (3.75,5.0);
+\draw [line width=0.25pt] (-2.,4.)-- (0.,4.);
+\draw [line width=0.25pt] (0.,4.)-- (2.,4.);
+\draw [line width=0.25pt] (2.,4.)-- (3.,3.);
+\draw [line width=0.25pt] (3.,3.)-- (1.,3.);
+\draw [line width=0.25pt] (2.,4.)-- (1.,3.);
+\draw [line width=0.25pt] (0.,4.)-- (1.,3.);
+\draw [line width=0.25pt] (1.,3.)-- (-1.,3.);
+\draw [line width=0.25pt] (-1.,3.)-- (0.,4.);
+\draw [line width=0.25pt] (-2.,4.)-- (-3.,3.);
+\draw [line width=0.25pt] (-3.,3.)-- (-1.,3.);
+\draw [line width=0.25pt] (-1.,3.)-- (-2.,4.);
+\begin{scriptsize}
+\draw [fill=black] (-2.,4.) circle (2.0pt);
+\draw[color=black] (-2,4.35) node {$t$};
+\draw [fill=black] (0.,4.) circle (2.0pt);
+\draw[color=black] (0.,4.35) node {$u$};
+\draw [fill=black] (2.,4.) circle (2.0pt);
+\draw[color=black] (2.,4.35) node {$v$};
+
+\draw [fill=black] (-3.,3.) circle (2.0pt);
+\draw[color=black] (-3.0,2.6) node {$w$};
+\draw [fill=black] (-1.,3.) circle (2.0pt);
+\draw[color=black] (-1.,2.6) node {$x$};
+\draw [fill=black] (1.,3.) circle (2.0pt);
+\draw[color=black] (1.,2.6) node {$y$};
+\draw [fill=black] (3.,3.) circle (2.0pt);
+\draw[color=black] (3.,2.6) node {$z$};
+
+\draw[color=black] (-1.,4.20) node {7};
+\draw[color=black] (1.,4.20) node {2};
+
+% Diagonal weights
+\draw[color=black] (-2.75,3.55) node {3};
+\draw[color=black] (-1.85,3.55) node {15};
+\draw[color=black] (-0.7,3.55) node {1};
+\draw[color=black] (0.7,3.55) node {8};
+\draw[color=black] (1.85,3.55) node {10};
+\draw[color=black] (2.7,3.55) node {7};
+
+
+
+\draw[color=black] (2.0,2.8) node {5};
+\draw[color=black] (-0.0,2.8) node {2};
+\draw[color=black] (-2.0,2.8) node {5};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+% 14.
+\1 Use Dijkstra's algorithm to find the shortest path from $a$ to $z$. 
+
+\begin{figure}[h!]
+    \centering
+   \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-5.84,0.64) rectangle (4.24,4.92);
+\draw [line width=0.5pt] (-5.,3.)-- (-3.,4.);
+\draw [line width=0.5pt] (-3.,4.)-- (-1.,4.);
+\draw [line width=0.5pt] (-1.,4.)-- (1.,4.);
+\draw [line width=0.5pt] (1.,4.)-- (3.,3.);
+\draw [line width=0.5pt] (3.,3.)-- (1.,2.);
+\draw [line width=0.5pt] (1.,2.)-- (-1.,2.);
+\draw [line width=0.5pt] (-1.,2.)-- (-3.,2.);
+\draw [line width=0.5pt] (-3.,2.)-- (-5.,3.);
+\draw [line width=0.5pt] (-3.,4.)-- (-1.,2.);
+\draw [line width=0.5pt] (-1.,4.)-- (1.,2.);
+\begin{scriptsize}
+\draw [fill=black] (-5.,3.) circle (2.0pt);
+\draw[color=black] (-5.36,3) node {$a$};
+
+\draw [fill=black] (-3.,4.) circle (2.0pt);
+\draw[color=black] (-3,4.35) node {$b$};
+
+\draw [fill=black] (-1.,4.) circle (2.0pt);
+\draw[color=black] (-1.,4.35) node {$c$};
+
+\draw [fill=black] (1.,4.) circle (2.0pt);
+\draw[color=black] (1.,4.35) node {$d$};
+
+\draw [fill=black] (-3.,2.) circle (2.0pt);
+\draw[color=black] (-3.,1.65) node {$e$};
+
+\draw [fill=black] (-1.,2.) circle (2.0pt);
+\draw[color=black] (-1.0,1.65) node {$f$};
+
+\draw [fill=black] (1.,2.) circle (2.0pt);
+\draw[color=black] (1.0,1.65) node {$g$};
+
+\draw [fill=black] (3.,3.) circle (2.0pt);
+\draw[color=black] (3.46,3.0) node {$z$};
+
+\draw[color=black] (-4.0,3.75) node {1};
+\draw[color=black] (-1.94,4.25) node {1};
+\draw[color=black] (0.,4.25) node {1};
+\draw[color=black] (2.25,3.75) node {20};
+\draw[color=black] (2.25,2.3) node {1};
+\draw[color=black] (0.02,1.75) node {1};
+\draw[color=black] (-1.96,1.75) node {1};
+\draw[color=black] (-4.0,2.3) node {4};
+\draw[color=black] (-1.78,3.0) node {7};
+\draw[color=black] (0.3,3.0) node {8};
+\end{scriptsize}
+\end{tikzpicture}
+\end{figure}
+
+
+
+
+
+
+% 23.
+\1 Consider the spanning trees $T_1$ and $T_2$ in the proof of Theorem 10.6.3.  Prove that $w(T_2) \le w(T_1)$.
+
+
+
+
+% 29.
+\1 Suppose a disconnected graph is input to Prim's algorithm.  What will be the output?
+
+
+
+\end{outline}

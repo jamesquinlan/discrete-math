@@ -1,0 +1,394 @@
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 11.3 - Efficiency of Algorithms
+% Todos: 
+%   1. Include bubble sort and example.  
+%   2. Verbiage in another book on algorithms, efficiency, etc.
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section*{Overview}
+The time required to execute an algorithm depends on the input size.  Typically, we count either comparison, iterations, or arithmetic operations (or all three).  In any case, we need a mechanism to compare algorithms, for example, sorting algorithms such as selection sort, merge sort, insertion sort, bubble sort, and quick sort.  
+
+
+
+
+
+
+% \begin{outline}
+% \1 
+% \end{outline}
+
+% -----------------------------------
+\rule[0.051in]{\textwidth}{0.0025in}
+% -----------------------------------
+
+\section*{Sequential Search Algorithm}
+
+Searching (and sorting) is a fundamental task in computer science.  In a sequential search, an item (value, key, data) is searched for by comparing it to the values stored in a 1-D array.  For example, Suppose we are looking for $2$ in the list 
+\[  [5, 1, 9, 4, 8, 2, 6, 0, 12] . \]
+The sequential search will check if $2 = 5$, then if $2 = 1$, then if $2 = 9$, etc. until it finds it or not.  
+
+% Algorithm: TeMPLATE
+\begin{algorithm}[h!]
+\caption{ -- Sequential Search}\label{alg:name}
+\begin{algorithmic}[1] % Line numbers
+
+\Require  A list of values , $L$ (e.g., $[5, 1, 9, 4, 8, 2, 6, 0, 12]$) and a target value, $t$ (e.g., $2$).
+\Ensure The index where the target was found in the list (or $-1$ if not found).
+  
+\For{$i = 1, 2, \ldots, n$ }
+    \If {$t == L(i)$}
+        \State return $i$
+    \Else 
+        \State return $-1$
+    \EndIf
+\EndFor
+
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+\subsection*{Best-, Worst-, and Average-Case Orders for Sequential Search}
+
+In the best-case, it is found immediately as the first element in the list, and so $\Theta(1)$.  The worst-case is when it is the last element in the list, which requires $n$ comparisons, and so $\Theta(n)$.  The average-case is it is in the first half of the list, but this still is $\Theta(n / 2 ) = \Theta(n)$.
+
+
+
+
+
+
+
+% Algorithm Efficiency
+\section*{Measuring Efficiency of an Algorithm}
+There are two considerations for algorithm efficiency: time and space.  Time is a measurement of CPU and space of memory.
+Often, trade-offs in these resources are needed as one algorithm may provide better time complexity while another less space.  \textbf{Note}: 1 nanosecond $=10^{-9}$ seconds.
+
+We decide to count basic arithmetic operations, $+, -, \times, \div$, and comparison operators $<, \le, > \ge, =$, or $\ne$.
+
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{lllll}
+\toprule
+$f(n)$       & $n=10$                   & $n=1000$                  & $n=100000$                    & $n=100000000$                                                          \\
+\midrule
+$\log_2 n$   & $3.3 \times 10^{-9}$ sec & $10^{-8}$ sec            & $1.7 \times 10^{-8}$ sec   & $2.3 \times 10^{-8}$ sec                                         \\
+$n$          & $10^{-8}$ sec            & $10^{-6}$ sec            & $0.0001$ sec               & $0.01$ sec                                                       \\
+$n \log_2 n$ & $3.3 \times 10^{-8}$ sec & $10^{-5}$ sec            & $0.0017$ sec               & $0.23$ sec                                                       \\
+$n^2$        & $10^{-7}$ sec            & $0.001$ sec              & $10$ sec                   & $27.8$ hr                                                        \\
+$n^3$        & $10^{-6}$ sec            & $1$ sec                  & $11.6$ days                & $31668$ years                                                    \\
+$2^n$        & $10^{-6}$ sec            & $3.4 \times 10^{284}$ yr & $3.1 \times 10^{30086}$ yr & $2.9 \times 10^{3010283}$ yr\\
+\bottomrule
+\end{tabular}
+ \caption{Approximate time to execute $f(n)$ operations assuming 1 flops per nanosecond.}
+    \label{tab:my_label}
+\end{table}
+
+
+
+\begin{example}
+    Assume $n$ is a positive integer and consider the following algorithm segment:
+    \begin{verbatim}
+        p=0; x= 2;
+        for i = 2:n
+          p = (p+i)*x;
+        end
+    \end{verbatim}
+
+    \begin{outline}[enumerate]
+        \1 Compute the actual number of flops that are performed when this algorithm is executed.
+
+        \textbf{Answer}:
+        The loop is executed $n - 2 + 1 = n - 1$ times.  There are 2 operations per loop, therefore total operations are $2n - 2$.  
+        
+        \1 Use the theorem on polynomial orders to find an order for this algorithm segment.
+
+        \textbf{Answer}: $2n - 2 \in \Theta(n)$.
+        
+    \end{outline}
+    
+\end{example}
+    
+
+
+% \begin{example}[Order of Algorithm with Nested Loop]
+%     Consider, 
+
+%     \begin{verbatim}
+%         s = 0;
+%         for i = 1:n
+%           for j = 1:i
+%             if floor(i/j)*j == i
+%               s = s+1;
+%             end
+%           end
+%         end
+%     \end{verbatim}
+
+
+
+%      \begin{outline}[enumerate]
+%         \1 Compute the actual number of flops that are performed when this algorithm is executed.
+
+%         \textbf{Answer}:
+%         The if statement has 1 division, 1 multiplication, and 1 comparison for a total of 3 operations.  The combination of the loops execute: 
+%         \[
+%         1 + (1 + 1) + (1 + 1 + 1) + \cdots + n = 1 + 2 + \cdots n = \frac{n(n+1)}{2}
+%         \]
+%         So far we have, $3 \cdot \frac{n(n+1)}{2}$ operations.  
+    
+        
+%         \1 Use the theorem on polynomial orders to find an order for this algorithm segment.
+
+%         \textbf{Answer}: $2n - 2 \in \Theta(n)$.
+        
+%     \end{outline}
+
+
+    
+% \end{example}
+
+
+
+% Algorithm: BubbleSort
+\begin{algorithm}[h!]
+\caption{ -- Bubble Sort}\label{alg:name}
+\begin{algorithmic}[1] % Line numbers
+
+\Require  A list $A$
+\Ensure Sorted list
+  
+\For{$i = 1:n-1$ }
+    \For{$j=1:n-i$}
+        \If{$A(j) > A(j+1$}
+            \State $A(j), A(j+1) = A(j+1), A(j)$
+        \EndIf
+    \EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+% EXAMPLE
+\begin{example} Sort the list [5,4,3,2,1] using Bubble Sort.
+    \begin{table}[h!]
+\begin{tabular}{lllll}
+\toprule
+i=1 & j=1 & j=2 & j=3 & j=4 \\
+\midrule
+5   & 4   & 4   & 4   & 4   \\
+4   & 5   & 3   & 3   & 3   \\
+3   & 3   & 5   & 2   & 2   \\
+2   & 2   & 2   & 5   & 1   \\
+1   & 1   & 1   & 1   & 5  
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h!]
+\begin{tabular}{llll}
+\toprule
+i=2 & j=1 & j=2 & j=3 \\
+\midrule
+4   & 3   & 3   & 3   \\
+3   & 4   & 2   & 2   \\
+2   & 2   & 4   & 1   \\
+1   & 1   & 1   & 4   \\
+5   & 5   & 5   & 5  
+\end{tabular}
+\end{table}
+
+
+
+
+\begin{table}[h!]
+\begin{tabular}{lll}
+\toprule
+i=3 & j=1 & j=2 \\
+\midrule
+3   & 2   & 2   \\
+2   & 3   & 1   \\
+1   & 1   & 3   \\
+4   & 4   & 4   \\
+5   & 5   & 5  
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\begin{tabular}{ll}
+\toprule
+i=4 & j=1 \\
+\midrule
+2   & 1   \\
+1   & 2   \\
+3   & 3   \\
+4   & 4   \\
+5   & 5  
+\end{tabular}
+\end{table}
+
+
+\end{example}
+
+
+
+% Algorithm: inseret sort
+\begin{algorithm}[h!]
+\caption{ -- Insertion Sort}\label{alg:name}
+\begin{algorithmic}[1] % Line numbers
+
+\Require  A list of (unsorted) values $A$ (e.g., $[5, 1, 9, 4, 8, 2, 6, 0, 12]$).
+\Ensure Sorted list
+  
+\For{$i = 2:n$ }
+    \State $x = A(i)$
+    \State $j = i - 1$
+    \While {$j > 0$}
+    \If {$x < A(j)$}
+        \State $A(j+1) = A(j)$
+        \State $A(j) = x$
+        \State $j = j - 1$
+    \Else 
+        \State $j = 0$
+    \EndIf
+    \EndWhile
+\EndFor
+
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Worst-Case Insertion Sort}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{ccl}
+    \toprule
+     $i$    &  $j$ & Op Count \\
+     \midrule
+      $2$     & $1$     &  $3 (+1)$ \\
+      $3$     & $2$     & $3 + 3 (+1)$ \\
+      $4$     & $3$     & $3 + 3 + 3 (+1)$\\
+      $\vdots$    & $\vdots$    & $\vdots$ \\
+      $n$     & $n-1$   & $3+3+ \cdots + 3 (+1)$\\
+      \bottomrule
+    \end{tabular}
+    \caption{Operation Count for Insertion Sort}
+    \label{tab:opcount}
+\end{table}
+\[
+3 \cdot \frac{(n-1)n}{2}  + 1 \cdot (n - 1) \in \Theta(n^2)
+\]
+
+
+% -----------------------------------
+\rule[0.051in]{\textwidth}{0.0025in}
+% -----------------------------------
+
+
+
+\subsection*{Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 11.3 - Efficiency of Algorithms
+% Problems: # 1, 3, 6, 10, 11, 14, 26, 43*
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+% 1.
+\1 Suppose a computer takes 1 nanosecond ($=10^{-9}$ second) to execute each operation.  Approximately how long will it take the computer to execute the following numbers of operations? Convert your answers into seconds, minutes, hours, days, weeks, or years, as appropriate.  For example, instead of $2^{50}$ nanoseconds, write 13 days.
+
+	\2 $\log_2 200$
+
+	\2 $200$
+
+	\2 $200 \log_2 200$
+
+	\2 $200^2$
+
+	\2 $200^8$
+
+	\2 $2^{200}$
+
+
+
+% 3.
+\1 Suppose an algorithm requires $cn^3$ operations when performed with an input of size $n$ (where $c$ is a constant).  
+
+	\2 How many operations will be required when the input size is increased from $m$ to $2m$ (where $m$ is a positive integer)?
+
+	\2 By what factor will the number of operations increase when the input size is doubled?
+
+	\2 By what factor will the number of operations increase when the input size is increased by a factor of ten?
+
+
+
+% 6. Assume $n$ is a positive integer.  Compute the actual number of elementary operations (additions, subtractions, multiplications, divisions, and comparisons). that are performed.  Count only comparisons that occur within conditional statements; ignore those implied by for-next loops.  Use the theorem on polynomial orders to find an order for the algorithm segment.
+\1 
+\begin{verbatim}
+for i = 3:n-1
+  a = 3n + 2i - 1
+next i
+\end{verbatim}
+
+
+% 10. Assume $n$ is a positive integer.  Compute the actual number of elementary operations (additions, subtractions, multiplications, divisions, and comparisons). that are performed.  Count only comparisons that occur within conditional statements; ignore those implied by for-next loops.  Use the theorem on polynomial orders to find an order for the algorithm segment.
+\1 
+\begin{verbatim}
+for k = 2:n
+  for j = 1:3n
+    x = a[k] - b[j]
+  next j
+next k
+\end{verbatim}
+
+
+% 11. Assume $n$ is a positive integer.  Compute the actual number of elementary operations (additions, subtractions, multiplications, divisions, and comparisons). that are performed.  Count only comparisons that occur within conditional statements; ignore those implied by for-next loops.  Use the theorem on polynomial orders to find an order for the algorithm segment.
+\1 
+\begin{verbatim}
+for k = 1:n-1
+  for j = 1:k+1
+    x = a[k] + b[j]
+  next j
+next k
+\end{verbatim}
+
+
+% 14. Assume $n$ is a positive integer.  Compute the actual number of elementary operations (additions, subtractions, multiplications, divisions, and comparisons). that are performed.  Count only comparisons that occur within conditional statements; ignore those implied by for-next loops.  Use the theorem on polynomial orders to find an order for the algorithm segment.
+\1 
+\begin{verbatim}
+t = 0
+for i = 1:n
+  s = 0
+  for j = 1:i
+    s = s + a[j]
+  next j
+  t = t + s*s
+next i
+\end{verbatim}
+
+
+
+
+% 26.
+\1 According to Example 11.3.6, the maximum number of comparisons needed to perform insertion sort on an array of length five is $(1/2)(5^2 + 5 - 2) = 14$.  Find an array of length five that requires the maximum number of comparisons when insertion sort is applied to it.
+
+
+
+% 43*
+\1 Implement Horner's algorithm.  Use the theorem on polynomial orders to find an order for Algorithm 11.3.4.  How does this order compare with that of Algorithm 11.3.3?
+
+
+\end{outline}

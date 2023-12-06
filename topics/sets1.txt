@@ -1,0 +1,244 @@
+% 6.1 Set Theory
+
+\section*{Objectives}
+\begin{outline}
+\1 Define of set(s) and operations on sets
+\1 Specify set notation
+\1 Define subset
+
+\end{outline}
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+A lab proceeding this lecture can be found at the link below:
+
+\url{https://cs.usm.maine.edu/~james.quinlan/cos280/labs/L8.html}.
+
+\section*{Definitions}
+\textbf{Set} and \textbf{element} are primitive (undefined) terms.
+
+\begin{outline}
+% --
+\1 Let $S$ be a set (collection of elements).
+
+% --
+\1 $x \in S$ is read as $x$ ``is in'' or ``is an element of'' $S$.
+
+% --
+\1 $x \not\in S$, says ``$x$ is \textbf{not} in $S$''
+
+% --
+\1 If $S$ is a set and $P(x)$ is a property that elements of $S$ may or may not satisfy (e.g., being even), then a derived set can be defined as:
+\[
+A = \{ x \in S | P(x) \} 
+\]
+read, ``$A$ is the set of all $x$ in $S$ `such that' $P(x) \equiv T$''.
+
+% --
+\1 $A \subseteq B \; \Longleftrightarrow \; \forall x, \text{ if } x \in A,  \text{ then } x \in B$.
+
+% --
+\1 $A \not\subseteq B \; \Longleftrightarrow \; \exists x : x \in A \land x \not\in B$.
+
+% --
+\1 $A$ is a \textbf{proper subset} of $B$, denoted $A \subset B$ if and only if $A \subseteq B$ and there is at least one element of $B$ that is not in $A$.
+
+% --
+\1 $A = B \; \Longleftrightarrow \; A \subseteq B \; \land \; B \subseteq A$. 
+\end{outline}
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+\subsection*{Prove a set is a subset of another}
+
+To prove a set is a subset of another, namely $A \subseteq B$, show: 
+\[
+\forall x \in A, x \in B.
+\]
+
+\begin{example}
+    Show $A \cap B \subseteq A$.  
+
+    \pf Let $x \in A \cap B$.  By definition, $x \in A$ and $x \in B$.  Since $x \in A$, we are done.  \qed
+\end{example}
+
+
+
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Set Operations}
+
+\begin{outline}
+    
+
+% --
+\1 The \textbf{union} of $A$ and $B$ is the set of all elements in at least one of $A$ or $B$.
+\[
+A \cup B = \{x \in U \;|\; x \in A \lor x \in B \}
+\]
+
+% --
+\1 The \textbf{intersection} of $A$ and $B$ is the set of all elements common to both.
+\[
+A \cap B = \{ x \in U \;|\; x \in A \;\land\; x \in B \}
+\]
+
+% --
+\1 The \textbf{difference} of $B$ minus $A$ (or \textbf{relative complement}) is the set of all elements in $B$ not in $A$.
+\[
+B - A  = \{ x \in U \;|\; x \in B \;\land\; x \not\in A \}
+% B \setminus A
+\]
+
+
+% --
+\1 The complement of $A$ is the set of all elements in $U$ not in $A$.
+\[
+A^c = \overline{A} = \{ x \in U \;|\; x \not\in A \}
+\]
+
+\end{outline}
+
+
+
+\begin{definition}[Power Set] The \textbf{power set} of a set $A$, denoted $\mathcal{P}(A)$, is the set of all subsets of $A$.
+\end{definition}
+
+\begin{example}
+    Find $\mathcal{P}(\{x,y\})$.
+
+    \textbf{Answer}:
+    \[
+    \{ \varnothing, \{x\}, \{y\}, \{x,y\} \}
+    \]
+\end{example}
+
+
+
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+
+
+\subsection*{Collections of Sets}
+
+\begin{definition}
+    The \textbf{union} of a collection of sets is the set that contains those elements that are members of at least one set in the collection.
+    \[
+    \bigcup_{i=1}^n A_i = A_1 \cup A_2 \cup \dots \cup A_n
+    \]
+\end{definition}
+
+
+
+\begin{definition}
+    The \textbf{intersection} of a collection of sets is the set that contains those elements that are members of all set in the collection.
+    \[
+    \bigcap_{i=1}^n A_i = A_1 \cap A_2 \cap \dots \cap A_n
+    \]
+\end{definition}
+
+
+More generally, 
+\[
+\bigcup_{i \in I} A_i = \{ x \in A_i \exists i \in I \} 
+\]
+\[
+\bigcap_{i \in I} A_i = \{ x \in A_i \forall  i \in I \} \\
+\]
+\rule[0.0051in]{\textwidth}{0.00025in}
+% ----------------------------------
+
+\section*{Homework Exercises}
+
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% University of Southern Maine
+% Department of Computer Science
+% Discrete Mathematics II (COS 280)
+% James Quinlan (https://cs.usm.maine.edu/~james.quinlan/)
+% Section: 6.1 - Set Theory
+% Problems: # 4, 10, 20, 30, 32
+% +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{outline}[enumerate]
+
+%  4.
+\1 Let $A = \{n \in \Z | n = 5r \text{ for some integer } r\}$ and $B = \{ m \in \Z : m = 20s \text{ for some integer } s \}$.  Prove or disprove each of the following statements.
+	
+	\2 $A \subseteq B$
+
+	\2 $B \subseteq A$
+
+
+
+% 10.
+\1 Let $A = \{1,3,5,7,9\}$, $B = \{3, 6, 9 \}$, and $C = \{2, 4, 6, 8 \}$.  Find each of the following:
+
+	\2 $A \cup B$
+	
+	\2 $A \cap B$
+
+	\2 $A \cup B$
+
+	\2 $A \cap C$
+
+	\2 $A - B$
+
+	\2 $B - A$
+
+	\2 $B \cup C$
+
+	\2 $B \cap C$
+
+
+
+% 20.
+\1 Let $B_i = \{x \in \R | 0 \le x \le i \}$ for each integer $i = 1, 2, 3, 4$. 
+
+	\2 $B_1 \cup B_2 \cup B_3 \cup B_4  = ?$
+
+	\2 $B_1 \cap B_2 \cap B_3 \cap B_4  = ?$
+
+	\2 Are $B_1, B_2, B_3$ and $B_4$ mutually disjoint?  Explain.  
+
+
+
+
+% 30.
+\1 Let $\Z$ be the set of all integers, and let 
+ 
+\begin{align*}
+	A_0 &= \{ n \in \Z | n = 4k, \exists k\} \\
+	A_1 &= \{ n \in \Z | n = 4k + 1, \exists k\} \\
+	A_2 &= \{ n \in \Z | n = 4k + 2, \exists k\}
+\end{align*}
+and
+\begin{align*}
+	A_3 &= \{ n \in \Z | n = 4k + 3, \exists k\} .
+\end{align*}
+
+Is $\{A_0, A_1, A_2, A_3\}$ a partition of $\Z$?  Explain your answer.  
+
+
+
+
+% 32.
+\1 
+	\2 Suppose $A = \{1\}$ and $B = \{u, v\}$.  Find $\mathcal(P)(A \times B)$.  
+
+
+	\2 Suppose $X = \{a,b\}$ and $Y = \{x, y\}$.  Find $\mathcal(P)(X \times Y)$.  
+
+
+
+\end{outline}
