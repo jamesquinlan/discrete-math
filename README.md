@@ -75,5 +75,3 @@ Notes from textbook.
 **Discrete Mathematics: An Open Introduction by Oscar Levin**: This textbook takes a more open and interactive approach. It’s free online and covers the core topics of Discrete Mathematics. It includes exercises, examples, and interactive components that engage students in learning.
 
 **Mathematics for Computer Science by Eric Lehman, F. Thomson Leighton, and Albert R. Meyer**: While this textbook is not exclusively focused on Discrete Mathematics, it provides a strong foundation in mathematical concepts relevant to computer science. It covers discrete mathematics topics, making it a suitable resource for students interested in discrete math and computer science.
-
-
